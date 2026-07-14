@@ -35,7 +35,8 @@ ClearAll[exRmax, exMaxPoints, exPrecisionGoal, exAccuracyGoal,
   exStallIterations, exStallTol,
   exOptPrecisionGoal, exOptAccuracyGoal, exConfigKey,
   exHistory, exSteps, exHistoryConfig, exHistoryStaleQ,
-  exConfigLabel, exConvergencePlot, exOptimum, exSimplexAround, minimizeExciton,
+  exConfigLabel, exConvergencePlot, exOptimum, exSimplexAround,
+  exNearestArchiveKey, minimizeExciton,
   exArchiveFile, exSaveArchive];
 
 (* ---- integration controls -------------------------------------------------- *)
@@ -240,8 +241,19 @@ exOptimum[] :=
 exSimplexAround[{al_}] :=
   {{Clip[al, {0.001, 9.999}]}, {Clip[al + 0.2, {0.001, 9.999}]}};
 
+(* among archived runs with IDENTICAL states, the one whose geometry is
+   closest to (a, c) -- warm-start fallback, as in the biexciton package. *)
+exNearestArchiveKey[key_] := Module[{cands},
+   cands = Select[Keys[exRunArchive],
+     #[[{"electronState", "holeState"}]] ===
+       key[[{"electronState", "holeState"}]] &];
+   If[cands === {}, Missing["None"],
+    First@SortBy[cands,
+      ((#["a"] - key["a"])^2 + 10 (#["c"] - key["c"])^2) &]]];
+
 (* start: Automatic = warm-start from the archived best of the SAME
-   configuration if one exists; {\[Alpha]} forces that start; None = cold start. *)
+   configuration if one exists, else from the nearest-geometry archived run
+   with identical states; {\[Alpha]} forces that start; None = cold start. *)
 minimizeExciton[a_?NumericQ, c_?NumericQ, maxIter_: 50, start_: Automatic] :=
   Module[{obj, key = exConfigKey[a, c], init, method, result},
    If[exHistory =!= {} && !MissingQ[exHistoryConfig],
@@ -254,7 +266,10 @@ minimizeExciton[a_?NumericQ, c_?NumericQ, maxIter_: 50, start_: Automatic] :=
      start =!= Automatic, start,
      KeyExistsQ[exRunArchive, key],
       First[MinimalBy[exRunArchive[key]["history"], First]][[2]],
-     True, None];
+     True,
+      With[{nk = exNearestArchiveKey[key]},
+       If[MissingQ[nk], None,
+        First[MinimalBy[exRunArchive[nk]["history"], First]][[2]]]]];
    method = If[init === None, "NelderMead",
      {"NelderMead", "InitialPoints" -> exSimplexAround[init]}];
    obj[al_?NumericQ] :=

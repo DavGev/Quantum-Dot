@@ -30,7 +30,8 @@ ClearAll[bxRmax, bxMaxPoints, bxPrecisionGoal, bxAccuracyGoal,
   bxStallIterations, bxStallTol,
   bxOptPrecisionGoal, bxOptAccuracyGoal, bxConfigKey,
   bxHistory, bxSteps, bxHistoryConfig, bxHistoryStaleQ,
-  bxConvergencePlot, bxOptimum, bxSimplexAround, minimizeBiexciton,
+  bxConvergencePlot, bxOptimum, bxSimplexAround, bxNearestArchiveKey,
+  minimizeBiexciton,
   bxArchiveFile, bxSaveArchive, bxProgressFile, bxLog, bxVerbose,
   bxConfigLabel];
 
@@ -515,9 +516,23 @@ bxSimplexAround[p_List] :=
    Map[MapThread[Clip[#1, {#2, #3}] &, {#, lo, hi}] &,
     Join[{p}, Table[p + 0.2 UnitVector[4, i], {i, 4}]]]];
 
+(* among archived runs with IDENTICAL states and exchange signs, the one whose
+   geometry is closest to (a, c); the factor 10 on c reflects the stronger
+   sensitivity to the small semiaxis. Used as a warm-start fallback: the
+   optimal (\[Alpha],\[Beta],\[Gamma],\[Delta]) vary smoothly with geometry, so a neighbouring
+   geometry's optimum is a far better simplex seed than a cold start. *)
+bxNearestArchiveKey[key_] := Module[{cands},
+   cands = Select[Keys[bxRunArchive],
+     #[[{"electronStates", "holeStates", "etaE", "etaH"}]] ===
+       key[[{"electronStates", "holeStates", "etaE", "etaH"}]] &];
+   If[cands === {}, Missing["None"],
+    First@SortBy[cands,
+      ((#["a"] - key["a"])^2 + 10 (#["c"] - key["c"])^2) &]]];
+
 (* start: Automatic = warm-start from the archived best of the SAME
-   configuration if one exists; a list {\[Alpha],\[Beta],\[Gamma],\[Delta]} forces that start point;
-   None forces a cold start. *)
+   configuration if one exists, else from the nearest-geometry archived run
+   with identical states (bxNearestArchiveKey); a list {\[Alpha],\[Beta],\[Gamma],\[Delta]} forces
+   that start point; None forces a cold start. *)
 minimizeBiexciton[a_?NumericQ, c_?NumericQ, maxIter_: 50, start_: Automatic] :=
   Module[{obj, key = bxConfigKey[a, c], init, method, result},
    (* archive the outgoing run under ITS OWN configuration *)
@@ -526,15 +541,20 @@ minimizeBiexciton[a_?NumericQ, c_?NumericQ, maxIter_: 50, start_: Automatic] :=
      <|"history" -> bxHistory, "steps" -> bxSteps|>;
     bxSaveArchive[]];
    bxHistory = {}; bxSteps = {}; bxHistoryConfig = key;
+   Quiet[DeleteFile[bxProgressFile]];
+   bxLog["minimize: start  " <> bxConfigLabel[key]];
    init = Which[
      start === None, None,
      start =!= Automatic, start,
      KeyExistsQ[bxRunArchive, key],
       First[MinimalBy[bxRunArchive[key]["history"], First]][[2]],
-     True, None];
+     True,
+      With[{nk = bxNearestArchiveKey[key]},
+       If[MissingQ[nk], None,
+        bxLog["warm start from nearest geometry: " <> bxConfigLabel[nk]];
+        First[MinimalBy[bxRunArchive[nk]["history"], First]][[2]]]]];
    method = If[init === None, "NelderMead",
      {"NelderMead", "InitialPoints" -> bxSimplexAround[init]}];
-   Quiet[DeleteFile[bxProgressFile]];
    obj[al_?NumericQ, be_?NumericQ, ga_?NumericQ, de_?NumericQ] :=
      With[{e = energyCorrectionBiexcitonQuiet[a, c, al, be, ga, de]},
       AppendTo[bxHistory, {e, {al, be, ga, de}}];
