@@ -1,0 +1,948 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     39426,        938]
+NotebookOptionsPosition[     35143,        857]
+NotebookOutlinePosition[     35578,        874]
+CellTagsIndexPosition[     35535,        871]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Bi-exciton \[Dash] Capped Minimization & Convergence Diagnostics", \
+"Title",ExpressionUUID->"b5a29955-1ee9-554b-b269-1de16e896f43"],
+
+Cell["\<\
+Runs the variational minimization with a hard iteration cap and logs the \
+optimizer's progress, so it can no longer run unbounded. The key output is \
+the convergence graph (best objective vs iteration). Start with the small \
+diagnostic settings below to see the convergence behaviour in ~a minute, then \
+raise bxMaxPoints and maxIter for a production run. Evaluate top to bottom.\
+\>", "Text",ExpressionUUID->"8bcb47bc-54c5-284e-b10e-0ee360d28546"],
+
+Cell[CellGroupData[{
+
+Cell["Load definitions", "Section",ExpressionUUID->"0de868a6-7596-e849-9e07-d2667a695027"],
+
+Cell["\<\
+dir = NotebookDirectory[];
+Get[FileNameJoin[{ParentDirectory[dir, 3], \"shared\", \"numerics\", \
+\"definitions.wl\"}]];
+Get[FileNameJoin[{dir, \"mixed-correlation.wl\"}]];
+Get[FileNameJoin[{dir, \"mixed-density.wl\"}]];
+Get[FileNameJoin[{dir, \"mixed-integrals.wl\"}]];
+Get[FileNameJoin[{dir, \"mixed-diagnostics.wl\"}]];\
+\>", "Input",
+ CellLabel->"In[63]:=",ExpressionUUID->"f45c997b-8024-da4c-9ce1-c690e0a462b3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Configuration and run settings", "Section",ExpressionUUID->"2e2bf5e0-db79-5d47-93e6-022b61393150"],
+
+Cell["\<\
+(* geometry + state configuration *)
+a = 4.0;
+c = 0.4;
+bxElectronStates = {{1, 0, 0}, {1, 0, 0}};
+bxHoleStates = {{1, 0, 0}, {1, 0, 0}};
+bxEtaE = 1;
+bxEtaH = 1;\
+\>", "Input",
+ CellLabel->"In[69]:=",ExpressionUUID->"290e5f10-165c-5a41-bc16-f2a19351db32"],
+
+Cell["\<\
+(* diagnostic settings: start small to see convergence fast, then scale up *)
+bxMaxPoints = 20000;   (* Monte-Carlo budget per integral; production ~ \
+2*10^5 *)
+maxIter = 8;           (* NelderMead iteration cap; raise once the curve \
+looks sane *)\
+\>", "Input",
+ CellLabel->"In[76]:=",ExpressionUUID->"df388b7f-fe94-5742-9e8f-6442242367a8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Capped minimization", "Section",ExpressionUUID->"70faefbd-c97e-bf44-a214-4cc5e0afa39e"],
+
+Cell[CellGroupData[{
+
+Cell["result = minimizeBiexcitonTracked[a, c, maxIter]", "Input",
+ CellLabel->"In[79]:=",ExpressionUUID->"7d5e728a-f4a8-4949-8abb-6f3db8d7697a"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.992075349160631*^9},
+ CellLabel->"Out[79]=",ExpressionUUID->"f1f77e0f-4ee5-f843-9606-f935e2ec8fca"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Convergence diagnostics", "Section",ExpressionUUID->"52d808b1-21c3-fb4b-9a7e-8065bcdfafb8"],
+
+Cell["\<\
+(* best objective vs iteration -- the convergence graph *)
+bxConvergencePlot[]\
+\>", "Input",ExpressionUUID->"d91ba5e3-6eb5-1d4a-b387-f60625244527"],
+
+Cell["\<\
+(* raw objective at each evaluation -- shows Monte-Carlo scatter *)
+bxObjectivePlot[]\
+\>", "Input",ExpressionUUID->"04643a43-5498-214b-b1f0-e823b6c00275"],
+
+Cell["bxOptReport[]", "Input",ExpressionUUID->"80c93276-ba7a-8145-aafd-ad2a45602b80"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Get", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"dir", ",", "\"\<mixed-diagnostics.wl\>\""}], "}"}], "]"}], 
+   "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.9920755552368507`*^9, 3.9920755552368507`*^9}},
+ CellLabel->"In[80]:=",ExpressionUUID->"6944f262-e6bb-2345-8214-528fc6cafae0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"AbsoluteTiming", "[", 
+  RowBox[{"energyCorrectionBiexcitonQuiet", "[", 
+   RowBox[{"a", ",", "c", ",", "1.", ",", "1.", ",", "0.", ",", "1."}], "]"}],
+   "]"}]], "Input",
+ CellChangeTimes->{{3.9920755762105885`*^9, 3.9920755762105885`*^9}},
+ CellLabel->"In[81]:=",ExpressionUUID->"be9fea33-21db-4c49-ac63-3c07d193f839"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NIntegrate", "inumr", 
+   "\"The integrand \\!\\(\\*RowBox[{\\\"f$349035\\\", \\\"[\\\", \
+RowBox[{\\\"r1\\\", \\\",\\\", \\\"u1\\\", \\\",\\\", \\\"r2\\\", \\\",\\\", \
+\\\"u2\\\", \\\",\\\", \\\"ra\\\", \\\",\\\", \\\"ua\\\", \\\",\\\", \\\"rb\\\
+\", \\\",\\\", \\\"ub\\\", \\\",\\\", \\\"\[Theta]1\\\", \\\",\\\", \\\"\
+\[Theta]2\\\", \\\",\\\", \\\"\[Theta]b\\\"}], \\\"]\\\"}]\\) has evaluated \
+to non-numerical values for all sampling points in the region with boundaries \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \
+\\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\
+\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\
+\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\
+\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \
+\\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \
+\\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\
+\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\
+\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 81, 1, 27037046454530434486, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.9920755763674965`*^9},
+ CellLabel->
+  "During evaluation of \
+In[81]:=",ExpressionUUID->"24f854a4-633c-3a44-a620-bc6d29c32fcf"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NIntegrate", "inumr", 
+   "\"The integrand \\!\\(\\*RowBox[{\\\"f$349035\\\", \\\"[\\\", \
+RowBox[{\\\"r1\\\", \\\",\\\", \\\"u1\\\", \\\",\\\", \\\"r2\\\", \\\",\\\", \
+\\\"u2\\\", \\\",\\\", \\\"ra\\\", \\\",\\\", \\\"ua\\\", \\\",\\\", \\\"rb\\\
+\", \\\",\\\", \\\"ub\\\", \\\",\\\", \\\"\[Theta]1\\\", \\\",\\\", \\\"\
+\[Theta]2\\\", \\\",\\\", \\\"\[Theta]b\\\"}], \\\"]\\\"}]\\) has evaluated \
+to non-numerical values for all sampling points in the region with boundaries \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \
+\\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\
+\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\
+\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\
+\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \
+\\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \
+\\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\
+\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\
+\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 81, 2, 27037046454530434486, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.992075576383295*^9},
+ CellLabel->
+  "During evaluation of \
+In[81]:=",ExpressionUUID->"d862cebf-4bf7-d442-8e06-9e110509bb8c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NIntegrate", "inumr", 
+   "\"The integrand \\!\\(\\*RowBox[{\\\"f$349035\\\", \\\"[\\\", \
+RowBox[{\\\"r1\\\", \\\",\\\", \\\"u1\\\", \\\",\\\", \\\"r2\\\", \\\",\\\", \
+\\\"u2\\\", \\\",\\\", \\\"ra\\\", \\\",\\\", \\\"ua\\\", \\\",\\\", \\\"rb\\\
+\", \\\",\\\", \\\"ub\\\", \\\",\\\", \\\"\[Theta]1\\\", \\\",\\\", \\\"\
+\[Theta]2\\\", \\\",\\\", \\\"\[Theta]b\\\"}], \\\"]\\\"}]\\) has evaluated \
+to non-numerical values for all sampling points in the region with boundaries \
+\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \
+\\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\
+\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\
+\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\
+\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \
+\\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \
+\\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\
+\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\
+\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]\\).\"", 2, 81, 3, 27037046454530434486, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.992075576387844*^9},
+ CellLabel->
+  "During evaluation of \
+In[81]:=",ExpressionUUID->"9683bfa4-7499-394e-8948-c361c71cc7cf"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NIntegrate\\\", \
+\\\"::\\\", \\\"inumr\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"", 2, 81, 4, 27037046454530434486, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.992075576387844*^9},
+ CellLabel->
+  "During evaluation of \
+In[81]:=",ExpressionUUID->"0f6d8328-04c9-4942-b5dc-1979fcffe68c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.4748743`", ",", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"NIntegrate", "[", 
+       RowBox[{
+        RowBox[{"f$349172", "[", 
+         RowBox[{
+         "r1", ",", "u1", ",", "r2", ",", "u2", ",", "ra", ",", "ua", ",", 
+          "rb", ",", "ub", ",", "\[Theta]1", ",", "\[Theta]2", ",", 
+          "\[Theta]b"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"r1", ",", "0", ",", 
+          RowBox[{"4.`", " ", "rmax$349172"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"u1", ",", "0", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"r2", ",", "0", ",", 
+          RowBox[{"4.`", " ", "rmax$349172"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"u2", ",", "0", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"ra", ",", "0", ",", 
+          RowBox[{"4.`", " ", "rmax$349172"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"ua", ",", "0", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"rb", ",", "0", ",", 
+          RowBox[{"4.`", " ", "rmax$349172"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"ub", ",", "0", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Theta]1", ",", "0", ",", 
+          RowBox[{"2", " ", "\[Pi]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Theta]2", ",", "0", ",", 
+          RowBox[{"2", " ", "\[Pi]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Theta]b", ",", "0", ",", "\[Pi]"}], "}"}], ",", 
+        RowBox[{"Method", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"\<\"AdaptiveQuasiMonteCarlo\"\>", ",", 
+           RowBox[{"\<\"BisectionDithering\"\>", "\[Rule]", "0"}], ",", 
+           RowBox[{"\<\"MaxPoints\"\>", "\[Rule]", "bxMaxPoints"}]}], "}"}]}],
+         ",", 
+        RowBox[{"AccuracyGoal", "\[Rule]", "2"}], ",", 
+        RowBox[{"PrecisionGoal", "\[Rule]", "2"}], ",", 
+        RowBox[{"WorkingPrecision", "\[Rule]", "MachinePrecision"}]}], "]"}], 
+      "+", 
+      RowBox[{"NIntegrate", "[", 
+       RowBox[{
+        RowBox[{"f$349224", "[", 
+         RowBox[{
+         "r1", ",", "u1", ",", "r2", ",", "u2", ",", "ra", ",", "ua", ",", 
+          "rb", ",", "ub", ",", "\[Theta]1", ",", "\[Theta]2", ",", 
+          "\[Theta]b"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"r1", ",", "0", ",", 
+          RowBox[{"4.`", " ", "rmax$349224"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"u1", ",", "0", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"r2", ",", "0", ",", 
+          RowBox[{"4.`", " ", "rmax$349224"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"u2", ",", "0", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"ra", ",", "0", ",", 
+          RowBox[{"4.`", " ", "rmax$349224"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"ua", ",", "0", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"rb", ",", "0", ",", 
+          RowBox[{"4.`", " ", "rmax$349224"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"ub", ",", "0", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Theta]1", ",", "0", ",", 
+          RowBox[{"2", " ", "\[Pi]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Theta]2", ",", "0", ",", 
+          RowBox[{"2", " ", "\[Pi]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Theta]b", ",", "0", ",", "\[Pi]"}], "}"}], ",", 
+        RowBox[{"Method", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"\<\"AdaptiveQuasiMonteCarlo\"\>", ",", 
+           RowBox[{"\<\"BisectionDithering\"\>", "\[Rule]", "0"}], ",", 
+           RowBox[{"\<\"MaxPoints\"\>", "\[Rule]", "bxMaxPoints"}]}], "}"}]}],
+         ",", 
+        RowBox[{"AccuracyGoal", "\[Rule]", "2"}], ",", 
+        RowBox[{"PrecisionGoal", "\[Rule]", "2"}], ",", 
+        RowBox[{"WorkingPrecision", "\[Rule]", "MachinePrecision"}]}], "]"}], 
+      "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"NIntegrate", "[", 
+          RowBox[{
+           RowBox[{"f$349276", "[", 
+            RowBox[{
+            "r1", ",", "u1", ",", "r2", ",", "u2", ",", "ra", ",", "ua", ",", 
+             "rb", ",", "ub", ",", "\[Theta]1", ",", "\[Theta]2", ",", 
+             "\[Theta]b"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"r1", ",", "0", ",", 
+             RowBox[{"4.`", " ", "rmax$349276"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"u1", ",", "0", ",", "1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"r2", ",", "0", ",", 
+             RowBox[{"4.`", " ", "rmax$349276"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"u2", ",", "0", ",", "1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"ra", ",", "0", ",", 
+             RowBox[{"4.`", " ", "rmax$349276"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"ua", ",", "0", ",", "1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"rb", ",", "0", ",", 
+             RowBox[{"4.`", " ", "rmax$349276"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"ub", ",", "0", ",", "1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"\[Theta]1", ",", "0", ",", 
+             RowBox[{"2", " ", "\[Pi]"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"\[Theta]2", ",", "0", ",", 
+             RowBox[{"2", " ", "\[Pi]"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"\[Theta]b", ",", "0", ",", "\[Pi]"}], "}"}], ",", 
+           RowBox[{"Method", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"\<\"AdaptiveQuasiMonteCarlo\"\>", ",", 
+              RowBox[{"\<\"BisectionDithering\"\>", "\[Rule]", "0"}], ",", 
+              RowBox[{"\<\"MaxPoints\"\>", "\[Rule]", "bxMaxPoints"}]}], 
+             "}"}]}], ",", 
+           RowBox[{"AccuracyGoal", "\[Rule]", "2"}], ",", 
+           RowBox[{"PrecisionGoal", "\[Rule]", "2"}], ",", 
+           RowBox[{"WorkingPrecision", "\[Rule]", "MachinePrecision"}]}], 
+          "]"}], "+", 
+         RowBox[{"NIntegrate", "[", 
+          RowBox[{
+           RowBox[{"f$349328", "[", 
+            RowBox[{
+            "r1", ",", "u1", ",", "r2", ",", "u2", ",", "ra", ",", "ua", ",", 
+             "rb", ",", "ub", ",", "\[Theta]1", ",", "\[Theta]2", ",", 
+             "\[Theta]b"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"r1", ",", "0", ",", 
+             RowBox[{"4.`", " ", "rmax$349328"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"u1", ",", "0", ",", "1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"r2", ",", "0", ",", 
+             RowBox[{"4.`", " ", "rmax$349328"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"u2", ",", "0", ",", "1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"ra", ",", "0", ",", 
+             RowBox[{"4.`", " ", "rmax$349328"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"ua", ",", "0", ",", "1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"rb", ",", "0", ",", 
+             RowBox[{"4.`", " ", "rmax$349328"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"ub", ",", "0", ",", "1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"\[Theta]1", ",", "0", ",", 
+             RowBox[{"2", " ", "\[Pi]"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"\[Theta]2", ",", "0", ",", 
+             RowBox[{"2", " ", "\[Pi]"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"\[Theta]b", ",", "0", ",", "\[Pi]"}], "}"}], ",", 
+           RowBox[{"Method", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"\<\"AdaptiveQuasiMonteCarlo\"\>", ",", 
+              RowBox[{"\<\"BisectionDithering\"\>", "\[Rule]", "0"}], ",", 
+              RowBox[{"\<\"MaxPoints\"\>", "\[Rule]", "bxMaxPoints"}]}], 
+             "}"}]}], ",", 
+           RowBox[{"AccuracyGoal", "\[Rule]", "2"}], ",", 
+           RowBox[{"PrecisionGoal", "\[Rule]", "2"}], ",", 
+           RowBox[{"WorkingPrecision", "\[Rule]", "MachinePrecision"}]}], 
+          "]"}], "+", 
+         RowBox[{"0.1488888888888889`", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"NIntegrate", "[", 
+             RowBox[{
+              RowBox[{"f$349380", "[", 
+               RowBox[{
+               "r1", ",", "u1", ",", "r2", ",", "u2", ",", "ra", ",", "ua", ",",
+                 "rb", ",", "ub", ",", "\[Theta]1", ",", "\[Theta]2", ",", 
+                "\[Theta]b"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"r1", ",", "0", ",", 
+                RowBox[{"4.`", " ", "rmax$349380"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"u1", ",", "0", ",", "1"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"r2", ",", "0", ",", 
+                RowBox[{"4.`", " ", "rmax$349380"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"u2", ",", "0", ",", "1"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"ra", ",", "0", ",", 
+                RowBox[{"4.`", " ", "rmax$349380"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"ua", ",", "0", ",", "1"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"rb", ",", "0", ",", 
+                RowBox[{"4.`", " ", "rmax$349380"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"ub", ",", "0", ",", "1"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"\[Theta]1", ",", "0", ",", 
+                RowBox[{"2", " ", "\[Pi]"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"\[Theta]2", ",", "0", ",", 
+                RowBox[{"2", " ", "\[Pi]"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"\[Theta]b", ",", "0", ",", "\[Pi]"}], "}"}], ",", 
+              RowBox[{"Method", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"\<\"AdaptiveQuasiMonteCarlo\"\>", ",", 
+                 RowBox[{"\<\"BisectionDithering\"\>", "\[Rule]", "0"}], ",", 
+                 RowBox[{"\<\"MaxPoints\"\>", "\[Rule]", "bxMaxPoints"}]}], 
+                "}"}]}], ",", 
+              RowBox[{"AccuracyGoal", "\[Rule]", "2"}], ",", 
+              RowBox[{"PrecisionGoal", "\[Rule]", "2"}], ",", 
+              RowBox[{"WorkingPrecision", "\[Rule]", "MachinePrecision"}]}], 
+             "]"}], "+", 
+            RowBox[{"NIntegrate", "[", 
+             RowBox[{
+              RowBox[{"f$349432", "[", 
+               RowBox[{
+               "r1", ",", "u1", ",", "r2", ",", "u2", ",", "ra", ",", "ua", ",",
+                 "rb", ",", "ub", ",", "\[Theta]1", ",", "\[Theta]2", ",", 
+                "\[Theta]b"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"r1", ",", "0", ",", 
+                RowBox[{"4.`", " ", "rmax$349432"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"u1", ",", "0", ",", "1"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"r2", ",", "0", ",", 
+                RowBox[{"4.`", " ", "rmax$349432"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"u2", ",", "0", ",", "1"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"ra", ",", "0", ",", 
+                RowBox[{"4.`", " ", "rmax$349432"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"ua", ",", "0", ",", "1"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"rb", ",", "0", ",", 
+                RowBox[{"4.`", " ", "rmax$349432"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"ub", ",", "0", ",", "1"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"\[Theta]1", ",", "0", ",", 
+                RowBox[{"2", " ", "\[Pi]"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"\[Theta]2", ",", "0", ",", 
+                RowBox[{"2", " ", "\[Pi]"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"\[Theta]b", ",", "0", ",", "\[Pi]"}], "}"}], ",", 
+              RowBox[{"Method", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"\<\"AdaptiveQuasiMonteCarlo\"\>", ",", 
+                 RowBox[{"\<\"BisectionDithering\"\>", "\[Rule]", "0"}], ",", 
+                 RowBox[{"\<\"MaxPoints\"\>", "\[Rule]", "bxMaxPoints"}]}], 
+                "}"}]}], ",", 
+              RowBox[{"AccuracyGoal", "\[Rule]", "2"}], ",", 
+              RowBox[{"PrecisionGoal", "\[Rule]", "2"}], ",", 
+              RowBox[{"WorkingPrecision", "\[Rule]", "MachinePrecision"}]}], 
+             "]"}]}], ")"}]}]}], ")"}]}]}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"NIntegrate", "[", 
+       RowBox[{
+        RowBox[{"f$349035", "[", 
+         RowBox[{
+         "r1", ",", "u1", ",", "r2", ",", "u2", ",", "ra", ",", "ua", ",", 
+          "rb", ",", "ub", ",", "\[Theta]1", ",", "\[Theta]2", ",", 
+          "\[Theta]b"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"r1", ",", "0", ",", 
+          RowBox[{"4.`", " ", "rmax$349035"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"u1", ",", "0", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"r2", ",", "0", ",", 
+          RowBox[{"4.`", " ", "rmax$349035"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"u2", ",", "0", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"ra", ",", "0", ",", 
+          RowBox[{"4.`", " ", "rmax$349035"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"ua", ",", "0", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"rb", ",", "0", ",", 
+          RowBox[{"4.`", " ", "rmax$349035"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"ub", ",", "0", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Theta]1", ",", "0", ",", 
+          RowBox[{"2", " ", "\[Pi]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Theta]2", ",", "0", ",", 
+          RowBox[{"2", " ", "\[Pi]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Theta]b", ",", "0", ",", "\[Pi]"}], "}"}], ",", 
+        RowBox[{"Method", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"\<\"AdaptiveQuasiMonteCarlo\"\>", ",", 
+           RowBox[{"\<\"BisectionDithering\"\>", "\[Rule]", "0"}], ",", 
+           RowBox[{"\<\"MaxPoints\"\>", "\[Rule]", "bxMaxPoints"}]}], "}"}]}],
+         ",", 
+        RowBox[{"AccuracyGoal", "\[Rule]", "2"}], ",", 
+        RowBox[{"PrecisionGoal", "\[Rule]", "2"}], ",", 
+        RowBox[{"WorkingPrecision", "\[Rule]", "MachinePrecision"}]}], "]"}], 
+      "+", 
+      RowBox[{"NIntegrate", "[", 
+       RowBox[{
+        RowBox[{"f$349114", "[", 
+         RowBox[{
+         "r1", ",", "u1", ",", "r2", ",", "u2", ",", "ra", ",", "ua", ",", 
+          "rb", ",", "ub", ",", "\[Theta]1", ",", "\[Theta]2", ",", 
+          "\[Theta]b"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"r1", ",", "0", ",", 
+          RowBox[{"4.`", " ", "rmax$349114"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"u1", ",", "0", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"r2", ",", "0", ",", 
+          RowBox[{"4.`", " ", "rmax$349114"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"u2", ",", "0", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"ra", ",", "0", ",", 
+          RowBox[{"4.`", " ", "rmax$349114"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"ua", ",", "0", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"rb", ",", "0", ",", 
+          RowBox[{"4.`", " ", "rmax$349114"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"ub", ",", "0", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Theta]1", ",", "0", ",", 
+          RowBox[{"2", " ", "\[Pi]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Theta]2", ",", "0", ",", 
+          RowBox[{"2", " ", "\[Pi]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Theta]b", ",", "0", ",", "\[Pi]"}], "}"}], ",", 
+        RowBox[{"Method", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"\<\"AdaptiveQuasiMonteCarlo\"\>", ",", 
+           RowBox[{"\<\"BisectionDithering\"\>", "\[Rule]", "0"}], ",", 
+           RowBox[{"\<\"MaxPoints\"\>", "\[Rule]", "bxMaxPoints"}]}], "}"}]}],
+         ",", 
+        RowBox[{"AccuracyGoal", "\[Rule]", "2"}], ",", 
+        RowBox[{"PrecisionGoal", "\[Rule]", "2"}], ",", 
+        RowBox[{"WorkingPrecision", "\[Rule]", "MachinePrecision"}]}], 
+       "]"}]}], ")"}]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.9920755768046684`*^9},
+ CellLabel->"Out[81]=",ExpressionUUID->"5aae1977-d22c-b14f-8936-9a68a17f7430"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Get", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"dir", ",", "\"\<mixed-diagnostics.wl\>\""}], "}"}], "]"}], 
+   "]"}], ";", 
+  RowBox[{"bxMaxPoints", "=", "5000"}], ";", 
+  RowBox[{"AbsoluteTiming", "[", 
+   RowBox[{"energyCorrectionBiexcitonQuiet", "[", 
+    RowBox[{"a", ",", "c", ",", "1.", ",", "1.", ",", "0.", ",", "1."}], 
+    "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.992075783479847*^9, 3.9920757834806747`*^9}},
+ CellLabel->"In[82]:=",ExpressionUUID->"69b94e29-5cfc-d648-b509-284341c14f85"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.377481`", ",", "3.658371438046804`"}], "}"}]], "Output",
+ CellChangeTimes->{3.992075783929905*^9},
+ CellLabel->"Out[82]=",ExpressionUUID->"b8ad9702-d381-e544-85bb-887e06d35057"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"bxMaxPoints", "=", "5000"}], ";", 
+  RowBox[{"minimizeBiexcitonLive", "[", 
+   RowBox[{"a", ",", "c", ",", "20"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.99207586513381*^9, 3.99207586513381*^9}},
+ CellLabel->"In[83]:=",ExpressionUUID->"5b06f30d-220d-634e-a53c-d348417c6e18"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.992075910749096*^9},
+ CellLabel->"Out[83]=",ExpressionUUID->"7a091f22-93fa-e245-8547-fcf041dc8a1b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Get", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"dir", ",", "\"\<mixed-diagnostics.wl\>\""}], "}"}], "]"}], 
+   "]"}], ";", 
+  RowBox[{"bxMaxPoints", "=", "5000"}], ";", 
+  RowBox[{"minimizeBiexcitonLive", "[", 
+   RowBox[{"a", ",", "c", ",", "20"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.992075980254265*^9, 3.992075980254265*^9}},
+ CellLabel->"In[84]:=",ExpressionUUID->"ae02ebeb-737f-bf42-b4a1-a9cf539a7d19"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.9920761833606663`*^9},
+ CellLabel->"Out[84]=",ExpressionUUID->"1046b689-b4f6-804a-b9fc-89cb796daf4f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Get", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"dir", ",", "\"\<mixed-diagnostics.wl\>\""}], "}"}], "]"}], 
+   "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"bxElectronStates", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], "}"}]}], ";", 
+  RowBox[{"bxHoleStates", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], "}"}]}], ";", 
+  RowBox[{"bxEtaE", "=", "1"}], ";", 
+  RowBox[{"bxEtaH", "=", "1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"bxMaxPoints", "=", 
+   RowBox[{"2", "*", 
+    RowBox[{"10", "^", "5"}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"bxPrecisionGoal", "=", "2"}], ";", 
+  RowBox[{"bxAccuracyGoal", "=", "2"}], ";", 
+  RowBox[{"oldGoal", "=", 
+   RowBox[{"energyCorrectionBiexcitonQuiet", "[", 
+    RowBox[{"a", ",", "c", ",", "5.", ",", "1.", ",", "0.", ",", "1."}], 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"bxPrecisionGoal", "=", "3"}], ";", 
+  RowBox[{"bxAccuracyGoal", "=", "8"}], ";", 
+  RowBox[{"newGoal", "=", 
+   RowBox[{"energyCorrectionBiexcitonQuiet", "[", 
+    RowBox[{"a", ",", "c", ",", "5.", ",", "1.", ",", "0.", ",", "1."}], 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{"{", 
+  RowBox[{"oldGoal", ",", "newGoal"}], "}"}]}], "Input",
+ CellChangeTimes->{{3.9920771568279934`*^9, 3.9920771568279934`*^9}},
+ CellLabel->"In[85]:=",ExpressionUUID->"bddc645f-40dd-5047-b968-a82e1a7c9172"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"63.8592726468406`", ",", "3023.1192814378833`"}], "}"}]], "Output",
+ CellChangeTimes->{3.9920772459053383`*^9},
+ CellLabel->"Out[90]=",ExpressionUUID->"d0ae6daf-61b9-af47-8e78-22964465aec5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"bxAccuracyCheck", "[", 
+  RowBox[{"a", ",", "c", ",", 
+   RowBox[{"{", 
+    RowBox[{"1.", ",", "1.", ",", "0.", ",", "1."}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"2", "*", 
+      RowBox[{"10", "^", "4"}]}], ",", 
+     RowBox[{"10", "^", "5"}], ",", 
+     RowBox[{"5", "*", 
+      RowBox[{"10", "^", "5"}]}], ",", 
+     RowBox[{"2", "*", 
+      RowBox[{"10", "^", "6"}]}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9920773033132286`*^9, 3.9920773033132286`*^9}},
+ CellLabel->"In[91]:=",ExpressionUUID->"5bae6cea-9765-c440-9be3-d406276a4b23"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.992077571202709*^9},
+ CellLabel->"Out[91]=",ExpressionUUID->"b0f6ae39-f97b-d049-8d3c-8b8e69d6e3bc"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"bxElectronStates", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], "}"}]}], ";", 
+  RowBox[{"bxHoleStates", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], "}"}]}], ";", 
+  RowBox[{"bxEtaE", "=", "1"}], ";", 
+  RowBox[{"bxEtaH", "=", "1"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"bxMaxPoints", "=", 
+   RowBox[{"2", "*", 
+    RowBox[{"10", "^", "5"}]}]}], ";", 
+  RowBox[{"bxPrecisionGoal", "=", "3"}], ";", 
+  RowBox[{"bxAccuracyGoal", "=", "8"}], ";"}], "\n", 
+ RowBox[{"AbsoluteTiming", "[", 
+  RowBox[{"fullResult", "=", 
+   RowBox[{"minimizeBiexcitonLive", "[", 
+    RowBox[{"a", ",", "c", ",", "12"}], "]"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.9920818141902523`*^9, 3.9920818141902523`*^9}},
+ CellLabel->"In[92]:=",ExpressionUUID->"8a9f49f6-70b6-0846-992d-e42fdb961c4e"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.9920823034146786`*^9},
+ CellLabel->"Out[94]=",ExpressionUUID->"229af8a2-b8a2-0a4c-8bf4-dd577830e932"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"dir", "=", 
+   RowBox[{"NotebookDirectory", "[", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Get", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"dir", ",", "\"\<mixed-correlation.wl\>\""}], "}"}], "]"}], 
+   "]"}], ";", 
+  RowBox[{"Get", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"dir", ",", "\"\<mixed-density.wl\>\""}], "}"}], "]"}], "]"}], ";", 
+  RowBox[{"Get", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"dir", ",", "\"\<mixed-integrals.wl\>\""}], "}"}], "]"}], "]"}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"bxElectronStates", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], "}"}]}], ";", 
+  RowBox[{"bxHoleStates", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], "}"}]}], ";", 
+  RowBox[{"bxEtaE", "=", "1"}], ";", 
+  RowBox[{"bxEtaH", "=", "1"}], ";"}], "\n", 
+ RowBox[{"{", 
+  RowBox[{"bxMaxPoints", ",", "bxPrecisionGoal", ",", "bxAccuracyGoal", ",", 
+   RowBox[{"AbsoluteTiming", "[", 
+    RowBox[{"energyCorrectionBiexcitonQuiet", "[", 
+     RowBox[{"a", ",", "c", ",", "1.", ",", "1.", ",", "0.", ",", "1."}], 
+     "]"}], "]"}]}], "}"}]}], "Input",
+ CellChangeTimes->{{3.992083096733633*^9, 3.992083096733633*^9}},
+ CellLabel->"In[95]:=",ExpressionUUID->"086ef887-683f-8e44-8f25-467f945963c8"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"200000", ",", "3", ",", "8", ",", 
+   RowBox[{"{", 
+    RowBox[{"124.1102713`", ",", "3.0197236407749983`"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.992083220975342*^9},
+ CellLabel->"Out[98]=",ExpressionUUID->"1c8aa10c-cf14-7741-a65a-442ba91ff0bb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"bxMaxPoints", "=", "3000"}], ";", 
+  RowBox[{"minimizeBiexciton", "[", 
+   RowBox[{"a", ",", "c", ",", "3"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.992083320257826*^9, 3.992083320257826*^9}},
+ CellLabel->"In[99]:=",ExpressionUUID->"37b1682d-0e34-d549-9ce9-0115335d4762"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.9920833858347282`*^9},
+ CellLabel->"Out[99]=",ExpressionUUID->"91809611-e5ab-2d4f-9602-5cfd3b158318"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1152, 579.6},
+WindowMargins->{{
+  Automatic, -5.399999999999864}, {-5.399999999999977, Automatic}},
+FrontEndVersion->"14.3 for Microsoft Windows (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"a84a4a3b-1958-be4a-bf4d-6b2bcd6fa7b7"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 138, 1, 157, "Title",ExpressionUUID->"b5a29955-1ee9-554b-b269-1de16e896f43"],
+Cell[717, 25, 462, 6, 77, "Text",ExpressionUUID->"8bcb47bc-54c5-284e-b10e-0ee360d28546"],
+Cell[CellGroupData[{
+Cell[1204, 35, 90, 0, 66, "Section",ExpressionUUID->"0de868a6-7596-e849-9e07-d2667a695027"],
+Cell[1297, 37, 426, 9, 109, "Input",ExpressionUUID->"f45c997b-8024-da4c-9ce1-c690e0a462b3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1760, 51, 104, 0, 66, "Section",ExpressionUUID->"2e2bf5e0-db79-5d47-93e6-022b61393150"],
+Cell[1867, 53, 264, 9, 125, "Input",ExpressionUUID->"290e5f10-165c-5a41-bc16-f2a19351db32"],
+Cell[2134, 64, 354, 7, 60, "Input",ExpressionUUID->"df388b7f-fe94-5742-9e8f-6442242367a8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2525, 76, 93, 0, 66, "Section",ExpressionUUID->"70faefbd-c97e-bf44-a214-4cc5e0afa39e"],
+Cell[CellGroupData[{
+Cell[2643, 80, 144, 1, 28, "Input",ExpressionUUID->"7d5e728a-f4a8-4949-8abb-6f3db8d7697a"],
+Cell[2790, 83, 156, 2, 32, "Output",ExpressionUUID->"f1f77e0f-4ee5-f843-9606-f935e2ec8fca"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2995, 91, 97, 0, 66, "Section",ExpressionUUID->"52d808b1-21c3-fb4b-9a7e-8065bcdfafb8"],
+Cell[3095, 93, 158, 3, 44, "Input",ExpressionUUID->"d91ba5e3-6eb5-1d4a-b387-f60625244527"],
+Cell[3256, 98, 165, 3, 44, "Input",ExpressionUUID->"04643a43-5498-214b-b1f0-e823b6c00275"],
+Cell[3424, 103, 85, 0, 28, "Input",ExpressionUUID->"80c93276-ba7a-8145-aafd-ad2a45602b80"],
+Cell[3512, 105, 347, 8, 28, "Input",ExpressionUUID->"6944f262-e6bb-2345-8214-528fc6cafae0"],
+Cell[CellGroupData[{
+Cell[3884, 117, 344, 6, 28, "Input",ExpressionUUID->"be9fea33-21db-4c49-ac63-3c07d193f839"],
+Cell[4231, 125, 1776, 28, 44, "Message",ExpressionUUID->"24f854a4-633c-3a44-a620-bc6d29c32fcf"],
+Cell[6010, 155, 1774, 28, 44, "Message",ExpressionUUID->"d862cebf-4bf7-d442-8e06-9e110509bb8c"],
+Cell[7787, 185, 1774, 28, 44, "Message",ExpressionUUID->"9683bfa4-7499-394e-8948-c361c71cc7cf"],
+Cell[9564, 215, 468, 11, 26, "Message",ExpressionUUID->"0f6d8328-04c9-4942-b5dc-1979fcffe68c"],
+Cell[10035, 228, 16673, 375, 584, "Output",ExpressionUUID->"5aae1977-d22c-b14f-8936-9a68a17f7430"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26745, 608, 569, 13, 28, "Input",ExpressionUUID->"69b94e29-5cfc-d648-b509-284341c14f85"],
+Cell[27317, 623, 219, 4, 32, "Output",ExpressionUUID->"b8ad9702-d381-e544-85bb-887e06d35057"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27573, 632, 311, 6, 28, "Input",ExpressionUUID->"5b06f30d-220d-634e-a53c-d348417c6e18"],
+Cell[27887, 640, 156, 2, 32, "Output",ExpressionUUID->"7a091f22-93fa-e245-8547-fcf041dc8a1b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28080, 647, 477, 11, 28, "Input",ExpressionUUID->"ae02ebeb-737f-bf42-b4a1-a9cf539a7d19"],
+Cell[28560, 660, 158, 2, 32, "Output",ExpressionUUID->"1046b689-b4f6-804a-b9fc-89cb796daf4f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28755, 667, 1628, 45, 123, "Input",ExpressionUUID->"bddc645f-40dd-5047-b968-a82e1a7c9172"],
+Cell[30386, 714, 230, 4, 32, "Output",ExpressionUUID->"d0ae6daf-61b9-af47-8e78-22964465aec5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30653, 723, 591, 15, 28, "Input",ExpressionUUID->"5bae6cea-9765-c440-9be3-d406276a4b23"],
+Cell[31247, 740, 156, 2, 32, "Output",ExpressionUUID->"b0f6ae39-f97b-d049-8d3c-8b8e69d6e3bc"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31440, 747, 1075, 29, 66, "Input",ExpressionUUID->"8a9f49f6-70b6-0846-992d-e42fdb961c4e"],
+Cell[32518, 778, 158, 2, 32, "Output",ExpressionUUID->"229af8a2-b8a2-0a4c-8bf4-dd577830e932"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32713, 785, 1581, 43, 123, "Input",ExpressionUUID->"086ef887-683f-8e44-8f25-467f945963c8"],
+Cell[34297, 830, 300, 7, 32, "Output",ExpressionUUID->"1c8aa10c-cf14-7741-a65a-442ba91ff0bb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34634, 842, 308, 6, 28, "Input",ExpressionUUID->"37b1682d-0e34-d549-9ce9-0115335d4762"],
+Cell[34945, 850, 158, 2, 32, "Output",ExpressionUUID->"91809611-e5ab-2d4f-9602-5cfd3b158318"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

@@ -1,0 +1,60 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+Notebook[{
+
+Cell["Exciton \[Dash] Mixed Single-Particle States", "Title"],
+
+Cell["Variational exciton energy where the electron and hole may occupy \
+different single-particle states. Mirrors the biexciton mixed-state setup \
+(same notation, structure, and integration scheme); the only generalized \
+piece is the density psiWeightExcitonMixed. Electron and hole are \
+distinguishable, so there is no antisymmetrization. Configure the states \
+below, then evaluate the checks top to bottom.", "Text"],
+
+Cell[CellGroupData[{
+Cell["Load definitions", "Section"],
+
+Cell["dir = NotebookDirectory[];\nGet[FileNameJoin[{ParentDirectory[dir, 3], \
+\"shared\", \"numerics\", \"definitions.wl\"}]];\nGet[FileNameJoin[{dir, \
+\"mixed-correlation.wl\"}]];\nGet[FileNameJoin[{dir, \
+\"mixed-density.wl\"}]];\nGet[FileNameJoin[{dir, \"mixed-integrals.wl\"}]];", \
+"Input"]
+}, Open]],
+
+Cell[CellGroupData[{
+Cell["Parameters and state configuration", "Section"],
+
+Cell["(* dome geometry, in effective Bohr radii (c/a \[LessLess] 1); matches \
+Biexciton.nb *)\na = 5.0;\nc = 0.5;", "Input"],
+
+Cell["(* each state is {\[Nu], n, m} *)\nexElectronState = {1, 0, 0};\n\
+exHoleState = {1, 0, 0};", "Input"]
+}, Open]],
+
+Cell[CellGroupData[{
+Cell["Sanity checks", "Section"],
+
+Cell["(* 1. density is positive and finite at a sample point *)\n\
+psiWeightExcitonMixed[a, c, \[HBar]\[Omega]00[a, c]][0.3, 1.0, 0.6, 1.2]", \
+"Input"],
+
+Cell["(* 2. norm and Coulomb integrals are finite (ground-state config) *)\n\
+{normExciton[a, c, 0.644], interactionExciton[a, c, 0.644]}", "Input"],
+
+Cell["(* 3. ground-state energy correction at \[Alpha]=0.644.\n   With e and h \
+in {1,0,0} this must match the original Biexciton.nb exciton (~ -2.93). *)\n\
+energyCorrectionExciton[a, c, 0.644]", "Input"],
+
+Cell["(* 4. excited config: electron in the first in-plane excited orbital \
+{1,0,1} *)\nexElectronState = {1, 0, 1};\nenergyCorrectionExcitonQuiet[a, c, \
+0.644]", "Input"],
+
+Cell["(* 5. variational minimum for the current configuration (heavy, minutes) \
+*)\nminimizeExciton[a, c]", "Input"]
+}, Open]]
+}]

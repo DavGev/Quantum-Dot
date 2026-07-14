@@ -1,0 +1,8 @@
+# personal app configuration
+.obsidian/
+
+# scratch / progress logs (recreated on every run)
+*.log
+
+# copyrighted reference papers -- keep out of a public repo
+shared/reference-papers/
