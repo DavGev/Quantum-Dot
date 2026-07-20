@@ -553,8 +553,15 @@ minimizeBiexciton[a_?NumericQ, c_?NumericQ, maxIter_: 50, start_: Automatic] :=
        If[MissingQ[nk], None,
         bxLog["warm start from nearest geometry: " <> bxConfigLabel[nk]];
         First[MinimalBy[bxRunArchive[nk]["history"], First]][[2]]]]];
-   method = If[init === None, "NelderMead",
-     {"NelderMead", "InitialPoints" -> bxSimplexAround[init]}];
+   (* "PostProcess" -> False: for constrained problems NMinimize by default
+      polishes the NelderMead result with a derivative-based FindMinimum.
+      On a noisy objective the finite-difference derivatives are pure noise,
+      the polish burns hundreds of evaluations at the noise floor, and it is
+      invisible to StepMonitor -- so the stall guard cannot stop it. *)
+   method = If[init === None,
+     {"NelderMead", "PostProcess" -> False},
+     {"NelderMead", "PostProcess" -> False,
+      "InitialPoints" -> bxSimplexAround[init]}];
    obj[al_?NumericQ, be_?NumericQ, ga_?NumericQ, de_?NumericQ] :=
      With[{e = energyCorrectionBiexcitonQuiet[a, c, al, be, ga, de]},
       AppendTo[bxHistory, {e, {al, be, ga, de}}];

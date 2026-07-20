@@ -270,8 +270,12 @@ minimizeExciton[a_?NumericQ, c_?NumericQ, maxIter_: 50, start_: Automatic] :=
       With[{nk = exNearestArchiveKey[key]},
        If[MissingQ[nk], None,
         First[MinimalBy[exRunArchive[nk]["history"], First]][[2]]]]];
-   method = If[init === None, "NelderMead",
-     {"NelderMead", "InitialPoints" -> exSimplexAround[init]}];
+   (* "PostProcess" -> False: see the biexciton package -- the default
+      derivative polish spins on a noisy objective and evades the stall guard. *)
+   method = If[init === None,
+     {"NelderMead", "PostProcess" -> False},
+     {"NelderMead", "PostProcess" -> False,
+      "InitialPoints" -> exSimplexAround[init]}];
    obj[al_?NumericQ] :=
      With[{e = energyCorrectionExcitonQuiet[a, c, al]},
       AppendTo[exHistory, {e, {al}}]; e];
