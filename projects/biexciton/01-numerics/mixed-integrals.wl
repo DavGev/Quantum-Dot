@@ -26,7 +26,7 @@ ClearAll[bxRmax, bxMaxPoints, bxPrecisionGoal, bxAccuracyGoal,
   kineticElectronDirectBiexciton, kineticElectronCrossBiexciton,
   kineticHoleDirectBiexciton, kineticHoleCrossBiexciton,
   energyCorrectionBiexciton, energyCorrectionBiexcitonQuiet,
-  totalEnergyBiexciton,
+  bxNormFloor, bxEnergyCap, totalEnergyBiexciton,
   bxStallIterations, bxStallTol,
   bxOptPrecisionGoal, bxOptAccuracyGoal, bxConfigKey,
   bxHistory, bxSteps, bxHistoryConfig, bxHistoryStaleQ,
@@ -358,6 +358,16 @@ Function[{r1, u1, r2, u2, ra, ua, rb, ub, \[Theta]1, \[Theta]2, \[Theta]b},
       bxWeight[a, c, \[Omega]][u1, r1, \[Theta]1, u2, r2, \[Theta]2, ua, ra, ub, rb, \[Theta]b] g^2 p q x]]]];
 
 (* ---- assembled energy correction (K + V)/N -------------------------------- *)
+(* guard against norm collapse: for antisymmetric (\[Eta] = -1) pairs the density
+   vanishes at pair coincidence while large \[Delta] pulls the pair together, so in
+   parts of parameter space the true norm underflows the quadrature accuracy;
+   the ratio then becomes noise of either sign and NMinimize dives into a
+   fake -Infinity (observed: "best" of -3*10^5 Ry). Evaluations with
+   norm < bxNormFloor, or |ratio| > bxEnergyCap, return +bxEnergyCap as a
+   penalty: the optimizer is repelled instead of attracted. *)
+bxNormFloor = 10^-10;
+bxEnergyCap = 100;
+
 energyCorrectionBiexciton[a_?NumericQ, c_?NumericQ, \[Alpha]_?NumericQ,
    \[Beta]_?NumericQ, \[Gamma]_?NumericQ, \[Delta]_?NumericQ] :=
   Module[{lg, nD, nX, vD, vX, keD, keX, khD, khX, kinetic, interaction},
@@ -365,6 +375,9 @@ energyCorrectionBiexciton[a_?NumericQ, c_?NumericQ, \[Alpha]_?NumericQ,
       bxLog["  " <> tag <> " = " <> ToString[v]]]; v);
    nD = lg["normDirect", normDirectBiexciton[a, c, \[Alpha], \[Beta], \[Gamma], \[Delta]]];
    nX = lg["normCross", normCrossBiexciton[a, c, \[Alpha], \[Beta], \[Gamma], \[Delta]]];
+   If[! (NumericQ[nD + nX] && nD + nX > bxNormFloor),
+    bxLog["  norm collapse (" <> ToString[nD + nX] <> ") -> penalty"];
+    Return[N[bxEnergyCap], Module]];
    vD = lg["intDirect", interactionDirectBiexciton[a, c, \[Alpha], \[Beta], \[Gamma], \[Delta]]];
    vX = lg["intCross", interactionCrossBiexciton[a, c, \[Alpha], \[Beta], \[Gamma], \[Delta]]];
    keD = lg["kinEDirect", kineticElectronDirectBiexciton[a, c, \[Alpha], \[Beta], \[Gamma], \[Delta]]];
@@ -373,7 +386,12 @@ energyCorrectionBiexciton[a_?NumericQ, c_?NumericQ, \[Alpha]_?NumericQ,
    khX = lg["kinHCross", kineticHoleCrossBiexciton[a, c, \[Alpha], \[Beta], \[Gamma], \[Delta]]];
    kinetic = 2 ((keD + keX) + (m\:2091/m\:2095) (khD + khX)); (* 2 = two electrons + two holes *)
    interaction = vD + vX;
-   (kinetic + interaction)/(nD + nX)];
+   With[{e = (kinetic + interaction)/(nD + nX)},
+    Which[
+     ! NumericQ[e], N[bxEnergyCap],
+     e < -bxEnergyCap, N[bxEnergyCap],   (* fake -Infinity -> repel *)
+     e > bxEnergyCap, N[bxEnergyCap],
+     True, e]]];
 
 energyCorrectionBiexcitonQuiet[a_?NumericQ, c_?NumericQ, \[Alpha]_?NumericQ,
    \[Beta]_?NumericQ, \[Gamma]_?NumericQ, \[Delta]_?NumericQ] :=

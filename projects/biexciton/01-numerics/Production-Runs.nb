@@ -151,17 +151,22 @@ runAllStates[aa_, cc_] :=
      StringContainsQ[#, prodKey[\"\", aa, cc]] &]]);
 
 (* base-geometry extras: remaining exchange combinations of XX0101;
-   E(eta = -1) - E(eta = +1) is the exchange splitting *)
+   E(eta = -1) - E(eta = +1) is the exchange splitting. Each variant is
+   seeded from the pp optimum of the same geometry -- a cold start can land
+   in the norm-collapse region (large delta with an antisymmetric pair). *)
 runXX0101All[aa_, cc_] :=
-  (runBiexciton[\"XX0101pm\", aa, cc,
-    {lvl[0], lvl[1]}, {lvl[0], lvl[-1]}, 1, -1];
+  Module[{seed},
+   seed = With[{r = Lookup[prodResults, prodKey[\"XX0101pp\", aa, cc]]},
+     If[AssociationQ[r], r[\"params\"], Automatic]];
+   runBiexciton[\"XX0101pm\", aa, cc,
+    {lvl[0], lvl[1]}, {lvl[0], lvl[-1]}, 1, -1, seed];
    runBiexciton[\"XX0101mp\", aa, cc,
-    {lvl[0], lvl[1]}, {lvl[0], lvl[-1]}, -1, 1];
+    {lvl[0], lvl[1]}, {lvl[0], lvl[-1]}, -1, 1, seed];
    runBiexciton[\"XX0101mm\", aa, cc,
-    {lvl[0], lvl[1]}, {lvl[0], lvl[-1]}, -1, -1];
+    {lvl[0], lvl[1]}, {lvl[0], lvl[-1]}, -1, -1, seed];
    Dataset[KeySelect[prodResults,
      StringContainsQ[#, \"XX0101\"] &&
-       StringContainsQ[#, prodKey[\"\", aa, cc]] &]]);
+       StringContainsQ[#, prodKey[\"\", aa, cc]] &]]];
 
 (* radiatively disconnected islands (XX0010 = |0001>, XX1000 = |0100>):
    energy diagram + cascade discussion -- diagram geometries only *)
