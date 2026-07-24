@@ -3,22 +3,36 @@
 (*** Wolfram Notebook File ***)
 (* http://www.wolfram.com/nb *)
 
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     26401,        634]
+NotebookOptionsPosition[     23543,        583]
+NotebookOutlinePosition[     23978,        600]
+CellTagsIndexPosition[     23935,        597]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
-Cell["Production Runs \[Dash] Exciton & Biexciton Energies", "Title"],
+Cell["Production Runs \[Dash] Exciton & Biexciton Energies", "Title",ExpressionUUID->"8f4491bf-3ec0-9346-b15b-19aa8c5e75af"],
 
 Cell["\<\
 Final energy evaluations for the paper (semi-ellipsoidal analog of the \
 reference: Non-Linear Optical Properties of Biexciton in Ellipsoidal Quantum \
 Dot, Nanomaterials 12, 1412).
 
-States (see the Optical Selection Rules note): the bright diamond -- \
-excitons X00 and X11 = e{1,0,1} x h{1,0,-1}, biexcitons XX0000, XX0101 \
-(both pairs distinct; remaining eta combinations resolved at the base \
-geometry via runXX0101All) and XX1111 -- plus the cheap dark excitons \
-X01/X10 at every geometry, and the island biexcitons XX0010 = |0001> and \
-XX1000 = |0100> at the two diagram geometries only (runIslands).
+States (see the Optical Selection Rules note): the bright diamond -- excitons \
+X00 and X11 = e{1,0,1} x h{1,0,-1}, biexcitons XX0000, XX0101 (both pairs \
+distinct; remaining eta combinations resolved at the base geometry via \
+runXX0101All) and XX1111 -- plus the cheap dark excitons X01/X10 at every \
+geometry, and the island biexcitons XX0010 = |0001> and XX1000 = |0100> at \
+the two diagram geometries only (runIslands).
 
 Geometries are defined in nm (paper-style values) and converted via the \
 material rB: c = 6/7/8 nm at a = 50 nm (scan + base), c = 10 nm (second \
@@ -33,41 +47,40 @@ minimize (warm-started via the archive chain: exact configuration, else \
 nearest geometry with identical states), re-evaluate the energy at the \
 optimum with the production budget, stamp with the quadrature identity \
 checks. Results are checkpointed to production-results.wxf after every run, \
-so the notebook can be aborted and resumed freely; completed runs are \
-skipped on re-evaluation. Distinct-orbital biexciton configurations \
-automatically get the larger budgets.
+so the notebook can be aborted and resumed freely; completed runs are skipped \
+on re-evaluation. Distinct-orbital biexciton configurations automatically get \
+the larger budgets.
 
-Evaluate top to bottom; the per-geometry cells are independent and can be \
-run in any order or on different days.\
-\>", "Text"],
+Evaluate top to bottom; the per-geometry cells are independent and can be run \
+in any order or on different days.\
+\>", "Text",ExpressionUUID->"2601451f-6ff5-e94f-90d6-cb58c5fbb1b9"],
 
 Cell[CellGroupData[{
 
-Cell["Load both frameworks", "Section"],
+Cell["Load both frameworks", "Section",ExpressionUUID->"84fd7da6-eed6-1444-b1f7-b387e8a59be5"],
 
 Cell["\<\
 dir = NotebookDirectory[];
 Get[FileNameJoin[{ParentDirectory[dir, 3], \"shared\", \"numerics\", \
 \"definitions.wl\"}]];
-exDir = FileNameJoin[{ParentDirectory[dir, 2], \"exciton\", \
-\"01-numerics\"}];
+exDir = FileNameJoin[{ParentDirectory[dir, 2], \"exciton\", \"01-numerics\"}];
 Get[FileNameJoin[{exDir, \"mixed-correlation.wl\"}]];
 Get[FileNameJoin[{exDir, \"mixed-density.wl\"}]];
 Get[FileNameJoin[{exDir, \"mixed-integrals.wl\"}]];
 Get[FileNameJoin[{dir, \"mixed-correlation.wl\"}]];
 Get[FileNameJoin[{dir, \"mixed-density.wl\"}]];
 Get[FileNameJoin[{dir, \"mixed-integrals.wl\"}]];\
-\>", "Input"],
+\>", "Input",ExpressionUUID->"c1a28940-1a15-0a42-a1f1-e72abcdadf01"],
 
 Cell["\<\
 (* smoke test: exact identity, must be ~1 to ~0.1% *)
 normExciton[5.0, 0.5, 0.]\
-\>", "Input"]
+\>", "Input",ExpressionUUID->"71c20c54-c2c7-1f42-a727-b403bd8decb6"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Result store and protocol runners", "Section"],
+Cell["Result store and protocol runners", "Section",ExpressionUUID->"3114d123-938b-3d42-b539-dd9bb142c643"],
 
 Cell["\<\
 (* checkpointed result store; completed runs are skipped *)
@@ -76,7 +89,7 @@ prodResults = If[FileExistsQ[prodFile], Import[prodFile, \"WXF\"], <||>];
 prodSave[] := Export[prodFile, prodResults, \"WXF\"];
 prodKey[label_, aa_, cc_] :=
   StringJoin[label, \"|a=\", ToString[aa], \"|c=\", ToString[cc]];\
-\>", "Input"],
+\>", "Input",ExpressionUUID->"f557c2e1-ab83-dc47-935f-ca060722da08"],
 
 Cell["\<\
 (* exciton protocol: minimize (fast, 5-dim integrals) -> re-evaluate at the
@@ -92,7 +105,7 @@ runExciton[label_, aa_, cc_, eState_, hState_] :=
       <|\"alpha\" -> al, \"label\" -> label,
         \"check\" -> exQuadratureCheck[aa, cc, al]|>]];
    prodResults[key] = res; prodSave[]; res];\
-\>", "Input"],
+\>", "Input",ExpressionUUID->"7aecfed7-1beb-f746-955e-83e61125a4e3"],
 
 Cell["\<\
 (* biexciton protocol: distinct-orbital configurations get 4-5x budgets
@@ -116,18 +129,18 @@ hStates[[2]]);
         \"evaluations\" -> opt[\"evaluations\"],
         \"check\" -> bxQuadratureCheckAll[aa, cc, Sequence @@ p]|>]];
    prodResults[key] = res; prodSave[]; res];\
-\>", "Input"],
+\>", "Input",ExpressionUUID->"a0d85804-678e-6145-b010-43bd253061d0"],
 
 Cell["\<\
 (* worst identity spread of a stored run -- quick health readout *)
 worstSpread[res_] := Max[Cases[res[\"check\"],
     KeyValuePattern[\"relSpread\" -> s_] :> s, {1}]];\
-\>", "Input"]
+\>", "Input",ExpressionUUID->"f98596aa-6e1a-3a45-b466-11d1cef3707e"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Configurations", "Section"],
+Cell["Configurations", "Section",ExpressionUUID->"be943c92-8d54-7e4f-a91c-4c4defc79334"],
 
 Cell["\<\
 (* particle levels: 0 = ground, +/-1 = first in-plane excitations *)
@@ -182,97 +195,450 @@ runIslands[aa_, cc_] :=
 nmToRB = 10.^-9/rB;
 geomNm = {{50, 6}, {50, 7}, {50, 8}, {50, 10}, {40, 6}, {60, 6}};
 geometries = nmToRB geomNm;\
-\>", "Input"]
+\>", "Input",ExpressionUUID->"64291104-214a-9d44-910b-81782b5d30e9"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Production runs (resumable; P1 first, then the grid)", "Section"],
+Cell["Production runs (resumable; P1 first, then the grid)", "Section",ExpressionUUID->"b898c646-4c42-b640-91d1-9de957be4ddf"],
 
-Cell["\<\
-(* P1: base geometry (50 nm, 6 nm) -- everything *)
-runAllStates @@ geometries[[1]]\
-\>", "Input"],
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"P1", ":", " ", 
+    RowBox[{"base", " ", "geometry", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"50", " ", "nm"}], ",", " ", 
+        RowBox[{"6", " ", "nm"}]}], ")"}], " ", "--"}], " ", "everything"}]}],
+    " ", "*)"}], "\n", 
+  RowBox[{"runAllStates", " ", "@@", " ", 
+   RowBox[{"geometries", "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.9936508359761353`*^9, 
+  3.9936508359761353`*^9}},ExpressionUUID->"e0c5c161-d7d8-d941-b134-\
+a180c17bb509"],
 
-Cell["\<\
-runXX0101All @@ geometries[[1]]
-runIslands @@ geometries[[1]]\
-\>", "Input"],
+Cell[BoxData[{
+ RowBox[{"runXX0101All", " ", "@@", " ", 
+  RowBox[{"geometries", "[", 
+   RowBox[{"[", "1", "]"}], "]"}]}], "\n", 
+ RowBox[{"runIslands", " ", "@@", " ", 
+  RowBox[{"geometries", "[", 
+   RowBox[{"[", "1", "]"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.9936508359761353`*^9, 
+  3.9936508359761353`*^9}},ExpressionUUID->"662fe608-06cc-d54a-83bf-\
+a2125a5c767d"],
 
-Cell["\<\
-(* P2: the grid *)
-runAllStates @@ geometries[[2]]  (* 50 nm, 7 nm *)\
-\>", "Input"],
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"P2", ":", " ", 
+    RowBox[{"the", " ", "grid"}]}], " ", "*)"}], "\n", 
+  RowBox[{"runAllStates", " ", "@@", " ", 
+   RowBox[{"geometries", "[", 
+    RowBox[{"[", "2", "]"}], "]"}], "  ", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"50", " ", "nm"}], ",", " ", 
+     RowBox[{"7", " ", "nm"}]}], " ", "*)"}]}]}]], "Input",
+ CellChangeTimes->{{3.9936508359785595`*^9, 
+  3.9936508359785595`*^9}},ExpressionUUID->"65bb6a7c-364c-254b-af19-\
+041e0a689c4c"],
 
-Cell["runAllStates @@ geometries[[3]]  (* 50 nm, 8 nm *)", "Input"],
+Cell[BoxData[
+ RowBox[{"runAllStates", " ", "@@", " ", 
+  RowBox[{"geometries", "[", 
+   RowBox[{"[", "3", "]"}], "]"}], "  ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"50", " ", "nm"}], ",", " ", 
+    RowBox[{"8", " ", "nm"}]}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.9936508359785595`*^9, 
+  3.9936508359785595`*^9}},ExpressionUUID->"4923350c-32b9-324b-a529-\
+3163a8389513"],
 
-Cell["\<\
-(* P3: second diagram set, islands included *)
-runAllStates @@ geometries[[4]]  (* 50 nm, 10 nm *)
-runIslands @@ geometries[[4]]\
-\>", "Input"],
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"P3", ":", " ", 
+     RowBox[{"second", " ", "diagram", " ", "set"}]}], ",", " ", 
+    RowBox[{"islands", " ", "included"}]}], " ", "*)"}], "\n", 
+  RowBox[{
+   RowBox[{"runAllStates", " ", "@@", " ", 
+    RowBox[{"geometries", "[", 
+     RowBox[{"[", "4", "]"}], "]"}]}], "  ", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"50", " ", "nm"}], ",", " ", 
+     RowBox[{"10", " ", "nm"}]}], " ", "*)"}], "\n", 
+   RowBox[{"runIslands", " ", "@@", " ", 
+    RowBox[{"geometries", "[", 
+     RowBox[{"[", "4", "]"}], "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.9936508359785595`*^9, 
+  3.9936508359785595`*^9}},ExpressionUUID->"01af9084-0e38-1c49-b7a0-\
+a9ed6f434c4c"],
 
-Cell["runAllStates @@ geometries[[5]]  (* 40 nm, 6 nm *)", "Input"],
+Cell[BoxData[
+ RowBox[{"runAllStates", " ", "@@", " ", 
+  RowBox[{"geometries", "[", 
+   RowBox[{"[", "5", "]"}], "]"}], "  ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"40", " ", "nm"}], ",", " ", 
+    RowBox[{"6", " ", "nm"}]}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.9936508359785595`*^9, 
+  3.9936508359785595`*^9}},ExpressionUUID->"9863823e-2ae4-ce49-888d-\
+76528b3bcf05"],
 
-Cell["runAllStates @@ geometries[[6]]  (* 60 nm, 6 nm *)", "Input"]
+Cell[BoxData[
+ RowBox[{"runAllStates", " ", "@@", " ", 
+  RowBox[{"geometries", "[", 
+   RowBox[{"[", "6", "]"}], "]"}], "  ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"60", " ", "nm"}], ",", " ", 
+    RowBox[{"6", " ", "nm"}]}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.9936508359832516`*^9, 
+  3.9936508359832516`*^9}},ExpressionUUID->"70b1b20c-e349-7a49-acc6-\
+3a6b43555d60"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Summary: energies, binding, diamond transitions", "Section"],
+Cell["Summary: energies, binding, diamond transitions", "Section",ExpressionUUID->"ad7a1a75-ee87-4e41-bf53-80e3cb96f646"],
 
-Cell["\<\
-(* one row per geometry (Ry; multiply by ER2meV for meV). Missing-tolerant:
-   island and eta-combination columns fill in only where those runs exist. *)
-summaryRows = Module[{get, d},
-   get[l_, aa_, cc_] :=
-    With[{r = Lookup[prodResults, prodKey[l, aa, cc]]},
-     If[AssociationQ[r], r[\"total\"], Missing[\"NotRun\"]]];
-   d[x_, y_] := If[NumericQ[x] && NumericQ[y], x - y, Missing[\"NotRun\"]];
-   Table[Module[{aa = g[[1]], cc = g[[2]], x00, x11, b0, b01, b11},
-     x00 = get[\"X00\", aa, cc]; x11 = get[\"X11\", aa, cc];
-     b0 = get[\"XX0000\", aa, cc]; b01 = get[\"XX0101pp\", aa, cc];
-     b11 = get[\"XX1111\", aa, cc];
-     <|\"a\" -> aa, \"c\" -> cc,
-       \"E(X00)\" -> x00, \"E(X01)\" -> get[\"X01\", aa, cc],
-       \"E(X10)\" -> get[\"X10\", aa, cc], \"E(X11)\" -> x11,
-       \"E(XX0000)\" -> b0, \"E(XX0101pp)\" -> b01, \"E(XX1111)\" -> b11,
-       \"E(XX0010)\" -> get[\"XX0010\", aa, cc],
-       \"E(XX1000)\" -> get[\"XX1000\", aa, cc],
-       \"Ebind(XX0000)\" -> d[If[NumericQ[x00], 2 x00, x00], b0],
-       \"T(XX0000->X00)\" -> d[b0, x00],
-       \"T(XX0101->X00)\" -> d[b01, x00],
-       \"T(XX0101->X11)\" -> d[b01, x11],
-       \"T(XX1111->X11)\" -> d[b11, x11]|>],
-    {g, geometries}]];
-Dataset[summaryRows]\
-\>", "Input"],
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"one", " ", "row", " ", "per", " ", "geometry", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"Ry", ";", " ", 
+        RowBox[{
+        "multiply", " ", "by", " ", "ER2meV", " ", "for", " ", "meV"}]}], 
+       ")"}], ".", " ", "Missing"}]}], "-", 
+    RowBox[{"tolerant", ":", "\n", "   ", 
+     RowBox[{
+      RowBox[{"island", " ", "and", " ", "eta"}], "-", 
+      RowBox[{
+      "combination", " ", "columns", " ", "fill", " ", "in", " ", "only", " ",
+        "where", " ", "those", " ", "runs", " ", 
+       RowBox[{"exist", "."}]}]}]}]}], " ", "*)"}], "\n", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"summaryRows", " ", "=", " ", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"get", ",", " ", "d"}], "}"}], ",", "\n", "   ", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"get", "[", 
+          RowBox[{"l_", ",", " ", "aa_", ",", " ", "cc_"}], "]"}], " ", ":=", 
+         "\n", "    ", 
+         RowBox[{"With", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"r", " ", "=", " ", 
+             RowBox[{"Lookup", "[", 
+              RowBox[{"prodResults", ",", " ", 
+               RowBox[{"prodKey", "[", 
+                RowBox[{"l", ",", " ", "aa", ",", " ", "cc"}], "]"}]}], 
+              "]"}]}], "}"}], ",", "\n", "     ", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"AssociationQ", "[", "r", "]"}], ",", " ", 
+             RowBox[{"r", "[", "\"\<total\>\"", "]"}], ",", " ", 
+             RowBox[{"Missing", "[", "\"\<NotRun\>\"", "]"}]}], "]"}]}], 
+          "]"}]}], ";", "\n", "   ", 
+        RowBox[{
+         RowBox[{"d", "[", 
+          RowBox[{"x_", ",", " ", "y_"}], "]"}], " ", ":=", " ", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"NumericQ", "[", "x", "]"}], " ", "&&", " ", 
+            RowBox[{"NumericQ", "[", "y", "]"}]}], ",", " ", 
+           RowBox[{"x", " ", "-", " ", "y"}], ",", " ", 
+           RowBox[{"Missing", "[", "\"\<NotRun\>\"", "]"}]}], "]"}]}], ";", 
+        "\n", "   ", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Module", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"aa", " ", "=", " ", 
+               RowBox[{"g", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}], ",", " ", 
+              RowBox[{"cc", " ", "=", " ", 
+               RowBox[{"g", "[", 
+                RowBox[{"[", "2", "]"}], "]"}]}], ",", " ", "x00", ",", " ", 
+              "x11", ",", " ", "b0", ",", " ", "b01", ",", " ", "b11"}], 
+             "}"}], ",", "\n", "     ", 
+            RowBox[{
+             RowBox[{"x00", " ", "=", " ", 
+              RowBox[{"get", "[", 
+               RowBox[{"\"\<X00\>\"", ",", " ", "aa", ",", " ", "cc"}], 
+               "]"}]}], ";", " ", 
+             RowBox[{"x11", " ", "=", " ", 
+              RowBox[{"get", "[", 
+               RowBox[{"\"\<X11\>\"", ",", " ", "aa", ",", " ", "cc"}], 
+               "]"}]}], ";", "\n", "     ", 
+             RowBox[{"b0", " ", "=", " ", 
+              RowBox[{"get", "[", 
+               RowBox[{"\"\<XX0000\>\"", ",", " ", "aa", ",", " ", "cc"}], 
+               "]"}]}], ";", " ", 
+             RowBox[{"b01", " ", "=", " ", 
+              RowBox[{"get", "[", 
+               RowBox[{"\"\<XX0101pp\>\"", ",", " ", "aa", ",", " ", "cc"}], 
+               "]"}]}], ";", "\n", "     ", 
+             RowBox[{"b11", " ", "=", " ", 
+              RowBox[{"get", "[", 
+               RowBox[{"\"\<XX1111\>\"", ",", " ", "aa", ",", " ", "cc"}], 
+               "]"}]}], ";", "\n", "     ", 
+             RowBox[{"<|", 
+              RowBox[{
+               RowBox[{"\"\<a\>\"", " ", "->", " ", "aa"}], ",", " ", 
+               RowBox[{"\"\<c\>\"", " ", "->", " ", "cc"}], ",", "\n", 
+               "       ", 
+               RowBox[{"\"\<E(X00)\>\"", " ", "->", " ", "x00"}], ",", " ", 
+               RowBox[{"\"\<E(X01)\>\"", " ", "->", " ", 
+                RowBox[{"get", "[", 
+                 RowBox[{"\"\<X01\>\"", ",", " ", "aa", ",", " ", "cc"}], 
+                 "]"}]}], ",", "\n", "       ", 
+               RowBox[{"\"\<E(X10)\>\"", " ", "->", " ", 
+                RowBox[{"get", "[", 
+                 RowBox[{"\"\<X10\>\"", ",", " ", "aa", ",", " ", "cc"}], 
+                 "]"}]}], ",", " ", 
+               RowBox[{"\"\<E(X11)\>\"", " ", "->", " ", "x11"}], ",", "\n", 
+               "       ", 
+               RowBox[{"\"\<E(XX0000)\>\"", " ", "->", " ", "b0"}], ",", " ", 
+               RowBox[{"\"\<E(XX0101pp)\>\"", " ", "->", " ", "b01"}], ",", 
+               " ", 
+               RowBox[{"\"\<E(XX1111)\>\"", " ", "->", " ", "b11"}], ",", 
+               "\n", "       ", 
+               RowBox[{"\"\<E(XX0010)\>\"", " ", "->", " ", 
+                RowBox[{"get", "[", 
+                 RowBox[{"\"\<XX0010\>\"", ",", " ", "aa", ",", " ", "cc"}], 
+                 "]"}]}], ",", "\n", "       ", 
+               RowBox[{"\"\<E(XX1000)\>\"", " ", "->", " ", 
+                RowBox[{"get", "[", 
+                 RowBox[{"\"\<XX1000\>\"", ",", " ", "aa", ",", " ", "cc"}], 
+                 "]"}]}], ",", "\n", "       ", 
+               RowBox[{"\"\<Ebind(XX0000)\>\"", " ", "->", " ", 
+                RowBox[{"d", "[", 
+                 RowBox[{
+                  RowBox[{"If", "[", 
+                   RowBox[{
+                    RowBox[{"NumericQ", "[", "x00", "]"}], ",", " ", 
+                    RowBox[{"2", " ", "x00"}], ",", " ", "x00"}], "]"}], ",", 
+                  " ", "b0"}], "]"}]}], ",", "\n", "       ", 
+               RowBox[{"\"\<T(XX0000->X00)\>\"", " ", "->", " ", 
+                RowBox[{"d", "[", 
+                 RowBox[{"b0", ",", " ", "x00"}], "]"}]}], ",", "\n", 
+               "       ", 
+               RowBox[{"\"\<T(XX0101->X00)\>\"", " ", "->", " ", 
+                RowBox[{"d", "[", 
+                 RowBox[{"b01", ",", " ", "x00"}], "]"}]}], ",", "\n", 
+               "       ", 
+               RowBox[{"\"\<T(XX0101->X11)\>\"", " ", "->", " ", 
+                RowBox[{"d", "[", 
+                 RowBox[{"b01", ",", " ", "x11"}], "]"}]}], ",", "\n", 
+               "       ", 
+               RowBox[{"\"\<T(XX1111->X11)\>\"", " ", "->", " ", 
+                RowBox[{"d", "[", 
+                 RowBox[{"b11", ",", " ", "x11"}], "]"}]}]}], "|>"}]}]}], 
+           "]"}], ",", "\n", "    ", 
+          RowBox[{"{", 
+           RowBox[{"g", ",", " ", "geometries"}], "}"}]}], "]"}]}]}], "]"}]}],
+     ";"}], "\n", 
+   RowBox[{"Dataset", "[", "summaryRows", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.9936508159635773`*^9, 
+  3.9936508159635773`*^9}},ExpressionUUID->"2b8ada47-77fb-c94a-bccf-\
+4111c9275376"],
 
-Cell["\<\
-(* eta fine structure of XX0101 at the base geometry *)
-Module[{get},
- get[l_] := With[{r = Lookup[prodResults, prodKey[l, Sequence @@ \
-geometries[[1]]]]},
-   If[AssociationQ[r], r[\"total\"], Missing[\"NotRun\"]]];
- Dataset[<|\"pp\" -> get[\"XX0101pp\"], \"pm\" -> get[\"XX0101pm\"],
-   \"mp\" -> get[\"XX0101mp\"], \"mm\" -> get[\"XX0101mm\"]|>]]\
-\>", "Input"],
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "eta", " ", "fine", " ", "structure", " ", "of", " ", "XX0101", " ", "at", 
+    " ", "the", " ", "base", " ", "geometry"}], " ", "*)"}], "\n", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "get", "}"}], ",", "\n", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"get", "[", "l_", "]"}], " ", ":=", " ", 
+      RowBox[{"With", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"r", " ", "=", " ", 
+          RowBox[{"Lookup", "[", 
+           RowBox[{"prodResults", ",", " ", 
+            RowBox[{"prodKey", "[", 
+             RowBox[{"l", ",", " ", 
+              RowBox[{"Sequence", " ", "@@", " ", 
+               RowBox[{"geometries", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}]}], "]"}]}], "]"}]}], "}"}], ",",
+         "\n", "   ", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"AssociationQ", "[", "r", "]"}], ",", " ", 
+          RowBox[{"r", "[", "\"\<total\>\"", "]"}], ",", " ", 
+          RowBox[{"Missing", "[", "\"\<NotRun\>\"", "]"}]}], "]"}]}], "]"}]}],
+      ";", "\n", " ", 
+     RowBox[{"Dataset", "[", 
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<pp\>\"", " ", "->", " ", 
+         RowBox[{"get", "[", "\"\<XX0101pp\>\"", "]"}]}], ",", " ", 
+        RowBox[{"\"\<pm\>\"", " ", "->", " ", 
+         RowBox[{"get", "[", "\"\<XX0101pm\>\"", "]"}]}], ",", "\n", "   ", 
+        RowBox[{"\"\<mp\>\"", " ", "->", " ", 
+         RowBox[{"get", "[", "\"\<XX0101mp\>\"", "]"}]}], ",", " ", 
+        RowBox[{"\"\<mm\>\"", " ", "->", " ", 
+         RowBox[{"get", "[", "\"\<XX0101mm\>\"", "]"}]}]}], "|>"}], "]"}]}]}],
+    "]"}]}]], "Input",
+ CellChangeTimes->{{3.9936508159635773`*^9, 
+  3.9936508159635773`*^9}},ExpressionUUID->"8004216a-e147-584f-ae2c-\
+0687d08dd9ec"],
 
-Cell["\<\
-(* quadrature health of every stored run: worst identity spread each *)
-Dataset[worstSpread /@ prodResults]\
-\>", "Input"],
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "quadrature", " ", "health", " ", "of", " ", "every", " ", "stored", " ", 
+    RowBox[{"run", ":", " ", 
+     RowBox[{"worst", " ", "identity", " ", "spread", " ", "each"}]}]}], " ", 
+   "*)"}], "\n", 
+  RowBox[{"Dataset", "[", 
+   RowBox[{"worstSpread", " ", "/@", " ", "prodResults"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.993650815979967*^9, 
+  3.993650815979967*^9}},ExpressionUUID->"f7c82d32-097e-244f-b2be-\
+0096346a123c"],
 
-Cell["\<\
-(* meV table + CSV export for the plotting notebook (a, c stay in rB) *)
-summaryMeV = Map[
-   Join[KeyTake[#, {\"a\", \"c\"}],
-     Map[If[NumericQ[#], # ER2meV, #] &, KeyDrop[#, {\"a\", \"c\"}]]] &,
-   summaryRows];
-Export[FileNameJoin[{dir, \"production-summary-meV.csv\"}],
-  Prepend[Values /@ summaryMeV, Keys[First[summaryMeV]]]];
-Dataset[summaryMeV]\
-\>", "Input"]
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"meV", " ", "table"}], " ", "+", " ", 
+    RowBox[{
+    "CSV", " ", "export", " ", "for", " ", "the", " ", "plotting", " ", 
+     "notebook", " ", 
+     RowBox[{"(", 
+      RowBox[{"a", ",", " ", 
+       RowBox[{"c", " ", "stay", " ", "in", " ", "rB"}]}], ")"}]}]}], " ", 
+   "*)"}], "\n", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"summaryMeV", " ", "=", " ", 
+     RowBox[{"Map", "[", "\n", "   ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Join", "[", 
+         RowBox[{
+          RowBox[{"KeyTake", "[", 
+           RowBox[{"#", ",", " ", 
+            RowBox[{"{", 
+             RowBox[{"\"\<a\>\"", ",", " ", "\"\<c\>\""}], "}"}]}], "]"}], ",",
+           "\n", "     ", 
+          RowBox[{"Map", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{"NumericQ", "[", "#", "]"}], ",", " ", 
+               RowBox[{"#", " ", "ER2meV"}], ",", " ", "#"}], "]"}], " ", 
+             "&"}], ",", " ", 
+            RowBox[{"KeyDrop", "[", 
+             RowBox[{"#", ",", " ", 
+              RowBox[{"{", 
+               RowBox[{"\"\<a\>\"", ",", " ", "\"\<c\>\""}], "}"}]}], "]"}]}],
+            "]"}]}], "]"}], " ", "&"}], ",", "\n", "   ", "summaryRows"}], 
+      "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{"dir", ",", " ", "\"\<production-summary-meV.csv\>\""}], 
+        "}"}], "]"}], ",", "\n", "  ", 
+      RowBox[{"Prepend", "[", 
+       RowBox[{
+        RowBox[{"Values", " ", "/@", " ", "summaryMeV"}], ",", " ", 
+        RowBox[{"Keys", "[", 
+         RowBox[{"First", "[", "summaryMeV", "]"}], "]"}]}], "]"}]}], "]"}], 
+    ";"}], "\n", 
+   RowBox[{"Dataset", "[", "summaryMeV", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.9936508159924564`*^9, 
+  3.9936508159924564`*^9}},ExpressionUUID->"309bb5b3-a053-404a-9164-\
+17581fd884f7"]
 }, Open  ]]
 }, Open  ]]
-}]
+},
+WindowSize->{1152, 579.6},
+WindowMargins->{{
+  Automatic, -5.399999999999864}, {-5.399999999999977, Automatic}},
+FrontEndVersion->"15.0 for Microsoft Windows (64-bit) (May 19, 2026)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"4f43575a-ebb6-0745-97f0-a46eb4a24798"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 124, 0, 96, "Title",ExpressionUUID->"8f4491bf-3ec0-9346-b15b-19aa8c5e75af"],
+Cell[703, 24, 1830, 31, 383, "Text",ExpressionUUID->"2601451f-6ff5-e94f-90d6-cb58c5fbb1b9"],
+Cell[CellGroupData[{
+Cell[2558, 59, 94, 0, 66, "Section",ExpressionUUID->"84fd7da6-eed6-1444-b1f7-b387e8a59be5"],
+Cell[2655, 61, 585, 11, 157, "Input",ExpressionUUID->"c1a28940-1a15-0a42-a1f1-e72abcdadf01"],
+Cell[3243, 74, 159, 3, 44, "Input",ExpressionUUID->"71c20c54-c2c7-1f42-a727-b403bd8decb6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3439, 82, 107, 0, 66, "Section",ExpressionUUID->"3114d123-938b-3d42-b539-dd9bb142c643"],
+Cell[3549, 84, 423, 7, 109, "Input",ExpressionUUID->"f557c2e1-ab83-dc47-935f-ca060722da08"],
+Cell[3975, 93, 728, 14, 222, "Input",ExpressionUUID->"7aecfed7-1beb-f746-955e-83e61125a4e3"],
+Cell[4706, 109, 1213, 22, 336, "Input",ExpressionUUID->"a0d85804-678e-6145-b010-43bd253061d0"],
+Cell[5922, 133, 248, 4, 60, "Input",ExpressionUUID->"f98596aa-6e1a-3a45-b466-11d1cef3707e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6207, 142, 88, 0, 66, "Section",ExpressionUUID->"be943c92-8d54-7e4f-a91c-4c4defc79334"],
+Cell[6298, 144, 2426, 53, 855, "Input",ExpressionUUID->"64291104-214a-9d44-910b-81782b5d30e9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8761, 202, 126, 0, 66, "Section",ExpressionUUID->"b898c646-4c42-b640-91d1-9de957be4ddf"],
+Cell[8890, 204, 569, 16, 47, "Input",ExpressionUUID->"e0c5c161-d7d8-d941-b134-a180c17bb509"],
+Cell[9462, 222, 378, 9, 47, "Input",ExpressionUUID->"662fe608-06cc-d54a-83bf-a2125a5c767d"],
+Cell[9843, 233, 515, 14, 47, "Input",ExpressionUUID->"65bb6a7c-364c-254b-af19-041e0a689c4c"],
+Cell[10361, 249, 390, 10, 28, "Input",ExpressionUUID->"4923350c-32b9-324b-a529-3163a8389513"],
+Cell[10754, 261, 739, 20, 66, "Input",ExpressionUUID->"01af9084-0e38-1c49-b7a0-a9ed6f434c4c"],
+Cell[11496, 283, 390, 10, 28, "Input",ExpressionUUID->"9863823e-2ae4-ce49-888d-76528b3bcf05"],
+Cell[11889, 295, 390, 10, 28, "Input",ExpressionUUID->"70b1b20c-e349-7a49-acc6-3a6b43555d60"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12316, 310, 121, 0, 66, "Section",ExpressionUUID->"ad7a1a75-ee87-4e41-bf53-80e3cb96f646"],
+Cell[12440, 312, 6781, 150, 465, "Input",ExpressionUUID->"2b8ada47-77fb-c94a-bccf-4111c9275376"],
+Cell[19224, 464, 1804, 44, 123, "Input",ExpressionUUID->"8004216a-e147-584f-ae2c-0687d08dd9ec"],
+Cell[21031, 510, 493, 12, 47, "Input",ExpressionUUID->"f7c82d32-097e-244f-b2be-0096346a123c"],
+Cell[21527, 524, 1988, 55, 161, "Input",ExpressionUUID->"309bb5b3-a053-404a-9164-17581fd884f7"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
