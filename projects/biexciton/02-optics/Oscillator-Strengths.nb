@@ -1,0 +1,154 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Oscillator Strengths \[Dash] Numerical Dipole Amplitudes", "Title"],
+
+Cell["\<\
+Computes the dipole amplitudes of the Dipole Matrix Elements note at the \
+base geometry: the exciton elements (analytic up to the stored norm), the \
+six diamond X->XX elements (8-dim importance-sampled integrals), and the \
+L-forbidden island elements, whose vanishing-within-error is the numerical \
+counterpart of the exact selection-rule argument. Run the exact limit test \
+first. Variational parameters are pulled from production-results.wxf.\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell["Load frameworks + dipole package + results", "Section"],
+
+Cell["\<\
+dir = NotebookDirectory[];
+num = FileNameJoin[{ParentDirectory[dir], \"01-numerics\"}];
+Get[FileNameJoin[{ParentDirectory[dir, 3], \"shared\", \"numerics\", \
+\"definitions.wl\"}]];
+exDir = FileNameJoin[{ParentDirectory[dir, 2], \"exciton\", \
+\"01-numerics\"}];
+Get[FileNameJoin[{exDir, \"mixed-correlation.wl\"}]];
+Get[FileNameJoin[{exDir, \"mixed-density.wl\"}]];
+Get[FileNameJoin[{exDir, \"mixed-integrals.wl\"}]];
+Get[FileNameJoin[{num, \"mixed-correlation.wl\"}]];
+Get[FileNameJoin[{num, \"mixed-density.wl\"}]];
+Get[FileNameJoin[{num, \"mixed-integrals.wl\"}]];
+Get[FileNameJoin[{num, \"mixed-dipoles.wl\"}]];
+prodResults = Import[FileNameJoin[{num, \"production-results.wxf\"}], \
+\"WXF\"];
+prodKey[label_, aa_, cc_] :=
+  StringJoin[label, \"|a=\", ToString[aa], \"|c=\", ToString[cc]];
+nmToRB = 10.^-9/rB;
+{abase, cbase} = nmToRB {50, 6};
+res[label_] := Lookup[prodResults, prodKey[label, abase, cbase]];
+lvl[0] = {1, 0, 0}; lvl[1] = {1, 0, 1}; lvl[-1] = {1, 0, -1};\
+\>", "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Exact limit test (must give M/cs = Sqrt[2] ~ 1.41421)", "Section"],
+
+Cell["bxDipoleLimitTest[abase, cbase] // Dataset", "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Exciton elements: M = 1/Sqrt[normX]", "Section"],
+
+Cell["\<\
+(* bright: X00, X11 (numerator exactly 1); L-forbidden X01/X10: exactly 0 *)
+excitonM[label_, eS_, hS_] := Module[{r = res[label], al, n},
+  If[! AssociationQ[r], Return[Missing[\"NotRun\"]]];
+  al = r[\"alpha\"];
+  Block[{exElectronState = eS, exHoleState = hS},
+   n = normExciton[abase, cbase, al]];
+  <|\"state\" -> label, \"alpha\" -> al, \"normX\" -> n,
+   \"M\" -> 1/Sqrt[n], \"|M|^2 (enhancement)\" -> 1/n|>];
+Dataset[{excitonM[\"X00\", lvl[0], lvl[0]],
+  excitonM[\"X11\", lvl[1], lvl[-1]],
+  <|\"state\" -> \"X01/X10\", \"alpha\" -> Null, \"normX\" -> Null,
+   \"M\" -> 0, \"|M|^2 (enhancement)\" -> 0|>}]\
+\>", "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Diamond X -> XX elements", "Section"],
+
+Cell["\<\
+(* pulls optimal parameters of both states from the store; sets the XX
+   configuration globals, then evaluates the 8-dim amplitude *)
+diamondM[xxLabel_, eStates_, hStates_, etaE_, etaH_, exLabel_, eS_, hS_] :=
+  Module[{rXX = res[xxLabel], rX = res[exLabel]},
+   If[! AssociationQ[rXX] || ! AssociationQ[rX],
+    Return[<|\"transition\" -> exLabel <> \" -> \" <> xxLabel,
+      \"M\" -> Missing[\"NotRun\"]|>]];
+   bxElectronStates = eStates; bxHoleStates = hStates;
+   bxEtaE = etaE; bxEtaH = etaH;
+   Append[
+    bxDipoleXtoXX[abase, cbase, eS, hS, rX[\"alpha\"], rXX[\"params\"]],
+    \"transition\" -> exLabel <> \" -> \" <> xxLabel]];
+
+resultsDiamond = {
+   diamondM[\"XX0000\", {lvl[0], lvl[0]}, {lvl[0], lvl[0]}, 1, 1,
+    \"X00\", lvl[0], lvl[0]],
+   diamondM[\"XX0101pp\", {lvl[0], lvl[1]}, {lvl[0], lvl[-1]}, 1, 1,
+    \"X00\", lvl[0], lvl[0]],
+   diamondM[\"XX0101pp\", {lvl[0], lvl[1]}, {lvl[0], lvl[-1]}, 1, 1,
+    \"X11\", lvl[1], lvl[-1]],
+   diamondM[\"XX1111\", {lvl[1], lvl[1]}, {lvl[-1], lvl[-1]}, 1, 1,
+    \"X11\", lvl[1], lvl[-1]]};
+Dataset[resultsDiamond]\
+\>", "Input"],
+
+Cell["\<\
+(* eta variants of XX0101, from X00 and X11 -- feeds decision D1 *)
+resultsEta = Flatten[{
+   Table[diamondM[\"XX0101\" <> s, {lvl[0], lvl[1]}, {lvl[0], lvl[-1]},
+     Sequence @@ (s /. {\"pm\" -> Sequence[1, -1], \"mp\" -> Sequence[-1, 1],
+        \"mm\" -> Sequence[-1, -1]}),
+     \"X00\", lvl[0], lvl[0]], {s, {\"pm\", \"mp\", \"mm\"}}]}];
+Dataset[resultsEta]\
+\>", "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Island elements: must vanish within quadrature error", "Section"],
+
+Cell["\<\
+(* L-forbidden: X00 -> XX0010 (adds the dark e0-h1 pair). Compare |amp| to
+   the bright amplitudes above -- expect noise-level, orders of magnitude
+   smaller. The bidirectional island transition X01 -> XX0010 is bright and
+   shown for contrast. *)
+resultsIsland = {
+   diamondM[\"XX0010\", {lvl[0], lvl[0]}, {lvl[0], lvl[1]}, 1, 1,
+    \"X00\", lvl[0], lvl[0]],       (* forbidden: expect ~0 *)
+   diamondM[\"XX0010\", {lvl[0], lvl[0]}, {lvl[0], lvl[1]}, 1, 1,
+    \"X01\", lvl[0], lvl[1]]};      (* allowed island transition *)
+Dataset[resultsIsland]\
+\>", "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Relative oscillator strengths (normalized to the ground channel)", \
+"Section"],
+
+Cell["\<\
+(* f ~ |M|^2 E_p/E_T; ratios to g->X00 cancel cs and mu_cv. Transition
+   energies from the store (add Eg for absolute scale). *)
+fRel = Module[{mg00, list},
+  mg00 = 1/Sqrt[res[\"X00\"][\"normX\"] /. _Missing -> Null];
+  mg00 = excitonM[\"X00\", lvl[0], lvl[0]][\"M\"];
+  list = Join[resultsDiamond, resultsIsland];
+  Dataset[Map[
+    <|\"transition\" -> #[\"transition\"],
+      \"|M|^2 / |M(g->X00)|^2\" ->
+       If[NumericQ[#[\"M\"]], (#[\"M\"]/mg00)^2, Missing[]]|> &, list]]]\
+\>", "Input"]
+}, Open  ]]
+}, Open  ]]
+}]
