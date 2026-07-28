@@ -1,0 +1,1120 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     43122,       1112]
+NotebookOptionsPosition[     40066,       1057]
+NotebookOutlinePosition[     40544,       1075]
+CellTagsIndexPosition[     40501,       1072]
+WindowTitle->Main-State Production Runs
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Main-State Production Runs", "Title",ExpressionUUID->"065e0c52-f09b-1b47-ad35-d87fa09c932e"],
+
+Cell[TextData[{
+ "This notebook runs only the ground exciton X00 and the main (ground) \
+biexciton XX0000 at the seven requested geometries. Lengths a and c are in \
+effective Bohr radii. Energies are in effective Rydberg and exclude the band \
+gap. Each geometry is checkpointed after the exciton and again after the \
+biexciton, so an interrupted campaign can be resumed safely. The final \
+summary contains the zeroth-order energies, correlation corrections, \
+corrected energies, ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["E", "bind"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "b2a6a9ec-6e8a-b244-8514-3b6f552c04dd"],
+ " = 2 ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["E", "X"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "1c8a6a15-fe54-ab49-89fa-5ced12a3ed31"],
+ " - ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["E", "XX"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "88169709-9970-c547-8dfa-7398d03b9c8c"],
+ ", and the normalized bright-exciton coincidence overlap ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["M", "X"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "fb4e6d3d-7bfe-2c40-8bd6-d918f6ad4ef5"],
+ " = ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox["1", 
+    SqrtBox[
+     SubscriptBox["N", "X"]]], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "0fdf27b7-99b1-0b4d-9bb8-647f7998b96e"],
+ " together with ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"|", 
+    SubscriptBox["M", "X"], 
+    SuperscriptBox["|", "2"]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "71b808a9-5f56-4949-b5ed-be6c2df5de14"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.994266651754059*^9, 3.9942666742779083`*^9}, {
+  3.994266749756233*^9, 
+  3.99426681532703*^9}},ExpressionUUID->"9265796a-68ab-294a-9c8c-\
+e399d8e0cccc"],
+
+Cell[CellGroupData[{
+
+Cell["Load the validated exciton and biexciton frameworks", "Section",ExpressionUUID->"468b3c38-425b-cf43-a25c-de8e128a5f76"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"dir", " ", "=", " ", 
+   RowBox[{"NotebookDirectory", "[", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"root", " ", "=", " ", 
+   RowBox[{"ParentDirectory", "[", 
+    RowBox[{"dir", ",", " ", "3"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"exDir", " ", "=", " ", 
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"ParentDirectory", "[", 
+        RowBox[{"dir", ",", " ", "2"}], "]"}], ",", " ", "\"\<exciton\>\"", ",",
+        " ", "\"\<01-numerics\>\""}], "}"}], "]"}]}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{"Get", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "root", ",", " ", "\"\<shared\>\"", ",", " ", "\"\<numerics\>\"", ",", 
+      " ", "\"\<definitions.wl\>\""}], "}"}], "]"}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Get", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"exDir", ",", " ", "\"\<mixed-correlation.wl\>\""}], "}"}], 
+    "]"}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Get", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"exDir", ",", " ", "\"\<mixed-density.wl\>\""}], "}"}], "]"}], 
+   "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Get", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"exDir", ",", " ", "\"\<mixed-integrals.wl\>\""}], "}"}], "]"}], 
+   "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Get", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"dir", ",", " ", "\"\<mixed-correlation.wl\>\""}], "}"}], "]"}], 
+   "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Get", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"dir", ",", " ", "\"\<mixed-density.wl\>\""}], "}"}], "]"}], 
+   "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Get", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"dir", ",", " ", "\"\<mixed-integrals.wl\>\""}], "}"}], "]"}], 
+   "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.9942665993454475`*^9, 
+  3.9942665993454475`*^9}},ExpressionUUID->"2e03774c-cc92-f44d-8594-\
+733ee60fe243"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Campaign definition and production budgets", "Section",ExpressionUUID->"01a59beb-fc5f-0c4b-9dec-b59ad90cbb3b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Requested", " ", 
+      RowBox[{"order", ":", " ", 
+       RowBox[{"c", " ", "scan", " ", "at", " ", "a"}]}]}], "=", "5"}], ",", 
+    " ", 
+    RowBox[{
+     RowBox[{"then", " ", "a", " ", "scan", " ", "at", " ", "c"}], "=", 
+     "1."}]}], " ", "*)"}], "\n", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"geometries", " ", "=", " ", 
+     RowBox[{"N", "[", 
+      RowBox[{"{", "\n", "   ", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"5", ",", " ", "0.5"}], "}"}], ",", "\n", "   ", 
+        RowBox[{"{", 
+         RowBox[{"5", ",", " ", "1"}], "}"}], ",", "\n", "   ", 
+        RowBox[{"{", 
+         RowBox[{"5", ",", " ", "1.5"}], "}"}], ",", "\n", "   ", 
+        RowBox[{"{", 
+         RowBox[{"5", ",", " ", "2"}], "}"}], ",", "\n", "   ", 
+        RowBox[{"{", 
+         RowBox[{"3", ",", " ", "1"}], "}"}], ",", "\n", "   ", 
+        RowBox[{"{", 
+         RowBox[{"7", ",", " ", "1"}], "}"}], ",", "\n", "   ", 
+        RowBox[{"{", 
+         RowBox[{"10", ",", " ", "1"}], "}"}]}], "\n", "   ", "}"}], "]"}]}], 
+    ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"groundState", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", " ", "0", ",", " ", "0"}], "}"}]}], ";"}], "\n", "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Validated", " ", "production", " ", "protocol", " ", "from", " ", "the", 
+     " ", "Computational", " ", "Design", " ", 
+     RowBox[{"Log", "."}]}], " ", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"mainExMinPoints", " ", "=", " ", 
+     RowBox[{"2", "*", 
+      RowBox[{"10", "^", "5"}]}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"mainExFinalPoints", " ", "=", " ", 
+     RowBox[{"10", "^", "6"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"mainBxMinPoints", " ", "=", " ", 
+     RowBox[{"2", "*", 
+      RowBox[{"10", "^", "5"}]}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"mainBxFinalPoints", " ", "=", " ", 
+     RowBox[{"10", "^", "6"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"mainFinalPrecisionGoal", " ", "=", " ", "3"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"mainMaxIterations", " ", "=", " ", "50"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.994266599348507*^9, 
+  3.994266599348507*^9}},ExpressionUUID->"94e64cca-d0f5-ef40-8391-\
+218092ee94b9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Separate, resumable result store", "Section",ExpressionUUID->"f22f8480-fffc-a548-a011-576f7b6c3936"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"ClearAll", "[", 
+    RowBox[{
+    "mainKey", ",", " ", "mainStage", ",", " ", "mainSave", ",", " ", 
+     "mainStoreStage", ",", " ", "mainDiagnosticMax"}], "]"}], ";"}], 
+  "\n"}], "\n", 
+ RowBox[{
+  RowBox[{"mainResultFile", " ", "=", " ", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"dir", ",", " ", "\"\<main-state-production-results.wxf\>\""}], 
+     "}"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"mainRawStore", " ", "=", " ", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"FileExistsQ", "[", "mainResultFile", "]"}], ",", "\n", "   ", 
+      RowBox[{"Quiet", "[", 
+       RowBox[{"Check", "[", 
+        RowBox[{
+         RowBox[{"Import", "[", 
+          RowBox[{"mainResultFile", ",", " ", "\"\<WXF\>\""}], "]"}], ",", 
+         " ", "$Failed"}], "]"}], "]"}], ",", "\n", "   ", 
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<schemaVersion\>\"", " ", "->", " ", "1"}], ",", " ", 
+        RowBox[{"\"\<runs\>\"", " ", "->", " ", 
+         RowBox[{"<|", "|>"}]}]}], "|>"}]}], "\n", "   ", "]"}]}], ";"}], 
+  "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"!", " ", 
+       RowBox[{"AssociationQ", "[", "mainRawStore", "]"}]}], " ", "||", "\n", 
+      "   ", 
+      RowBox[{
+       RowBox[{"Lookup", "[", 
+        RowBox[{"mainRawStore", ",", " ", "\"\<schemaVersion\>\"", ",", " ", 
+         RowBox[{"Missing", "[", "]"}]}], "]"}], " ", "=!=", " ", "1"}], " ", 
+      "||", "\n", "   ", 
+      RowBox[{"!", " ", 
+       RowBox[{"AssociationQ", "[", 
+        RowBox[{"Lookup", "[", 
+         RowBox[{"mainRawStore", ",", " ", "\"\<runs\>\"", ",", " ", 
+          RowBox[{"Missing", "[", "]"}]}], "]"}], "]"}]}]}], ",", "\n", "  ", 
+     RowBox[{
+      RowBox[{"Print", "[", 
+       RowBox[{"\"\<The result store is unreadable or has an unsupported \
+schema: \>\"", ",", " ", "mainResultFile"}], "]"}], ";", "\n", "  ", 
+      RowBox[{"Abort", "[", "]"}]}]}], "\n", "  ", "]"}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"mainResults", " ", "=", " ", 
+    RowBox[{"mainRawStore", "[", "\"\<runs\>\"", "]"}]}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"mainKey", "[", 
+     RowBox[{
+      RowBox[{"aa_", "?", "NumericQ"}], ",", " ", 
+      RowBox[{"cc_", "?", "NumericQ"}]}], "]"}], " ", ":=", "\n", "  ", 
+    RowBox[{"StringRiffle", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"ToString", "[", 
+         RowBox[{"#", ",", " ", "InputForm"}], "]"}], " ", "&"}], " ", "/@", 
+       " ", 
+       RowBox[{"N", "[", 
+        RowBox[{"{", 
+         RowBox[{"aa", ",", " ", "cc"}], "}"}], "]"}]}], ",", 
+      " ", "\"\<|\>\""}], "]"}]}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"mainStage", "[", 
+     RowBox[{
+      RowBox[{"aa_", "?", "NumericQ"}], ",", " ", 
+      RowBox[{"cc_", "?", "NumericQ"}], ",", " ", "stage_String"}], "]"}], 
+    " ", ":=", "\n", "  ", 
+    RowBox[{"Lookup", "[", 
+     RowBox[{
+      RowBox[{"Lookup", "[", 
+       RowBox[{"mainResults", ",", " ", 
+        RowBox[{"mainKey", "[", 
+         RowBox[{"aa", ",", " ", "cc"}], "]"}], ",", " ", 
+        RowBox[{"<|", "|>"}]}], "]"}], ",", " ", "stage", ",", " ", 
+      RowBox[{"Missing", "[", "\"\<NotRun\>\"", "]"}]}], "]"}]}], ";"}], 
+  "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"mainSave", "[", "]"}], " ", ":=", " ", 
+    RowBox[{"Export", "[", 
+     RowBox[{"mainResultFile", ",", "\n", "   ", 
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<schemaVersion\>\"", " ", "->", " ", "1"}], ",", "\n", 
+        "     ", 
+        RowBox[{"\"\<updated\>\"", " ", "->", " ", 
+         RowBox[{"DateString", "[", "\"\<ISODateTime\>\"", "]"}]}], ",", "\n",
+         "     ", 
+        RowBox[{"\"\<runs\>\"", " ", "->", " ", "mainResults"}]}], "|>"}], ",",
+       " ", "\"\<WXF\>\""}], "]"}]}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"mainStoreStage", "[", 
+     RowBox[{
+      RowBox[{"aa_", "?", "NumericQ"}], ",", " ", 
+      RowBox[{"cc_", "?", "NumericQ"}], ",", " ", "stage_String", ",", " ", 
+      "value_Association"}], "]"}], " ", ":=", "\n", "  ", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"key", " ", "=", " ", 
+         RowBox[{"mainKey", "[", 
+          RowBox[{"aa", ",", " ", "cc"}], "]"}]}], ",", " ", "row"}], "}"}], ",",
+       "\n", "   ", 
+      RowBox[{
+       RowBox[{"row", " ", "=", " ", 
+        RowBox[{"Lookup", "[", 
+         RowBox[{"mainResults", ",", " ", "key", ",", " ", 
+          RowBox[{"<|", "|>"}]}], "]"}]}], ";", "\n", "   ", 
+       RowBox[{
+        RowBox[{"mainResults", "[", "key", "]"}], " ", "=", " ", 
+        RowBox[{"Join", "[", 
+         RowBox[{"row", ",", "\n", "     ", 
+          RowBox[{"<|", 
+           RowBox[{
+            RowBox[{"\"\<geometry\>\"", " ", "->", " ", 
+             RowBox[{"<|", 
+              RowBox[{
+               RowBox[{"\"\<a\>\"", " ", "->", " ", "aa"}], ",", " ", 
+               RowBox[{"\"\<c\>\"", " ", "->", " ", "cc"}]}], "|>"}]}], ",", 
+            " ", 
+            RowBox[{"stage", " ", "->", " ", "value"}]}], "|>"}]}], "]"}]}], ";",
+        "\n", "   ", 
+       RowBox[{"mainSave", "[", "]"}], ";", "\n", "   ", "value"}]}], "\n", 
+     "   ", "]"}]}], ";"}], "\n", "\n", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Includes", " ", "the", " ", "absolute", " ", "norm", 
+    RowBox[{"(", 
+     RowBox[{"alpha", "=", "0"}], ")"}], " ", "error", " ", "for", " ", "X", " ",
+     "and", " ", "all", " ", "relative", " ", "identity", "\n", "   ", 
+    "spreads", " ", "for", " ", "X", " ", "or", " ", 
+    RowBox[{"XX", "."}]}], " ", "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"mainDiagnosticMax", "[", "check_Association", "]"}], " ", ":=", 
+   " ", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "values", "}"}], ",", "\n", "  ", 
+     RowBox[{
+      RowBox[{"values", " ", "=", " ", 
+       RowBox[{"Join", "[", "\n", "    ", 
+        RowBox[{
+         RowBox[{"Cases", "[", 
+          RowBox[{"check", ",", " ", 
+           RowBox[{
+            RowBox[{"HoldPattern", "[", 
+             RowBox[{"\"\<relSpread\>\"", " ", "->", " ", 
+              RowBox[{"s_", "?", "NumericQ"}]}], "]"}], " ", ":>", " ", "s"}],
+            ",", " ", "Infinity"}], "]"}], ",", "\n", "    ", 
+         RowBox[{"Cases", "[", 
+          RowBox[{"check", ",", " ", 
+           RowBox[{
+            RowBox[{"HoldPattern", "[", 
+             RowBox[{"\"\<error\>\"", " ", "->", " ", 
+              RowBox[{"s_", "?", "NumericQ"}]}], "]"}], " ", ":>", " ", "s"}],
+            ",", " ", "Infinity"}], "]"}]}], "\n", "    ", "]"}]}], ";", "\n",
+       "  ", 
+      RowBox[{"Max", "[", 
+       RowBox[{"Prepend", "[", 
+        RowBox[{"values", ",", " ", "0."}], "]"}], "]"}]}]}], "\n", "  ", 
+    "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.9942665993655643`*^9, 
+  3.9942665993655643`*^9}},ExpressionUUID->"d05a010d-295f-8a4f-98f2-\
+e17dc213cd83"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Ground-state production runners", "Section",ExpressionUUID->"63e7d4bf-8fb2-5a45-8a95-368a0cc89c75"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"ClearAll", "[", 
+    RowBox[{
+    "configureGroundExciton", ",", " ", "configureGroundBiexciton", ",", "\n",
+      "  ", "runGroundExciton", ",", " ", "runGroundBiexciton", ",", " ", 
+     "runMainGeometry"}], "]"}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"configureGroundExciton", "[", "]"}], " ", ":=", " ", 
+    RowBox[{"(", "\n", "  ", 
+     RowBox[{
+      RowBox[{"exElectronState", " ", "=", " ", "groundState"}], ";", "\n", 
+      "  ", 
+      RowBox[{"exHoleState", " ", "=", " ", "groundState"}], ";"}], "\n", 
+     "  ", ")"}]}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"configureGroundBiexciton", "[", "]"}], " ", ":=", " ", 
+   RowBox[{"(", "\n", "  ", 
+    RowBox[{
+     RowBox[{"bxElectronStates", " ", "=", " ", 
+      RowBox[{"{", 
+       RowBox[{"groundState", ",", " ", "groundState"}], "}"}]}], ";", "\n", 
+     "  ", 
+     RowBox[{"bxHoleStates", " ", "=", " ", 
+      RowBox[{"{", 
+       RowBox[{"groundState", ",", " ", "groundState"}], "}"}]}], ";", "\n", 
+     "  ", 
+     RowBox[{"bxEtaE", " ", "=", " ", "1"}], ";", "\n", "  ", 
+     RowBox[{"bxEtaH", " ", "=", " ", "1"}], ";"}], "\n", "  ", ")"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.9942665993655643`*^9, 
+  3.9942665993655643`*^9}},ExpressionUUID->"1ac508a4-8d9a-be47-a6d9-\
+47748541d311"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"runGroundExciton", "[", 
+    RowBox[{
+     RowBox[{"aa_", "?", "NumericQ"}], ",", " ", 
+     RowBox[{"cc_", "?", "NumericQ"}]}], "]"}], " ", ":=", " ", 
+   RowBox[{"Module", "[", "\n", "  ", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "cached", ",", " ", "opt", ",", " ", "alpha", ",", " ", "energy", ",", 
+       " ", "check", ",", " ", "norm", ",", " ", "result"}], "}"}], ",", "\n",
+      "  ", 
+     RowBox[{
+      RowBox[{"cached", " ", "=", " ", 
+       RowBox[{"mainStage", "[", 
+        RowBox[{"aa", ",", " ", "cc", ",", " ", "\"\<X\>\""}], "]"}]}], ";", 
+      "\n", "  ", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"AssociationQ", "[", "cached", "]"}], ",", " ", 
+        RowBox[{"Return", "[", "cached", "]"}]}], "]"}], ";", "\n", "\n", 
+      "  ", 
+      RowBox[{"configureGroundExciton", "[", "]"}], ";", "\n", "  ", 
+      RowBox[{"Print", "[", 
+       RowBox[{"\"\<X00: minimizing at (a,c) = \>\"", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"aa", ",", " ", "cc"}], "}"}]}], "]"}], ";", "\n", "  ", 
+      RowBox[{"Block", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"exMaxPoints", " ", "=", " ", "mainExMinPoints"}], "}"}], ",",
+         "\n", "   ", 
+        RowBox[{"minimizeExciton", "[", 
+         RowBox[{
+         "aa", ",", " ", "cc", ",", " ", "mainMaxIterations", ",", " ", 
+          "Automatic"}], "]"}]}], "\n", "   ", "]"}], ";", "\n", "  ", 
+      RowBox[{"opt", " ", "=", " ", 
+       RowBox[{"exOptimum", "[", "]"}]}], ";", "\n", "  ", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"!", " ", 
+         RowBox[{"AssociationQ", "[", "opt", "]"}]}], ",", "\n", "   ", 
+        RowBox[{
+         RowBox[{"Print", "[", 
+          
+          RowBox[{"\"\<Exciton minimization did not produce an optimum at \
+\>\"", ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"aa", ",", " ", "cc"}], "}"}]}], "]"}], ";", "\n", "   ", 
+         RowBox[{"Return", "[", "$Failed", "]"}]}]}], "\n", "   ", "]"}], ";",
+       "\n", "  ", 
+      RowBox[{"alpha", " ", "=", " ", 
+       RowBox[{"First", "[", 
+        RowBox[{"opt", "[", "\"\<params\>\"", "]"}], "]"}]}], ";", "\n", "\n",
+       "  ", 
+      RowBox[{"Print", "[", 
+       RowBox[{"\"\<X00: final energy and identity stamp at (a,c) = \>\"", ",",
+         " ", 
+        RowBox[{"{", 
+         RowBox[{"aa", ",", " ", "cc"}], "}"}]}], "]"}], ";", "\n", "  ", 
+      RowBox[{"Block", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"exMaxPoints", " ", "=", " ", "mainExFinalPoints"}], ",", 
+          "\n", "    ", 
+          RowBox[{
+          "exPrecisionGoal", " ", "=", " ", "mainFinalPrecisionGoal"}]}], 
+         "}"}], ",", "\n", "   ", 
+        RowBox[{
+         RowBox[{"energy", " ", "=", " ", 
+          RowBox[{"totalEnergyExciton", "[", 
+           RowBox[{"aa", ",", " ", "cc", ",", " ", "alpha"}], "]"}]}], ";", 
+         "\n", "   ", 
+         RowBox[{"check", " ", "=", " ", 
+          RowBox[{"exQuadratureCheck", "[", 
+           RowBox[{"aa", ",", " ", "cc", ",", " ", "alpha"}], "]"}]}], ";", 
+         "\n", "   ", 
+         RowBox[{"norm", " ", "=", " ", 
+          RowBox[{
+           RowBox[{"check", "[", "\"\<normSwap\>\"", "]"}], 
+           "[", "\"\<config\>\"", "]"}]}], ";"}]}], "\n", "   ", "]"}], ";", 
+      "\n", "\n", "  ", 
+      RowBox[{"result", " ", "=", " ", 
+       RowBox[{"Join", "[", 
+        RowBox[{"energy", ",", "\n", "    ", 
+         RowBox[{"<|", 
+          RowBox[{
+           RowBox[{"\"\<state\>\"", " ", "->", " ", "\"\<X00\>\""}], ",", 
+           "\n", "      ", 
+           RowBox[{"\"\<alpha\>\"", " ", "->", " ", "alpha"}], ",", "\n", 
+           "      ", 
+           RowBox[{"\"\<normX\>\"", " ", "->", " ", "norm"}], ",", "\n", 
+           "      ", 
+           RowBox[{"\"\<overlap M_X\>\"", " ", "->", " ", 
+            RowBox[{"1", "/", 
+             RowBox[{"Sqrt", "[", "norm", "]"}]}]}], ",", "\n", "      ", 
+           RowBox[{"\"\<oscillator factor |M_X|^2\>\"", " ", "->", " ", 
+            RowBox[{"1", "/", "norm"}]}], ",", "\n", "      ", 
+           RowBox[{"\"\<evaluations\>\"", " ", "->", " ", 
+            RowBox[{"opt", "[", "\"\<evaluations\>\"", "]"}]}], ",", "\n", 
+           "      ", 
+           RowBox[{"\"\<check\>\"", " ", "->", " ", "check"}], ",", "\n", 
+           "      ", 
+           RowBox[{"\"\<diagnosticMax\>\"", " ", "->", " ", 
+            RowBox[{"mainDiagnosticMax", "[", "check", "]"}]}], ",", "\n", 
+           "      ", 
+           
+           RowBox[{"\"\<minMaxPoints\>\"", " ", "->", " ", 
+            "mainExMinPoints"}], ",", "\n", "      ", 
+           
+           RowBox[{"\"\<finalMaxPoints\>\"", " ", "->", " ", 
+            "mainExFinalPoints"}], ",", "\n", "      ", 
+           RowBox[{"\"\<completed\>\"", " ", "->", " ", 
+            RowBox[{"DateString", "[", "\"\<ISODateTime\>\"", "]"}]}]}], 
+          "|>"}]}], "]"}]}], ";", "\n", "  ", 
+      RowBox[{"mainStoreStage", "[", 
+       RowBox[{
+       "aa", ",", " ", "cc", ",", " ", "\"\<X\>\"", ",", " ", "result"}], 
+       "]"}]}]}], "\n", "  ", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.9942665993655643`*^9, 
+  3.9942665993655643`*^9}},ExpressionUUID->"59da278b-bf20-104e-80e8-\
+53a5842251e8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"runGroundBiexciton", "[", 
+    RowBox[{
+     RowBox[{"aa_", "?", "NumericQ"}], ",", " ", 
+     RowBox[{"cc_", "?", "NumericQ"}]}], "]"}], " ", ":=", " ", 
+   RowBox[{"Module", "[", "\n", "  ", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "cached", ",", " ", "opt", ",", " ", "params", ",", " ", "energy", ",", 
+       " ", "check", ",", " ", "result"}], "}"}], ",", "\n", "  ", 
+     RowBox[{
+      RowBox[{"cached", " ", "=", " ", 
+       RowBox[{"mainStage", "[", 
+        RowBox[{"aa", ",", " ", "cc", ",", " ", "\"\<XX\>\""}], "]"}]}], ";", 
+      "\n", "  ", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"AssociationQ", "[", "cached", "]"}], ",", " ", 
+        RowBox[{"Return", "[", "cached", "]"}]}], "]"}], ";", "\n", "\n", 
+      "  ", 
+      RowBox[{"configureGroundBiexciton", "[", "]"}], ";", "\n", "  ", 
+      RowBox[{"Print", "[", 
+       RowBox[{"\"\<XX0000: minimizing at (a,c) = \>\"", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"aa", ",", " ", "cc"}], "}"}]}], "]"}], ";", "\n", "  ", 
+      RowBox[{"Block", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"bxMaxPoints", " ", "=", " ", "mainBxMinPoints"}], ",", " ", 
+          RowBox[{"bxPrecisionGoal", " ", "=", " ", "2"}]}], "}"}], ",", "\n",
+         "   ", 
+        RowBox[{"minimizeBiexciton", "[", 
+         RowBox[{
+         "aa", ",", " ", "cc", ",", " ", "mainMaxIterations", ",", " ", 
+          "Automatic"}], "]"}]}], "\n", "   ", "]"}], ";", "\n", "  ", 
+      RowBox[{"opt", " ", "=", " ", 
+       RowBox[{"bxOptimum", "[", "]"}]}], ";", "\n", "  ", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"!", " ", 
+         RowBox[{"AssociationQ", "[", "opt", "]"}]}], ",", "\n", "   ", 
+        RowBox[{
+         RowBox[{"Print", "[", 
+          
+          RowBox[{"\"\<Biexciton minimization did not produce an optimum at \
+\>\"", ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"aa", ",", " ", "cc"}], "}"}]}], "]"}], ";", "\n", "   ", 
+         RowBox[{"Return", "[", "$Failed", "]"}]}]}], "\n", "   ", "]"}], ";",
+       "\n", "  ", 
+      RowBox[{"params", " ", "=", " ", 
+       RowBox[{"opt", "[", "\"\<params\>\"", "]"}]}], ";", "\n", "\n", "  ", 
+      RowBox[{"Print", "[", 
+       RowBox[{"\"\<XX0000: final energy and identity stamp at (a,c) = \>\"", 
+        ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"aa", ",", " ", "cc"}], "}"}]}], "]"}], ";", "\n", "  ", 
+      RowBox[{"Block", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"bxMaxPoints", " ", "=", " ", "mainBxFinalPoints"}], ",", 
+          "\n", "    ", 
+          RowBox[{
+          "bxPrecisionGoal", " ", "=", " ", "mainFinalPrecisionGoal"}]}], 
+         "}"}], ",", "\n", "   ", 
+        RowBox[{
+         RowBox[{"energy", " ", "=", " ", 
+          RowBox[{"totalEnergyBiexciton", "[", 
+           RowBox[{"aa", ",", " ", "cc", ",", " ", 
+            RowBox[{"Sequence", " ", "@@", " ", "params"}]}], "]"}]}], ";", 
+         "\n", "   ", 
+         RowBox[{"check", " ", "=", " ", 
+          RowBox[{"bxQuadratureCheckAll", "[", 
+           RowBox[{"aa", ",", " ", "cc", ",", " ", 
+            RowBox[{"Sequence", " ", "@@", " ", "params"}]}], "]"}]}], 
+         ";"}]}], "\n", "   ", "]"}], ";", "\n", "\n", "  ", 
+      RowBox[{"result", " ", "=", " ", 
+       RowBox[{"Join", "[", 
+        RowBox[{"energy", ",", "\n", "    ", 
+         RowBox[{"<|", 
+          RowBox[{
+           RowBox[{"\"\<state\>\"", " ", "->", " ", "\"\<XX0000\>\""}], ",", 
+           "\n", "      ", 
+           RowBox[{"\"\<params\>\"", " ", "->", " ", "params"}], ",", "\n", 
+           "      ", 
+           RowBox[{"\"\<evaluations\>\"", " ", "->", " ", 
+            RowBox[{"opt", "[", "\"\<evaluations\>\"", "]"}]}], ",", "\n", 
+           "      ", 
+           RowBox[{"\"\<check\>\"", " ", "->", " ", "check"}], ",", "\n", 
+           "      ", 
+           RowBox[{"\"\<diagnosticMax\>\"", " ", "->", " ", 
+            RowBox[{"mainDiagnosticMax", "[", "check", "]"}]}], ",", "\n", 
+           "      ", 
+           
+           RowBox[{"\"\<minMaxPoints\>\"", " ", "->", " ", 
+            "mainBxMinPoints"}], ",", "\n", "      ", 
+           
+           RowBox[{"\"\<finalMaxPoints\>\"", " ", "->", " ", 
+            "mainBxFinalPoints"}], ",", "\n", "      ", 
+           RowBox[{"\"\<completed\>\"", " ", "->", " ", 
+            RowBox[{"DateString", "[", "\"\<ISODateTime\>\"", "]"}]}]}], 
+          "|>"}]}], "]"}]}], ";", "\n", "  ", 
+      RowBox[{"mainStoreStage", "[", 
+       RowBox[{
+       "aa", ",", " ", "cc", ",", " ", "\"\<XX\>\"", ",", " ", "result"}], 
+       "]"}]}]}], "\n", "  ", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.9942665993655643`*^9, 
+  3.9942665993655643`*^9}},ExpressionUUID->"09ac4a65-e395-eb40-a6ea-\
+55fd59def4cf"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"runMainGeometry", "[", 
+    RowBox[{
+     RowBox[{"aa_", "?", "NumericQ"}], ",", " ", 
+     RowBox[{"cc_", "?", "NumericQ"}]}], "]"}], " ", ":=", " ", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x", ",", " ", "xx"}], "}"}], ",", "\n", "  ", 
+     RowBox[{
+      RowBox[{"Print", "[", 
+       RowBox[{"\"\<=== Main-state production geometry \>\"", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"aa", ",", " ", "cc"}], "}"}], ",", " ", "\"\< ===\>\""}], 
+       "]"}], ";", "\n", "  ", 
+      RowBox[{"x", " ", "=", " ", 
+       RowBox[{"runGroundExciton", "[", 
+        RowBox[{"aa", ",", " ", "cc"}], "]"}]}], ";", "\n", "  ", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"x", " ", "===", " ", "$Failed"}], ",", " ", 
+        RowBox[{"Return", "[", "$Failed", "]"}]}], "]"}], ";", "\n", "  ", 
+      RowBox[{"xx", " ", "=", " ", 
+       RowBox[{"runGroundBiexciton", "[", 
+        RowBox[{"aa", ",", " ", "cc"}], "]"}]}], ";", "\n", "  ", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"xx", " ", "===", " ", "$Failed"}], ",", " ", 
+        RowBox[{"Return", "[", "$Failed", "]"}]}], "]"}], ";", "\n", "  ", 
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<geometry\>\"", " ", "->", " ", 
+         RowBox[{"<|", 
+          RowBox[{
+           RowBox[{"\"\<a\>\"", " ", "->", " ", "aa"}], ",", " ", 
+           RowBox[{"\"\<c\>\"", " ", "->", " ", "cc"}]}], "|>"}]}], ",", " ", 
+        RowBox[{"\"\<X\>\"", " ", "->", " ", "x"}], ",", " ", 
+        RowBox[{"\"\<XX\>\"", " ", "->", " ", "xx"}]}], "|>"}]}]}], "\n", 
+    "  ", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.994266599373459*^9, 
+  3.994266599373459*^9}},ExpressionUUID->"dc138dab-ac42-fb40-ad0d-\
+6e456a5e632a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Production runs", "Section",ExpressionUUID->"7af903a0-3661-864e-b504-f032717fdd84"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Each", " ", "cell", " ", "is", " ", 
+   RowBox[{"independent", ".", " ", "Already"}], " ", "completed", " ", 
+   "stages", " ", "are", " ", "read", " ", "from", " ", "main"}], "-", 
+  "state", "-", "production", "-", 
+  RowBox[{
+   RowBox[{"results", ".", "wxf"}], " ", "instead", " ", "of", " ", "being", " ", 
+   RowBox[{"recomputed", ".", " ", "Evaluating"}], " ", "the", " ", 
+   "notebook", " ", "from", " ", "top", " ", "to", " ", "bottom", " ", "runs",
+    " ", "the", " ", "requested", " ", "campaign", " ", "in", " ", "a", " ", 
+   "warm"}], "-", "start", "-", 
+  RowBox[{"friendly", " ", 
+   RowBox[{"order", "."}]}]}]], "Input",
+ CellChangeTimes->{{3.994266616440384*^9, 
+  3.994266616440384*^9}},ExpressionUUID->"aac0fb54-695e-fe4d-a361-\
+f305d00ce775"],
+
+Cell[BoxData[
+ RowBox[{"runMainGeometry", " ", "@@", " ", 
+  RowBox[{"geometries", "[", 
+   RowBox[{"[", "1", "]"}], "]"}], "  ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"a", "=", "5"}], ",", " ", 
+    RowBox[{"c", "=", "0.5"}]}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.994266616440384*^9, 
+  3.994266616440384*^9}},ExpressionUUID->"a77e3dd9-88a2-3144-89d1-\
+41e018294b30"],
+
+Cell[BoxData[
+ RowBox[{"runMainGeometry", " ", "@@", " ", 
+  RowBox[{"geometries", "[", 
+   RowBox[{"[", "2", "]"}], "]"}], "  ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"a", "=", "5"}], ",", " ", 
+    RowBox[{"c", "=", "1"}]}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.994266616440384*^9, 
+  3.994266616440384*^9}},ExpressionUUID->"809bf819-4d38-944f-b289-\
+76c83aa3e168"],
+
+Cell[BoxData[
+ RowBox[{"runMainGeometry", " ", "@@", " ", 
+  RowBox[{"geometries", "[", 
+   RowBox[{"[", "3", "]"}], "]"}], "  ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"a", "=", "5"}], ",", " ", 
+    RowBox[{"c", "=", "1.5"}]}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.994266616440384*^9, 
+  3.994266616440384*^9}},ExpressionUUID->"2abf0bfd-bd56-bf48-85cd-\
+c0d5dd792a20"],
+
+Cell[BoxData[
+ RowBox[{"runMainGeometry", " ", "@@", " ", 
+  RowBox[{"geometries", "[", 
+   RowBox[{"[", "4", "]"}], "]"}], "  ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"a", "=", "5"}], ",", " ", 
+    RowBox[{"c", "=", "2"}]}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.994266616447443*^9, 
+  3.994266616447443*^9}},ExpressionUUID->"3e51693b-f93a-d848-896b-\
+f5d7ff70ea56"],
+
+Cell[BoxData[
+ RowBox[{"runMainGeometry", " ", "@@", " ", 
+  RowBox[{"geometries", "[", 
+   RowBox[{"[", "5", "]"}], "]"}], "  ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"a", "=", "3"}], ",", " ", 
+    RowBox[{"c", "=", "1"}]}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.994266616447443*^9, 
+  3.994266616447443*^9}},ExpressionUUID->"03f8176d-bd35-784e-8285-\
+43954f763b18"],
+
+Cell[BoxData[
+ RowBox[{"runMainGeometry", " ", "@@", " ", 
+  RowBox[{"geometries", "[", 
+   RowBox[{"[", "6", "]"}], "]"}], "  ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"a", "=", "7"}], ",", " ", 
+    RowBox[{"c", "=", "1"}]}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.9942666164509907`*^9, 
+  3.9942666164509907`*^9}},ExpressionUUID->"86b55939-7454-1c44-b494-\
+2fab32478609"],
+
+Cell[BoxData[
+ RowBox[{"runMainGeometry", " ", "@@", " ", 
+  RowBox[{"geometries", "[", 
+   RowBox[{"[", "7", "]"}], "]"}], "  ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"a", "=", "10"}], ",", " ", 
+    RowBox[{"c", "=", "1"}]}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.994266616454338*^9, 
+  3.994266616454338*^9}},ExpressionUUID->"832e1908-70ad-f141-9478-\
+a5acce029d75"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Summary tables and CSV exports", "Section",ExpressionUUID->"67371a9a-adea-6042-ab32-4fbd521e7b03"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"ClearAll", "[", 
+    RowBox[{
+    "mainValue", ",", " ", "mainDifference", ",", " ", "mainSummaryRow"}], 
+    "]"}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"mainValue", "[", 
+     RowBox[{"assoc_", ",", " ", "key_"}], "]"}], " ", ":=", "\n", "  ", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"AssociationQ", "[", "assoc", "]"}], ",", " ", 
+      RowBox[{"Lookup", "[", 
+       RowBox[{"assoc", ",", " ", "key", ",", " ", 
+        RowBox[{"Missing", "[", "\"\<NotRun\>\"", "]"}]}], "]"}], ",", " ", 
+      RowBox[{"Missing", "[", "\"\<NotRun\>\"", "]"}]}], "]"}]}], ";"}], 
+  "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"mainDifference", "[", 
+     RowBox[{"x_", ",", " ", "y_"}], "]"}], " ", ":=", "\n", "  ", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"NumericQ", "[", "x", "]"}], " ", "&&", " ", 
+       RowBox[{"NumericQ", "[", "y", "]"}]}], ",", " ", 
+      RowBox[{"x", " ", "-", " ", "y"}], ",", " ", 
+      RowBox[{"Missing", "[", "\"\<NotRun\>\"", "]"}]}], "]"}]}], ";"}], 
+  "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"mainSummaryRow", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"aa_", "?", "NumericQ"}], ",", " ", 
+       RowBox[{"cc_", "?", "NumericQ"}]}], "}"}], "]"}], " ", ":=", " ", 
+    RowBox[{"Module", "[", "\n", "  ", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"x", " ", "=", " ", 
+         RowBox[{"mainStage", "[", 
+          RowBox[{"aa", ",", " ", "cc", ",", " ", "\"\<X\>\""}], "]"}]}], ",",
+         " ", 
+        RowBox[{"xx", " ", "=", " ", 
+         RowBox[{"mainStage", "[", 
+          RowBox[{"aa", ",", " ", "cc", ",", " ", "\"\<XX\>\""}], "]"}]}], ",",
+         " ", "ex", ",", " ", "exx"}], "}"}], ",", "\n", "  ", 
+      RowBox[{
+       RowBox[{"ex", " ", "=", " ", 
+        RowBox[{"mainValue", "[", 
+         RowBox[{"x", ",", " ", "\"\<total\>\""}], "]"}]}], ";", "\n", "  ", 
+       RowBox[{"exx", " ", "=", " ", 
+        RowBox[{"mainValue", "[", 
+         RowBox[{"xx", ",", " ", "\"\<total\>\""}], "]"}]}], ";", "\n", "  ", 
+       RowBox[{"<|", 
+        RowBox[{
+         RowBox[{"\"\<a/rB\>\"", " ", "->", " ", "aa"}], ",", "\n", "    ", 
+         RowBox[{"\"\<c/rB\>\"", " ", "->", " ", "cc"}], ",", "\n", "    ", 
+         RowBox[{"\"\<E_X^0 (Ry)\>\"", " ", "->", " ", 
+          RowBox[{"mainValue", "[", 
+           RowBox[{"x", ",", " ", "\"\<singleParticle\>\""}], "]"}]}], ",", 
+         "\n", "    ", 
+         RowBox[{"\"\<Delta E_X (Ry)\>\"", " ", "->", " ", 
+          RowBox[{"mainValue", "[", 
+           RowBox[{"x", ",", " ", "\"\<correction\>\""}], "]"}]}], ",", "\n", 
+         "    ", 
+         RowBox[{"\"\<E_X (Ry)\>\"", " ", "->", " ", "ex"}], ",", "\n", 
+         "    ", 
+         RowBox[{"\"\<E_XX^0 (Ry)\>\"", " ", "->", " ", 
+          RowBox[{"mainValue", "[", 
+           RowBox[{"xx", ",", " ", "\"\<singleParticle\>\""}], "]"}]}], ",", 
+         "\n", "    ", 
+         RowBox[{"\"\<Delta E_XX (Ry)\>\"", " ", "->", " ", 
+          RowBox[{"mainValue", "[", 
+           RowBox[{"xx", ",", " ", "\"\<correction\>\""}], "]"}]}], ",", "\n",
+          "    ", 
+         RowBox[{"\"\<E_XX (Ry)\>\"", " ", "->", " ", "exx"}], ",", "\n", 
+         "    ", 
+         RowBox[{"\"\<E_bind = 2 E_X - E_XX (Ry)\>\"", " ", "->", "\n", 
+          "      ", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"NumericQ", "[", "ex", "]"}], " ", "&&", " ", 
+             RowBox[{"NumericQ", "[", "exx", "]"}]}], ",", " ", 
+            RowBox[{
+             RowBox[{"2", " ", "ex"}], " ", "-", " ", "exx"}], ",", " ", 
+            RowBox[{"Missing", "[", "\"\<NotRun\>\"", "]"}]}], "]"}]}], ",", 
+         "\n", "    ", 
+         RowBox[{"\"\<E_XX - E_X (Ry)\>\"", " ", "->", " ", 
+          RowBox[{"mainDifference", "[", 
+           RowBox[{"exx", ",", " ", "ex"}], "]"}]}], ",", "\n", "    ", 
+         RowBox[{"\"\<N_X\>\"", " ", "->", " ", 
+          RowBox[{"mainValue", "[", 
+           RowBox[{"x", ",", " ", "\"\<normX\>\""}], "]"}]}], ",", "\n", 
+         "    ", 
+         RowBox[{"\"\<M_X\>\"", " ", "->", " ", 
+          RowBox[{"mainValue", "[", 
+           RowBox[{"x", ",", " ", "\"\<overlap M_X\>\""}], "]"}]}], ",", "\n",
+          "    ", 
+         RowBox[{"\"\<|M_X|^2\>\"", " ", "->", " ", 
+          RowBox[{"mainValue", "[", 
+           RowBox[{"x", ",", " ", "\"\<oscillator factor |M_X|^2\>\""}], 
+           "]"}]}], ",", "\n", "    ", 
+         RowBox[{"\"\<X diagnostic max\>\"", " ", "->", " ", 
+          RowBox[{"mainValue", "[", 
+           RowBox[{"x", ",", " ", "\"\<diagnosticMax\>\""}], "]"}]}], ",", 
+         "\n", "    ", 
+         RowBox[{"\"\<XX diagnostic max\>\"", " ", "->", " ", 
+          RowBox[{"mainValue", "[", 
+           RowBox[{"xx", ",", " ", "\"\<diagnosticMax\>\""}], "]"}]}]}], 
+        "|>"}]}]}], "\n", "  ", "]"}]}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{"summaryRowsRy", " ", "=", " ", 
+   RowBox[{"mainSummaryRow", " ", "/@", " ", "geometries"}]}], ";"}], "\n", 
+ RowBox[{"Dataset", "[", "summaryRowsRy", "]"}]}], "Input",
+ CellChangeTimes->{{3.9942666344357147`*^9, 
+  3.9942666344357147`*^9}},ExpressionUUID->"ef1aa016-a625-4f4d-bede-\
+9ba079ad0461"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"energyKeysRy", " ", "=", " ", 
+    RowBox[{"{", "\n", "   ", 
+     RowBox[{"\"\<E_X^0 (Ry)\>\"", ",", " ", "\"\<Delta E_X (Ry)\>\"", ",", 
+      " ", "\"\<E_X (Ry)\>\"", ",", "\n", "   ", "\"\<E_XX^0 (Ry)\>\"", ",", 
+      " ", "\"\<Delta E_XX (Ry)\>\"", ",", " ", "\"\<E_XX (Ry)\>\"", ",", 
+      "\n", "   ", "\"\<E_bind = 2 E_X - E_XX (Ry)\>\"", ",", 
+      " ", "\"\<E_XX - E_X (Ry)\>\""}], "\n", "   ", "}"}]}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{"ClearAll", "[", "mainToMeV", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"mainToMeV", "[", "row_Association", "]"}], " ", ":=", " ", 
+    RowBox[{"Association", " ", "@", " ", 
+     RowBox[{"KeyValueMap", "[", "\n", "   ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"MemberQ", "[", 
+           RowBox[{"energyKeysRy", ",", " ", "#1"}], "]"}], ",", "\n", 
+          "      ", 
+          RowBox[{
+           RowBox[{"StringReplace", "[", 
+            RowBox[{"#1", ",", " ", 
+             RowBox[{"\"\<(Ry)\>\"", " ", "->", " ", "\"\<(meV)\>\""}]}], 
+            "]"}], " ", "->", "\n", "       ", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"NumericQ", "[", "#2", "]"}], ",", " ", 
+             RowBox[{"#2", " ", "ER2meV"}], ",", " ", "#2"}], "]"}]}], ",", 
+          "\n", "      ", 
+          RowBox[{"#1", " ", "->", " ", "#2"}]}], "]"}], " ", "&"}], ",", 
+       "\n", "   ", "row"}], "]"}]}]}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{"summaryRowsMeV", " ", "=", " ", 
+   RowBox[{"mainToMeV", " ", "/@", " ", "summaryRowsRy"}]}], ";"}], "\n", 
+ RowBox[{"Dataset", "[", "summaryRowsMeV", "]"}]}], "Input",
+ CellChangeTimes->{{3.994266634477379*^9, 
+  3.994266634477379*^9}},ExpressionUUID->"b776efc7-e1e2-c740-89bd-\
+8e127d558047"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{
+      "dir", ",", " ", "\"\<main-state-production-summary-Ry.csv\>\""}], 
+      "}"}], "]"}], ",", "\n", "  ", 
+    RowBox[{"Prepend", "[", 
+     RowBox[{
+      RowBox[{"Values", " ", "/@", " ", "summaryRowsRy"}], ",", " ", 
+      RowBox[{"Keys", "[", 
+       RowBox[{"First", "[", "summaryRowsRy", "]"}], "]"}]}], "]"}]}], "]"}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{
+      "dir", ",", " ", "\"\<main-state-production-summary-meV.csv\>\""}], 
+      "}"}], "]"}], ",", "\n", "  ", 
+    RowBox[{"Prepend", "[", 
+     RowBox[{
+      RowBox[{"Values", " ", "/@", " ", "summaryRowsMeV"}], ",", " ", 
+      RowBox[{"Keys", "[", 
+       RowBox[{"First", "[", "summaryRowsMeV", "]"}], "]"}]}], "]"}]}], "]"}],
+   ";"}]}], "Input",
+ CellChangeTimes->{{3.9942666344825516`*^9, 
+  3.9942666344825516`*^9}},ExpressionUUID->"735678a1-0851-2849-95b1-\
+1eebf90b9d44"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1152, 579.6},
+WindowMargins->{{
+  Automatic, -5.399999999999864}, {-5.399999999999977, Automatic}},
+WindowTitle->"Main-State Production Runs",
+FrontEndVersion->"15.0 for Microsoft Windows (64-bit) (May 19, 2026)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"17b4c873-fd86-cf4c-bfd6-8bcf47a344f8"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[616, 23, 98, 0, 96, "Title",ExpressionUUID->"065e0c52-f09b-1b47-ad35-d87fa09c932e"],
+Cell[717, 25, 1851, 52, 107, "Text",ExpressionUUID->"9265796a-68ab-294a-9c8c-e399d8e0cccc"],
+Cell[CellGroupData[{
+Cell[2593, 81, 125, 0, 66, "Section",ExpressionUUID->"468b3c38-425b-cf43-a25c-de8e128a5f76"],
+Cell[2721, 83, 2156, 64, 237, "Input",ExpressionUUID->"2e03774c-cc92-f44d-8594-733ee60fe243"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4914, 152, 116, 0, 66, "Section",ExpressionUUID->"01a59beb-fc5f-0c4b-9dec-b59ad90cbb3b"],
+Cell[5033, 154, 2283, 62, 389, "Input",ExpressionUUID->"94e64cca-d0f5-ef40-8391-218092ee94b9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7353, 221, 106, 0, 66, "Section",ExpressionUUID->"f22f8480-fffc-a548-a011-576f7b6c3936"],
+Cell[7462, 223, 7052, 185, 884, "Input",ExpressionUUID->"d05a010d-295f-8a4f-98f2-e17dc213cd83"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14551, 413, 105, 0, 66, "Section",ExpressionUUID->"63e7d4bf-8fb2-5a45-8a95-368a0cc89c75"],
+Cell[14659, 415, 1369, 36, 275, "Input",ExpressionUUID->"1ac508a4-8d9a-be47-a6d9-47748541d311"],
+Cell[16031, 453, 5302, 124, 751, "Input",ExpressionUUID->"59da278b-bf20-104e-80e8-53a5842251e8"],
+Cell[21336, 579, 4868, 113, 675, "Input",ExpressionUUID->"09ac4a65-e395-eb40-a6ea-55fd59def4cf"],
+Cell[26207, 694, 1795, 43, 161, "Input",ExpressionUUID->"dc138dab-ac42-fb40-ad0d-6e456a5e632a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28039, 742, 89, 0, 66, "Section",ExpressionUUID->"7af903a0-3661-864e-b504-f032717fdd84"],
+Cell[28131, 744, 800, 16, 66, "Input",ExpressionUUID->"aac0fb54-695e-fe4d-a361-f305d00ce775"],
+Cell[28934, 762, 388, 10, 28, "Input",ExpressionUUID->"a77e3dd9-88a2-3144-89d1-41e018294b30"],
+Cell[29325, 774, 386, 10, 28, "Input",ExpressionUUID->"809bf819-4d38-944f-b289-76c83aa3e168"],
+Cell[29714, 786, 388, 10, 28, "Input",ExpressionUUID->"2abf0bfd-bd56-bf48-85cd-c0d5dd792a20"],
+Cell[30105, 798, 386, 10, 28, "Input",ExpressionUUID->"3e51693b-f93a-d848-896b-f5d7ff70ea56"],
+Cell[30494, 810, 386, 10, 28, "Input",ExpressionUUID->"03f8176d-bd35-784e-8285-43954f763b18"],
+Cell[30883, 822, 390, 10, 28, "Input",ExpressionUUID->"86b55939-7454-1c44-b494-2fab32478609"],
+Cell[31276, 834, 387, 10, 28, "Input",ExpressionUUID->"832e1908-70ad-f141-9478-a5acce029d75"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31700, 849, 104, 0, 66, "Section",ExpressionUUID->"67371a9a-adea-6042-ab32-4fbd521e7b03"],
+Cell[31807, 851, 5296, 124, 618, "Input",ExpressionUUID->"ef1aa016-a625-4f4d-bede-9ba079ad0461"],
+Cell[37106, 977, 1850, 43, 313, "Input",ExpressionUUID->"b776efc7-e1e2-c740-89bd-8e127d558047"],
+Cell[38959, 1022, 1079, 31, 85, "Input",ExpressionUUID->"735678a1-0851-2849-95b1-1eebf90b9d44"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
