@@ -1,0 +1,42 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+Notebook[{
+Cell["Fully Unreduced Main-State Benchmark: (a,c) = (5,1)", "Title"],
+
+Cell["This notebook evaluates the stored X and XX optima without any particle-exchange or angular reduction. Every particle has its own azimuth on [0,2 Pi], the XX norm is G^2 (P+Q)^2, all six Coulomb terms are retained, and all four XX kinetic contributions are evaluated explicitly. No minimization is performed and no production file is modified. Each integral is timed and checkpointed independently, so an interrupted calculation resumes from the first unfinished integral.", "Text"],
+
+Cell["Load definitions", "Section"],
+
+Cell[BoxData[
+ RowBox[{"Get", "[",
+  RowBox[{"FileNameJoin", "[",
+   RowBox[{"{",
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",",
+     "\"Main-State-Raw-Trial-a5-c1.wl\""}], "}"}], "]"}], "]"}]], "Input"],
+
+Cell["The first benchmark uses one million points per integral. Re-evaluating this cell reuses every completed integral from the checkpoint.", "Text"],
+
+Cell[BoxData[
+ RowBox[{"rawTrialRunBudget", "[",
+  SuperscriptBox["10", "6"], "]"}]], "Input"],
+
+Cell["Run the two-million-point benchmark only after inspecting the first result. It is also independently resumable.", "Text"],
+
+Cell[BoxData[
+ RowBox[{"rawTrialRunBudget", "[",
+  RowBox[{"2", "*", SuperscriptBox["10", "6"]}], "]"}]], "Input"],
+
+Cell["Current completed-budget summary", "Section"],
+
+Cell[BoxData[
+ RowBox[{"rawTrialSummary", "[", "]"}]], "Input"]
+},
+WindowTitle->"Fully Unreduced Main-State Benchmark (a=5, c=1)",
+StyleDefinitions->"Default.nb"
+]
