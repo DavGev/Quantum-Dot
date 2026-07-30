@@ -1,0 +1,127 @@
+"seed","integral","seconds","value","hitMaxPoints","messageText"
+104729,"normP",138.8541554,0.0001454426215465491,true,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -7
+     integrand evaluations. NIntegrate obtained 0.000145443 and 3.5385 10
+     for the integral and error estimates."
+104729,"normQ",149.9118806,0.00014604803952577514,true,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000146048 and 3.60501 10
+     for the integral and error estimates."
+104729,"interactionFullP",242.4413647,-0.00089439949985304,true,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                           -6
+     integrand evaluations. NIntegrate obtained -0.000894399 and 3.09334 10
+     for the integral and error estimates."
+104729,"interactionFullQ",241.8245255,-0.0009009489182389011,true,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                           -6
+     integrand evaluations. NIntegrate obtained -0.000900949 and 3.13359 10
+     for the integral and error estimates."
+104729,"interactionReduced",210.1190892,-0.0008775649614224599,true,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                           -6
+     integrand evaluations. NIntegrate obtained -0.000877565 and 3.18753 10
+     for the integral and error estimates."
+104729,"crossAttractionR1a",162.4281179,0.00016502373394429424,true,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000165024 and 5.11107 10
+     for the integral and error estimates."
+104729,"crossAttractionR1b",164.0075347,0.00016132518471582028,true,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000161325 and 4.86264 10
+     for the integral and error estimates."
+130363,"normP",148.4788753,0.00014531597500186795,true,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000145316 and 3.52934 10
+     for the integral and error estimates."
+130363,"normQ",148.3219687,0.0001461736721653032,true,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000146174 and 3.58831 10
+     for the integral and error estimates."
+130363,"interactionFullP",244.4137556,-0.000893378455713435,true,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                           -6
+     integrand evaluations. NIntegrate obtained -0.000893378 and 3.07394 10
+     for the integral and error estimates."
+130363,"interactionFullQ",243.1315411,-0.0008986365657472443,true,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                           -6
+     integrand evaluations. NIntegrate obtained -0.000898637 and 3.12561 10
+     for the integral and error estimates."
+130363,"interactionReduced",212.8917081,-0.0008819920363956883,true,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                           -6
+     integrand evaluations. NIntegrate obtained -0.000881992 and 3.17082 10
+     for the integral and error estimates."
+130363,"crossAttractionR1a",162.3122045,0.00016558939504010816,true,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000165589 and 5.12717 10
+     for the integral and error estimates."
+130363,"crossAttractionR1b",163.4413907,0.00016117150233956794,true,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -7
+     integrand evaluations. NIntegrate obtained 0.000161172 and 4.8783 10
+     for the integral and error estimates."
+155921,"normP",148.0557759,0.00014554256304487057,true,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000145543 and 3.51889 10
+     for the integral and error estimates."
+155921,"normQ",148.2578368,0.00014628624894829368,true,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000146286 and 3.51971 10
+     for the integral and error estimates."
+155921,"interactionFullP",240.1048744,-0.000887186376225206,true,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                           -6
+     integrand evaluations. NIntegrate obtained -0.000887186 and 3.00321 10
+     for the integral and error estimates."
+155921,"interactionFullQ",241.71067,-0.0009002475906355806,true,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                           -6
+     integrand evaluations. NIntegrate obtained -0.000900248 and 3.08418 10
+     for the integral and error estimates."
+155921,"interactionReduced",212.6664089,-0.0008881197702020036,true,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained -0.00088812 and 3.16104 10
+     for the integral and error estimates."
+155921,"crossAttractionR1a",162.8169562,0.00016517310232877838,true,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000165173 and 5.09152 10
+     for the integral and error estimates."
+155921,"crossAttractionR1b",163.1224766,0.00016202276831415896,true,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000162023 and 4.80874 10
+     for the integral and error estimates."
