@@ -144,3 +144,148 @@ NIntegrate::maxp:
                                                                           -7
      integrand evaluations. NIntegrate obtained 0.000204096 and 5.42438 10
      for the integral and error estimates."
+2000000,"X","energy","norm",84.8209532,0.16414375422635644,true,0.164144,0.000133823,0.0008152792692645272,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.164144 and 0.000133823
+     for the integral and error estimates."
+2000000,"X","energy","interaction",114.1522743,-0.4862647086167983,true,-0.486265,0.000832023,0.001711049527667197,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.486265 and 0.000832023
+     for the integral and error estimates."
+2000000,"X","diagnostic","normAlpha0",0.0046644,0.9999930279525623,false,,,,""
+2000000,"X","diagnostic","normConfig",81.2721054,0.16414375422635644,true,0.164144,0.000133823,0.0008152792692645272,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.164144 and 0.000133823
+     for the integral and error estimates."
+2000000,"X","diagnostic","interactionConfig",111.7961444,-0.4862647086167983,true,-0.486265,0.000832023,0.001711049527667197,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.486265 and 0.000832023
+     for the integral and error estimates."
+2000000,"X","diagnostic","normSwapped",82.1191405,0.16414375422635644,true,0.164144,0.000133823,0.0008152792692645272,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.164144 and 0.000133823
+     for the integral and error estimates."
+2000000,"X","diagnostic","interactionSwapped",110.8110559,-0.4862647086167983,true,-0.486265,0.000832023,0.001711049527667197,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.486265 and 0.000832023
+     for the integral and error estimates."
+2000000,"XX","energy","normDirect",435.2962897,0.00014707396721154846,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000147074 and 2.26327 10
+     for the integral and error estimates."
+2000000,"XX","energy","normCross",299.1014352,0.00013012583570531848,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000130126 and 2.00051 10
+     for the integral and error estimates."
+2000000,"XX","energy","interactionDirect",555.9844884,-0.0009011765644829324,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                           -6
+     integrand evaluations. NIntegrate obtained -0.000901177 and 2.11414 10
+     for the integral and error estimates."
+2000000,"XX","energy","interactionCross",385.437708,-0.0007616231413526975,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                           -6
+     integrand evaluations. NIntegrate obtained -0.000761623 and 2.00183 10
+     for the integral and error estimates."
+2000000,"XX","energy","kineticElectronDirect",932.4342401,0.00008041246066258578,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                           -7
+     integrand evaluations. NIntegrate obtained 0.0000804125 and 1.22679 10
+     for the integral and error estimates."
+2000000,"XX","energy","kineticElectronCross",835.4186496,0.00004537401497864583,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -8
+     integrand evaluations. NIntegrate obtained 0.000045374 and 8.51784 10
+     for the integral and error estimates."
+2000000,"XX","energy","kineticHoleDirect",1313.4134743,0.00020617339336222203,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000206173 and 3.51601 10
+     for the integral and error estimates."
+2000000,"XX","energy","kineticHoleCross",1192.8873661,0.00015863390311091362,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000158634 and 3.03489 10
+     for the integral and error estimates."
+2000000,"XX","diagnostic","normP",301.9552903,0.0001450003871040029,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                      -7
+     integrand evaluations. NIntegrate obtained 0.000145 and 2.4518 10
+     for the integral and error estimates."
+2000000,"XX","diagnostic","normQ",301.5963654,0.0001456585710956333,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000145659 and 2.46593 10
+     for the integral and error estimates."
+2000000,"XX","diagnostic","interactionFullP",486.4306456,-0.000894664124188683,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                           -6
+     integrand evaluations. NIntegrate obtained -0.000894664 and 2.15694 10
+     for the integral and error estimates."
+2000000,"XX","diagnostic","interactionFullQ",487.1666045,-0.0009022639925080584,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                           -6
+     integrand evaluations. NIntegrate obtained -0.000902264 and 2.16667 10
+     for the integral and error estimates."
+2000000,"XX","diagnostic","interactionReduced",424.7128694,-0.0008831891617144498,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                           -6
+     integrand evaluations. NIntegrate obtained -0.000883189 and 2.22536 10
+     for the integral and error estimates."
+2000000,"XX","diagnostic","crossAttractionR1a",326.7734359,0.00016562058838714115,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000165621 and 3.57716 10
+     for the integral and error estimates."
+2000000,"XX","diagnostic","crossAttractionR1b",329.7381987,0.00016161101632290324,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                         -7
+     integrand evaluations. NIntegrate obtained 0.000161611 and 3.4181 10
+     for the integral and error estimates."
+2000000,"XX","diagnostic","kineticElectronP",563.7768902,0.00007943646335921897,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                           -7
+     integrand evaluations. NIntegrate obtained 0.0000794365 and 1.33103 10
+     for the integral and error estimates."
+2000000,"XX","diagnostic","kineticElectronQ",565.6551491,0.00007967061936673484,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                           -7
+     integrand evaluations. NIntegrate obtained 0.0000796706 and 1.33378 10
+     for the integral and error estimates."
+2000000,"XX","diagnostic","kineticHoleP",743.1952126,0.00020317091406805594,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000203171 and 3.78863 10
+     for the integral and error estimates."
+2000000,"XX","diagnostic","kineticHoleQ",746.0442186,0.0002039461879618094,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000203946 and 3.80752 10
+     for the integral and error estimates."
