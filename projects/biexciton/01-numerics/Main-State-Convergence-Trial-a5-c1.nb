@@ -1,0 +1,28 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* CreatedBy='Wolfram 15.0' *)
+
+Notebook[{
+  Cell["Main-State Convergence Trial: (a,c) = (5,1)", "Title"],
+  Cell[
+    "This notebook performs the approved timed, fixed-parameter convergence sweep at (a,c)=(5,1). It imports the existing production optimum, evaluates MaxPoints = 10^6, 2x10^6, and 5x10^6 with PrecisionGoal = 4, and records the time, value, warning status, and reported NIntegrate error for every integral. It does not run either minimizer, change package defaults, or overwrite production results. Evaluate the input cell once. Checkpoints are written after every completed budget.",
+    "Text"],
+  Cell[
+    BoxData[
+      RowBox[{
+        "Get", "[",
+        RowBox[{
+          "FileNameJoin", "[",
+          RowBox[{"{",
+            RowBox[{
+              RowBox[{"NotebookDirectory", "[", "]"}], ",",
+              "\"Main-State-Convergence-Trial-a5-c1.wl\""}],
+            "}"}],
+          "]"}],
+        "]"}]],
+    "Input"]
+  },
+  WindowTitle -> "Main-State Convergence Trial (a=5, c=1)",
+  StyleDefinitions -> "Default.nb"
+]
