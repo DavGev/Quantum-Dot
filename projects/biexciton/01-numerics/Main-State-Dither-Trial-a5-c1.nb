@@ -1,0 +1,28 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* CreatedBy='Wolfram 15.0' *)
+
+Notebook[{
+  Cell["Main-State Dithered Diagnostic Trial: (a,c) = (5,1)", "Title"],
+  Cell[
+    "This notebook tests whether deterministic midpoint stratification is responsible for the persistent biexciton symmetry discrepancies. It imports the existing (5,1) optimum and evaluates seven selected XX diagnostic integrals with AdaptiveQuasiMonteCarlo, BisectionDithering = 0.1, MaxPoints = 10^6, and three fixed random seeds. The same seed is used across the seven integrals within each replicate to provide common random numbers. No minimization is performed, production defaults are not changed, and production results are not overwritten. A separate checkpoint is written after every seed.",
+    "Text"],
+  Cell[
+    BoxData[
+      RowBox[{
+        "Get", "[",
+        RowBox[{
+          "FileNameJoin", "[",
+          RowBox[{"{",
+            RowBox[{
+              RowBox[{"NotebookDirectory", "[", "]"}], ",",
+              "\"Main-State-Dither-Trial-a5-c1.wl\""}],
+            "}"}],
+          "]"}],
+        "]"}]],
+    "Input"]
+  },
+  WindowTitle -> "Main-State Dithered Diagnostic Trial (a=5, c=1)",
+  StyleDefinitions -> "Default.nb"
+]
