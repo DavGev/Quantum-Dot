@@ -1,0 +1,28 @@
+"budget","system","integral","seconds","value","hitMaxPoints","messageIntegralEstimate","reportedErrorEstimate","relativeErrorEstimate","messageText"
+1000000,"X","normDenominator",35.9044543,0.16404437701610505,true,0.164044,0.000192235,0.0011718475420899512,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained 0.164044 and 0.000192235
+     for the integral and error estimates."
+1000000,"X","hamiltonianNumerator",169.2103235,-0.38630375878687223,true,-0.386304,0.0010888,0.002818507392781291,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.386304 and 0.0010888
+     for the integral and error estimates."
+1000000,"XX","normDenominator",216.7897111,0.0005524954321185569,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained 0.000552495 and 1.19398 10
+     for the integral and error estimates."
+1000000,"XX","hamiltonianNumerator",3196.966503,-0.0026868937173618558,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained -0.00268689 and 9.69593 10
+     for the integral and error estimates."
+2000000,"X","normDenominator",80.3259376,0.164086907768864,true,0.164087,0.000135875,0.0008280672836579756,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.164087 and 0.000135875
+     for the integral and error estimates."
