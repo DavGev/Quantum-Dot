@@ -1,0 +1,70 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell["Staged Raw Minimization: (a,c) = (5,1)", "Title"],
+
+Cell["This notebook minimizes the main exciton and biexciton with the global-rotation-fixed raw estimator. The exciton kinetic correction is evaluated analytically as alpha^2 (1 + m_e/m_h); only its Coulomb numerator and norm are integrated. The biexciton retains raw G(P+Q), all six Coulomb terms, and all four particle kinetic contributions. The only removed coordinate is the redundant global rotation (phi_a = 0); all three remaining angles cover the full [0,2 Pi] interval. H/V and N use independent AdaptiveQuasiMonteCarlo calls, with no shared fixed points, reflection folding, or particle-exchange multiplicities.", "Text"],
+
+Cell["The optimization stage uses 100,000 MaxPoints per integral and warm-starts from the stored reduced-production optimum. The final stage re-evaluates the best low-budget parameters at 2,000,000 MaxPoints. Every integral and objective evaluation is timed and checkpointed. If a minimization is interrupted, evaluate its cell again: it restarts its simplex from the best saved point and reuses any matching completed integrals.", "Text"],
+
+Cell["Load and review configuration", "Section"],
+
+Cell[BoxData[
+ RowBox[{"Get", "[",
+  RowBox[{"FileNameJoin", "[",
+   RowBox[{"{",
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",",
+     "\"Main-State-Raw-Minimization-a5-c1.wl\""}], "}"}], "]"}],
+  "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"rawMinConfiguration", "[", "]"}]], "Input"],
+
+Cell["Optimize the exciton", "Section"],
+
+Cell["This is the cheaper one-parameter minimization. Its objective is the exact analytical kinetic correction plus an independently integrated Coulomb-to-norm ratio.", "Text"],
+
+Cell[BoxData[
+ RowBox[{"rawMinimizeX", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"rawMinXConvergencePlot", "[", "]"}]], "Input"],
+
+Cell["Optimize the biexciton", "Section"],
+
+Cell["This is the long stage. At the selected budget, one raw biexciton objective evaluation is expected to take several minutes on the calculation machine. The cell stops at its iteration limit or after the best value stalls, whichever comes first.", "Text"],
+
+Cell[BoxData[
+ RowBox[{"rawMinimizeXX", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"rawMinXXConvergencePlot", "[", "]"}]], "Input"],
+
+Cell["High-budget final evaluation", "Section"],
+
+Cell["Run this only after both minimizations have produced histories. It evaluates the best saved X and XX parameters at 2,000,000 MaxPoints and assembles the corrected total energies and binding energy.", "Text"],
+
+Cell[BoxData[
+ RowBox[{"rawMinFinalize", "[", "]"}]], "Input"],
+
+Cell["Saved summary", "Section"],
+
+Cell[BoxData[
+ RowBox[{"rawMinSummary", "[", "]"}]], "Input"]
+
+},
+WindowSize->{1200, 900},
+WindowMargins->{{Automatic, 40}, {Automatic, 40}},
+WindowTitle->"Staged Raw Minimization (a=5, c=1)",
+FrontEndVersion->"15.0 for Microsoft Windows (64-bit) (June 22, 2026)",
+StyleDefinitions->"Default.nb"]
+
+(* End of Notebook Content *)
