@@ -1,0 +1,42 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+Notebook[{
+Cell["Gauge-Fixed Raw H/N Benchmark: (a,c) = (5,1)", "Title"],
+
+Cell["This notebook uses two independent AdaptiveQuasiMonteCarlo integrations per state: one complete Hamiltonian-correction numerator H and one norm denominator N. It does not impose a shared fixed point set. The global rotation is removed by setting the azimuth of hole a to zero, while every remaining relative angle spans [0,2 Pi]. The XX expressions retain raw G(P+Q), all six Coulomb terms, and the explicit kinetic terms of all four particles. No reflection folding, particle-exchange multiplicity, minimization, or production-file modification is used. Every integral is timed and checkpointed.", "Text"],
+
+Cell["Load definitions", "Section"],
+
+Cell[BoxData[
+ RowBox[{"Get", "[",
+  RowBox[{"FileNameJoin", "[",
+   RowBox[{"{",
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",",
+     "\"Main-State-Raw-Gauge-Trial-a5-c1.wl\""}], "}"}], "]"}], "]"}]], "Input"],
+
+Cell["Run the one-million-point benchmark first. Re-evaluating the cell reuses every completed integral from the checkpoint.", "Text"],
+
+Cell[BoxData[
+ RowBox[{"gaugeTrialRunBudget", "[",
+  SuperscriptBox["10", "6"], "]"}]], "Input"],
+
+Cell["Run the two-million-point benchmark after inspecting the first result. It is independently resumable.", "Text"],
+
+Cell[BoxData[
+ RowBox[{"gaugeTrialRunBudget", "[",
+  RowBox[{"2", "*", SuperscriptBox["10", "6"]}], "]"}]], "Input"],
+
+Cell["Current completed-budget summary", "Section"],
+
+Cell[BoxData[
+ RowBox[{"gaugeTrialSummary", "[", "]"}]], "Input"]
+},
+WindowTitle->"Gauge-Fixed Raw H/N Benchmark (a=5, c=1)",
+StyleDefinitions->"Default.nb"
+]
