@@ -1,0 +1,118 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+Notebook[{
+
+Cell["Parallel Raw Pattern Search: (a,c) = (5,1)", "Title"],
+
+Cell["This notebook performs the approved fast, safeguarded refinement test at (a,c) = (5,1). The exciton uses its analytical kinetic term and independently integrated Coulomb numerator and norm. The biexciton uses the completely raw P+Q, six-term Coulomb, and four-particle kinetic expressions. Only the redundant global rotation is removed by setting phi_a = 0; all three remaining relative angles cover the full [0,2 Pi] range, with no reflection folding or particle-exchange multiplicities.", "Text"],
+
+Cell["Independent parameter candidates run on eight parallel subkernels. Within each candidate, the numerator and denominator remain separate AdaptiveQuasiMonteCarlo integrations with no fixed shared Sobol points. The master kernel checkpoints every candidate as soon as it finishes. A stopped stage can therefore be evaluated again; completed candidates are reused and only missing candidates are submitted.", "Text"],
+
+Cell["The X scan uses 2,000,000 MaxPoints at five initial alpha values and then at two half-step points around the best initial value. The XX scan uses 1,000,000 MaxPoints at the current center and its eight coordinate neighbors. The best proposed move is checked at 2,000,000 MaxPoints and is accepted only if it is lower at both budgets and its high-budget improvement exceeds both 0.02 Ry and the observed cross-budget disagreement. A half-step refinement then tests the two most promising coordinate directions and applies the same final verification rule.", "Text"],
+
+Cell["Run the cells in order. The existing 1,000,000- and 2,000,000-point raw XX evaluations at the starting center are imported automatically when available.", "Text"],
+
+Cell["Load and review", "Section"],
+
+Cell[BoxData[
+ RowBox[{"Get", "[",
+  RowBox[{"FileNameJoin", "[",
+   RowBox[{"{",
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",",
+     "\"Main-State-Raw-Pattern-Search-a5-c1.wl\""}], "}"}], "]"}],
+  "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"psConfiguration", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"psPrepareKernels", "[", "]"}]], "Input"],
+
+Cell["Exciton: high-budget scan", "Section"],
+
+Cell["The first cell evaluates the five-point scan. The second displays it. The third evaluates two half-step points around the best initial alpha, and the fourth displays the combined result.", "Text"],
+
+Cell[BoxData[
+ RowBox[{"psRunXInitial", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"psXPlot", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"psRunXRefinement", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"psXPlot", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"psBestXRow", "[", "]"}]], "Input"],
+
+Cell["Biexciton: initial coordinate stencil", "Section"],
+
+Cell["This stage evaluates the eight missing coordinate neighbors at 1,000,000 MaxPoints. The already computed center is reused. Each small plot shows the minus, center, and plus result along one parameter direction.", "Text"],
+
+Cell[BoxData[
+ RowBox[{"psRunXXInitial", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"psXXInitialPlot", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"psXXAxisScores", "[", "]"}]], "Input"],
+
+Cell["Biexciton: verify the first proposed move", "Section"],
+
+Cell["The lowest 1,000,000-point candidate is re-evaluated at 2,000,000 MaxPoints. The returned association reports both energy differences, their disagreement, the acceptance threshold, and whether the center moves.", "Text"],
+
+Cell[BoxData[
+ RowBox[{"psRunXXVerification", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"psXXFirstDecision", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"psXXAcceptedCenter", "[", "]"}]], "Input"],
+
+Cell["Biexciton: half-step directional refinement", "Section"],
+
+Cell["The two directions with the strongest initial decrease are refined with half steps around the accepted center. The best low-budget refinement is then checked at 2,000,000 MaxPoints using the same safeguarded acceptance rule.", "Text"],
+
+Cell[BoxData[
+ RowBox[{"psXXRefinementAxes", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"psRunXXRefinement", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"psRunXXFinalVerification", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"psXXFinalDecision", "[", "]"}]], "Input"],
+
+Cell["Results and timing", "Section"],
+
+Cell["The summary gives the selected X alpha, both XX decisions, and the final XX parameters. The candidate table contains total elapsed time per parameter point. The integrals CSV contains separate timings, values, error estimates, and warnings for every numerator and denominator.", "Text"],
+
+Cell[BoxData[
+ RowBox[{"psSummary", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"psCandidateTable", "[", "]"}]], "Input"],
+
+Cell["Optional cleanup", "Section"],
+
+Cell["Run this only after all stages are complete, or before closing the notebook.", "Text"],
+
+Cell[BoxData[
+ RowBox[{"psCloseKernels", "[", "]"}]], "Input"]
+
+},
+WindowTitle -> "Parallel Raw Pattern Search (a=5, c=1)",
+StyleDefinitions -> "Default.nb"]
+
