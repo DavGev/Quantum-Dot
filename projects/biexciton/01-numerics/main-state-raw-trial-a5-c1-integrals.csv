@@ -1,0 +1,66 @@
+"budget","system","integral","seconds","value","hitMaxPoints","messageIntegralEstimate","reportedErrorEstimate","relativeErrorEstimate","messageText"
+1000000,"X","rawNorm",36.3414512,0.16318647986496476,true,0.163186,0.000191252,0.001171984346731783,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained 0.163186 and 0.000191252
+     for the integral and error estimates."
+1000000,"X","rawInteractionNumerator",51.6529821,-0.4756528609593966,true,-0.475653,0.00113497,0.0023861309226875125,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.475653 and 0.00113497
+     for the integral and error estimates."
+1000000,"X","rawKineticNumerator",172.8361442,0.10018993797911846,true,0.10019,0.00011721,0.0011698779574494682,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained 0.10019 and 0.00011721
+     for the integral and error estimates."
+1000000,"XX","rawNorm",221.7139599,0.0005373483406928656,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained 0.000537348 and 1.16573 10
+     for the integral and error estimates."
+1000000,"XX","rawInteractionNumerator",319.1326173,-0.003312667787089073,true,-0.00331267,0.0000104767,0.003162617163372772,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00331267 and 0.0000104767
+     for the integral and error estimates."
+1000000,"XX","rawKineticNumerator",3089.287924,0.0007030041349656886,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained 0.000703004 and 1.34967 10
+     for the integral and error estimates."
+2000000,"X","rawNorm",83.5289448,0.16322761309889905,true,0.163228,0.000135181,0.0008281748255308634,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.163228 and 0.000135181
+     for the integral and error estimates."
+2000000,"X","rawInteractionNumerator",114.7518097,-0.4762094123315859,true,-0.476209,0.000804382,0.0016891350300315075,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.476209 and 0.000804382
+     for the integral and error estimates."
+2000000,"X","rawKineticNumerator",341.8311421,0.10012450127912542,true,0.100125,0.0000826943,0.0008259147256021402,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.100125 and 0.0000826943
+     for the integral and error estimates."
+2000000,"XX","rawNorm",442.135562,0.0005390912658629642,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000539091 and 8.25773 10
+     for the integral and error estimates."
+2000000,"XX","rawInteractionNumerator",634.3947788,-0.0033145387103134076,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained -0.00331454 and 7.38749 10
+     for the integral and error estimates."
+2000000,"XX","rawKineticNumerator",6123.8108279,0.0007038170648977921,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000703817 and 9.52744 10
+     for the integral and error estimates."
