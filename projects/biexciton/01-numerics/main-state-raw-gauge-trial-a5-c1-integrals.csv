@@ -26,3 +26,20 @@ NIntegrate::maxp:
    The integral failed to converge after 2000100
      integrand evaluations. NIntegrate obtained 0.164087 and 0.000135875
      for the integral and error estimates."
+2000000,"X","hamiltonianNumerator",356.7015977,-0.3855614707199981,true,-0.385561,0.000768338,0.0019927769197612107,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.385561 and 0.000768338
+     for the integral and error estimates."
+2000000,"XX","normDenominator",432.2132081,0.0005537445385939343,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000553745 and 8.46436 10
+     for the integral and error estimates."
+2000000,"XX","hamiltonianNumerator",6400.7605254,-0.002692914341721769,true,,,,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained -0.00269291 and 6.84935 10
+     for the integral and error estimates."
