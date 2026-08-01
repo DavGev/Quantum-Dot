@@ -1,0 +1,104 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+Notebook[{
+
+Cell["Parallel Raw Pattern Search: Remaining Geometries", "Title"],
+
+Cell["This notebook runs the safeguarded raw parameter search for (5,0.5), (5,1.5), (5,2), (3,1), (7,1), and (10,1). The completed (5,1) trial is deliberately excluded. Each geometry warm-starts from its own stored production optimum, and its X and XX step sizes are scaled separately from those parameters.", "Text"],
+
+Cell["The physics and integration estimator are unchanged from the successful (5,1) test. X uses the analytical kinetic correction and independently integrated Coulomb numerator and norm. XX retains raw P+Q, all six Coulomb terms, and all four kinetic contributions. Only the redundant global rotation is removed (phi_a = 0); all three remaining relative angles span [0,2 Pi]. There is no reflection folding, particle-exchange multiplicity, or shared fixed Sobol sample.", "Text"],
+
+Cell["One global queue feeds eight parallel subkernels with candidates from all six geometries. A worker evaluates one complete parameter candidate at a time: its denominator followed by its numerator. Different candidates and geometries run concurrently, but the two integrals belonging to one candidate remain independent adaptive-QMC calls. The master kernel checkpoints every returned candidate. If a stage is interrupted, evaluate it again to submit only the missing candidates.", "Text"],
+
+Cell["Run the cells in order. Unlike (5,1), these geometries have no compatible raw center evaluations to reuse, so their center points are included in both the search- and verification-budget stages.", "Text"],
+
+Cell["Load and review", "Section"],
+
+Cell[BoxData[
+ RowBox[{"Get", "[",
+  RowBox[{"FileNameJoin", "[",
+   RowBox[{"{",
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",",
+     "\"Main-State-Raw-Pattern-Search-Remaining-Geometries.wl\""}],
+    "}"}], "]"}], "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"pscConfiguration", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"pscPrepareKernels", "[", "]"}]], "Input"],
+
+Cell["Exciton scans", "Section"],
+
+Cell["The initial cell queues five 2,000,000-point alpha values for every geometry. The refinement cell then queues two half-step values around each geometry's best initial point.", "Text"],
+
+Cell[BoxData[
+ RowBox[{"pscRunXInitial", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"pscRunXRefinement", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"pscXPlot", "[", "]"}]], "Input"],
+
+Cell["Biexciton initial stencils", "Section"],
+
+Cell["This is the largest stage: the center and eight coordinate neighbors for each geometry, all at 1,000,000 MaxPoints. There are 54 candidates in the shared queue.", "Text"],
+
+Cell[BoxData[
+ RowBox[{"pscRunXXInitial", "[", "]"}]], "Input"],
+
+Cell["Verify the first proposed moves", "Section"],
+
+Cell["For each geometry, the original center and the best 1,000,000-point stencil candidate are checked at 2,000,000 MaxPoints. A move is accepted only when it is lower at both budgets and its high-budget improvement exceeds both 0.02 Ry and the cross-budget disagreement.", "Text"],
+
+Cell[BoxData[
+ RowBox[{"pscRunXXVerification", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"pscDecisionTable", "[", "]"}]], "Input"],
+
+Cell["Half-step directional refinement", "Section"],
+
+Cell["For each geometry, the two most promising initial coordinate directions are tested at plus and minus half steps around its accepted center. This produces 24 shared-queue candidates at 1,000,000 MaxPoints.", "Text"],
+
+Cell[BoxData[
+ RowBox[{"pscRunXXRefinement", "[", "]"}]], "Input"],
+
+Cell["Final verification", "Section"],
+
+Cell["Only a refinement point that beats its accepted center at the search budget needs a new 2,000,000-point evaluation. Already evaluated centers are reused automatically. The cell returns the final decisions for all geometries.", "Text"],
+
+Cell[BoxData[
+ RowBox[{"pscRunXXFinalVerification", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"pscDecisionTable", "[", "]"}]], "Input"],
+
+Cell["Results, error diagnostics, and timing", "Section"],
+
+Cell["The summary reports corrected X and XX energies, total energies, binding energies, final parameters, and rough propagated integration errors. The candidate table contains timing per parameter point. The integrals CSV contains the separate numerator and denominator timings, warning text, and reported NIntegrate error estimates.", "Text"],
+
+Cell[BoxData[
+ RowBox[{"pscSummary", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"pscCandidateTable", "[", "]"}]], "Input"],
+
+Cell["Optional cleanup", "Section"],
+
+Cell["Run this only after the campaign is complete, or before closing the notebook.", "Text"],
+
+Cell[BoxData[
+ RowBox[{"pscCloseKernels", "[", "]"}]], "Input"]
+
+},
+WindowTitle -> "Parallel Raw Pattern Search: Remaining Geometries",
+StyleDefinitions -> "Default.nb"]
+
