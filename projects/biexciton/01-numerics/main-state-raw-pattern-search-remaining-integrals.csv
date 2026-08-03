@@ -1,0 +1,1434 @@
+"candidateKey","stage","geometryKey","a","c","system","budget","parameters","parameterKey","workerKernel","source","integral","seconds","value","hitMaxPoints","messageIntegralEstimate","reportedErrorEstimate","relativeErrorEstimate","messageText"
+"5.|0.5::X::2000000::0.7509392140222256","X-initial-grid","5.|0.5",5,0.5,"X",2000000,"{0.7509392140222256}","0.7509392140222256",19,"parallel-pattern-search-remaining","normDenominator",191.8329781,0.2509712631304279,true,0.250971,0.000157487,0.0006275100903411207,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.250971 and 0.000157487
+     for the integral and error estimates."
+"5.|0.5::X::2000000::0.7509392140222256","X-initial-grid","5.|0.5",5,0.5,"X",2000000,"{0.7509392140222256}","0.7509392140222256",19,"parallel-pattern-search-remaining","coulombNumerator",330.2550563,-0.9867988408914709,true,-0.986799,0.00149285,0.0015128209905996284,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.986799 and 0.00149285
+     for the integral and error estimates."
+"5.|1.5::X::2000000::0.5639009538682851","X-initial-grid","5.|1.5",5,1.5,"X",2000000,"{0.5639009538682851}","0.5639009538682851",24,"parallel-pattern-search-remaining","normDenominator",191.9832397,0.17357177358858883,true,0.173572,0.000135504,0.0007806799296824636,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.173572 and 0.000135504
+     for the integral and error estimates."
+"5.|1.5::X::2000000::0.5639009538682851","X-initial-grid","5.|1.5",5,1.5,"X",2000000,"{0.5639009538682851}","0.5639009538682851",24,"parallel-pattern-search-remaining","coulombNumerator",330.8182251,-0.39579718058947866,true,-0.395797,0.000653872,0.001652038043894499,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.395797 and 0.000653872
+     for the integral and error estimates."
+"5.|1.5::X::2000000::0.6556987835677733","X-initial-grid","5.|1.5",5,1.5,"X",2000000,"{0.6556987835677733}","0.6556987835677733",26,"parallel-pattern-search-remaining","normDenominator",192.7600327,0.13972624827930427,true,0.139726,0.000124956,0.0008942915274603276,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.139726 and 0.000124956
+     for the integral and error estimates."
+"5.|1.5::X::2000000::0.6556987835677733","X-initial-grid","5.|1.5",5,1.5,"X",2000000,"{0.6556987835677733}","0.6556987835677733",26,"parallel-pattern-search-remaining","coulombNumerator",330.0423387,-0.33747041289985164,true,-0.33747,0.000604233,0.0017904769630258323,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.33747 and 0.000604233
+     for the integral and error estimates."
+"5.|0.5::X::2000000::0.8709392140222256","X-initial-grid","5.|0.5",5,0.5,"X",2000000,"{0.8709392140222256}","0.8709392140222256",21,"parallel-pattern-search-remaining","normDenominator",192.8814111,0.2106910075632928,true,0.210691,0.000150131,0.0007125648205697615,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.210691 and 0.000150131
+     for the integral and error estimates."
+"5.|0.5::X::2000000::0.8709392140222256","X-initial-grid","5.|0.5",5,0.5,"X",2000000,"{0.8709392140222256}","0.8709392140222256",21,"parallel-pattern-search-remaining","coulombNumerator",332.0087263,-0.8737361379625871,true,-0.873736,0.00142604,0.0016321174529020824,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.873736 and 0.00142604
+     for the integral and error estimates."
+"5.|0.5::X::2000000::0.8109392140222256","X-initial-grid","5.|0.5",5,0.5,"X",2000000,"{0.8109392140222256}","0.8109392140222256",20,"parallel-pattern-search-remaining","normDenominator",192.7621557,0.22966819865866994,true,0.229668,0.000153625,0.0006688997471013199,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.229668 and 0.000153625
+     for the integral and error estimates."
+"5.|0.5::X::2000000::0.8109392140222256","X-initial-grid","5.|0.5",5,0.5,"X",2000000,"{0.8109392140222256}","0.8109392140222256",20,"parallel-pattern-search-remaining","coulombNumerator",332.7387248,-0.927281028924366,true,-0.927281,0.00146601,0.0015809770223602574,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.927281 and 0.00146601
+     for the integral and error estimates."
+"5.|0.5::X::2000000::0.9309392140222257","X-initial-grid","5.|0.5",5,0.5,"X",2000000,"{0.9309392140222257}","0.9309392140222257",22,"parallel-pattern-search-remaining","normDenominator",193.4870796,0.19377482472144603,true,0.193775,0.000146085,0.000753890502597534,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.193775 and 0.000146085
+     for the integral and error estimates."
+"5.|0.5::X::2000000::0.9309392140222257","X-initial-grid","5.|0.5",5,0.5,"X",2000000,"{0.9309392140222257}","0.9309392140222257",22,"parallel-pattern-search-remaining","coulombNumerator",332.0782759,-0.8264552383653535,true,-0.826455,0.00139858,0.0016922634585343698,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.826455 and 0.00139858
+     for the integral and error estimates."
+"5.|0.5::X::2000000::0.9909392140222256","X-initial-grid","5.|0.5",5,0.5,"X",2000000,"{0.9909392140222256}","0.9909392140222256",23,"parallel-pattern-search-remaining","normDenominator",192.8573765,0.1785716650265634,true,0.178572,0.000142786,0.0007996005412099388,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.178572 and 0.000142786
+     for the integral and error estimates."
+"5.|0.5::X::2000000::0.9909392140222256","X-initial-grid","5.|0.5",5,0.5,"X",2000000,"{0.9909392140222256}","0.9909392140222256",23,"parallel-pattern-search-remaining","coulombNumerator",332.8160819,-0.7810117695580702,true,-0.781012,0.00136325,0.0017454922616228759,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.781012 and 0.00136325
+     for the integral and error estimates."
+"5.|1.5::X::2000000::0.6097998687180292","X-initial-grid","5.|1.5",5,1.5,"X",2000000,"{0.6097998687180292}","0.6097998687180292",25,"parallel-pattern-search-remaining","normDenominator",193.8855506,0.1554486936214968,true,0.155449,0.000130399,0.0008388555539585911,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.155449 and 0.000130399
+     for the integral and error estimates."
+"5.|1.5::X::2000000::0.6097998687180292","X-initial-grid","5.|1.5",5,1.5,"X",2000000,"{0.6097998687180292}","0.6097998687180292",25,"parallel-pattern-search-remaining","coulombNumerator",334.4678575,-0.3652958622737349,true,-0.365296,0.000626591,0.0017152972828650965,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.365296 and 0.000626591
+     for the integral and error estimates."
+"5.|1.5::X::2000000::0.7015976984175175","X-initial-grid","5.|1.5",5,1.5,"X",2000000,"{0.7015976984175175}","0.7015976984175175",19,"parallel-pattern-search-remaining","normDenominator",232.2347851,0.12599093273470113,true,0.125991,0.000120476,0.0009562275426096423,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.125991 and 0.000120476
+     for the integral and error estimates."
+"5.|1.5::X::2000000::0.7015976984175175","X-initial-grid","5.|1.5",5,1.5,"X",2000000,"{0.7015976984175175}","0.7015976984175175",19,"parallel-pattern-search-remaining","coulombNumerator",319.3066861,-0.3135353859144604,true,-0.313535,0.000587635,0.0018742222613441157,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.313535 and 0.000587635
+     for the integral and error estimates."
+"5.|1.5::X::2000000::0.7474966132672616","X-initial-grid","5.|1.5",5,1.5,"X",2000000,"{0.7474966132672616}","0.7474966132672616",24,"parallel-pattern-search-remaining","normDenominator",232.5361629,0.11394162316165253,true,0.113942,0.00011512,0.0010103419348052964,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.113942 and 0.00011512
+     for the integral and error estimates."
+"5.|1.5::X::2000000::0.7474966132672616","X-initial-grid","5.|1.5",5,1.5,"X",2000000,"{0.7474966132672616}","0.7474966132672616",24,"parallel-pattern-search-remaining","coulombNumerator",318.6461492,-0.29122568916160296,true,-0.291226,0.000565735,0.0019425999183954891,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.291226 and 0.000565735
+     for the integral and error estimates."
+"5.|2.::X::2000000::0.5202290788682852","X-initial-grid","5.|2.",5,2,"X",2000000,"{0.5202290788682852}","0.5202290788682852",26,"parallel-pattern-search-remaining","normDenominator",232.2855716,0.15545218820861206,true,0.155452,0.000128914,0.0008292839199342847,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.155452 and 0.000128914
+     for the integral and error estimates."
+"5.|2.::X::2000000::0.5202290788682852","X-initial-grid","5.|2.",5,2,"X",2000000,"{0.5202290788682852}","0.5202290788682852",26,"parallel-pattern-search-remaining","coulombNumerator",319.2070532,-0.3055850399309851,true,-0.305585,0.000518291,0.001696061430615365,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.305585 and 0.000518291
+     for the integral and error estimates."
+"5.|2.::X::2000000::0.5625733062180293","X-initial-grid","5.|2.",5,2,"X",2000000,"{0.5625733062180293}","0.5625733062180293",21,"parallel-pattern-search-remaining","normDenominator",232.7201822,0.1384202894232742,true,0.13842,0.000122139,0.0008823778689445752,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.13842 and 0.000122139
+     for the integral and error estimates."
+"5.|2.::X::2000000::0.5625733062180293","X-initial-grid","5.|2.",5,2,"X",2000000,"{0.5625733062180293}","0.5625733062180293",21,"parallel-pattern-search-remaining","coulombNumerator",321.1698164,-0.2805218460492572,true,-0.280522,0.000498574,0.0017773089940113069,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.280522 and 0.000498574
+     for the integral and error estimates."
+"5.|2.::X::2000000::0.6049175335677734","X-initial-grid","5.|2.",5,2,"X",2000000,"{0.6049175335677734}","0.6049175335677734",20,"parallel-pattern-search-remaining","normDenominator",233.3577547,0.12368830746530651,true,0.123688,0.000117909,0.0009532752320430323,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.123688 and 0.000117909
+     for the integral and error estimates."
+"5.|2.::X::2000000::0.6049175335677734","X-initial-grid","5.|2.",5,2,"X",2000000,"{0.6049175335677734}","0.6049175335677734",20,"parallel-pattern-search-remaining","coulombNumerator",320.876299,-0.25825418285652624,true,-0.258254,0.000477324,0.001848272096584699,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.258254 and 0.000477324
+     for the integral and error estimates."
+"5.|2.::X::2000000::0.6896059882672617","X-initial-grid","5.|2.",5,2,"X",2000000,"{0.6896059882672617}","0.6896059882672617",23,"parallel-pattern-search-remaining","normDenominator",233.0650949,0.09982589683662163,true,0.0998259,0.000106406,0.0010659157931147624,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.0998259 and 0.000106406
+     for the integral and error estimates."
+"5.|2.::X::2000000::0.6896059882672617","X-initial-grid","5.|2.",5,2,"X",2000000,"{0.6896059882672617}","0.6896059882672617",23,"parallel-pattern-search-remaining","coulombNumerator",321.3030647,-0.22036936815704375,true,-0.220369,0.000440745,0.002000028423577945,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.220369 and 0.000440745
+     for the integral and error estimates."
+"5.|2.::X::2000000::0.6472617609175176","X-initial-grid","5.|2.",5,2,"X",2000000,"{0.6472617609175176}","0.6472617609175176",22,"parallel-pattern-search-remaining","normDenominator",234.1042244,0.11093828936413082,true,0.110938,0.000112471,0.0010138158848910892,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.110938 and 0.000112471
+     for the integral and error estimates."
+"5.|2.::X::2000000::0.6472617609175176","X-initial-grid","5.|2.",5,2,"X",2000000,"{0.6472617609175176}","0.6472617609175176",22,"parallel-pattern-search-remaining","coulombNumerator",321.4726236,-0.23797837151389328,true,-0.237978,0.000457272,0.0019214855412745114,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.237978 and 0.000457272
+     for the integral and error estimates."
+"3.|1.::X::2000000::0.607236891368285","X-initial-grid","3.|1.",3,1,"X",2000000,"{0.607236891368285}","0.607236891368285",25,"parallel-pattern-search-remaining","normDenominator",233.774051,0.2765206450110019,true,0.276521,0.000153521,0.000555188203014252,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.276521 and 0.000153521
+     for the integral and error estimates."
+"3.|1.::X::2000000::0.607236891368285","X-initial-grid","3.|1.",3,1,"X",2000000,"{0.607236891368285}","0.607236891368285",25,"parallel-pattern-search-remaining","coulombNumerator",321.5165027,-0.8654158414617543,true,-0.865416,0.0011561,0.0013358895742505215,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.865416 and 0.0011561
+     for the integral and error estimates."
+"3.|1.::X::2000000::0.6566631499680291","X-initial-grid","3.|1.",3,1,"X",2000000,"{0.6566631499680291}","0.6566631499680291",19,"parallel-pattern-search-remaining","normDenominator",233.3856272,0.25348726069887706,true,0.253487,0.000150691,0.0005944716889698415,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.253487 and 0.000150691
+     for the integral and error estimates."
+"3.|1.::X::2000000::0.6566631499680291","X-initial-grid","3.|1.",3,1,"X",2000000,"{0.6566631499680291}","0.6566631499680291",19,"parallel-pattern-search-remaining","coulombNumerator",333.0533628,-0.8119739970874816,true,-0.811974,0.0011291,0.0013905617717439682,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.811974 and 0.0011291
+     for the integral and error estimates."
+"3.|1.::X::2000000::0.7060894085677732","X-initial-grid","3.|1.",3,1,"X",2000000,"{0.7060894085677732}","0.7060894085677732",24,"parallel-pattern-search-remaining","normDenominator",233.2705971,0.23286548248378441,true,0.232865,0.00014806,0.0006358177194007709,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.232865 and 0.00014806
+     for the integral and error estimates."
+"3.|1.::X::2000000::0.7060894085677732","X-initial-grid","3.|1.",3,1,"X",2000000,"{0.7060894085677732}","0.7060894085677732",24,"parallel-pattern-search-remaining","coulombNumerator",332.9738035,-0.7644214777778886,true,-0.764421,0.00110699,0.0014481408910931315,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.764421 and 0.00110699
+     for the integral and error estimates."
+"3.|1.::X::2000000::0.7555156671675174","X-initial-grid","3.|1.",3,1,"X",2000000,"{0.7555156671675174}","0.7555156671675174",26,"parallel-pattern-search-remaining","normDenominator",233.5344351,0.21435985714383085,true,0.21436,0.000143922,0.0006714036943187149,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.21436 and 0.000143922
+     for the integral and error estimates."
+"3.|1.::X::2000000::0.7555156671675174","X-initial-grid","3.|1.",3,1,"X",2000000,"{0.7555156671675174}","0.7555156671675174",26,"parallel-pattern-search-remaining","coulombNumerator",334.8115136,-0.7198182450874324,true,-0.719818,0.00107347,0.001491307017189612,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.719818 and 0.00107347
+     for the integral and error estimates."
+"3.|1.::X::2000000::0.8049419257672615","X-initial-grid","3.|1.",3,1,"X",2000000,"{0.8049419257672615}","0.8049419257672615",21,"parallel-pattern-search-remaining","normDenominator",233.1483362,0.1977194620057519,true,0.197719,0.000140602,0.0007111186656774825,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.197719 and 0.000140602
+     for the integral and error estimates."
+"3.|1.::X::2000000::0.8049419257672615","X-initial-grid","3.|1.",3,1,"X",2000000,"{0.8049419257672615}","0.8049419257672615",21,"parallel-pattern-search-remaining","coulombNumerator",334.4602159,-0.6794830705626347,true,-0.679483,0.00105462,0.0015520916497989265,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.679483 and 0.00105462
+     for the integral and error estimates."
+"7.|1.::X::2000000::0.655611891368285","X-initial-grid","7.|1.",7,1,"X",2000000,"{0.655611891368285}","0.655611891368285",20,"parallel-pattern-search-remaining","normDenominator",233.1108187,0.15333909661165646,true,0.153339,0.000133492,0.0008705672783378866,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.153339 and 0.000133492
+     for the integral and error estimates."
+"7.|1.::X::2000000::0.655611891368285","X-initial-grid","7.|1.",7,1,"X",2000000,"{0.655611891368285}","0.655611891368285",20,"parallel-pattern-search-remaining","coulombNumerator",334.1920546,-0.40674350538576526,true,-0.406744,0.000739604,0.0018183547867557021,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.406744 and 0.000739604
+     for the integral and error estimates."
+"7.|1.::X::2000000::0.7089756499680291","X-initial-grid","7.|1.",7,1,"X",2000000,"{0.7089756499680291}","0.7089756499680291",23,"parallel-pattern-search-remaining","normDenominator",232.874974,0.13689925839978706,true,0.136899,0.000128449,0.0009382738920680654,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.136899 and 0.000128449
+     for the integral and error estimates."
+"7.|1.::X::2000000::0.7089756499680291","X-initial-grid","7.|1.",7,1,"X",2000000,"{0.7089756499680291}","0.7089756499680291",23,"parallel-pattern-search-remaining","coulombNumerator",335.6588113,-0.37539312490887683,true,-0.375393,0.000711304,0.001894824259694853,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.375393 and 0.000711304
+     for the integral and error estimates."
+"7.|1.::X::2000000::0.7623394085677733","X-initial-grid","7.|1.",7,1,"X",2000000,"{0.7623394085677733}","0.7623394085677733",22,"parallel-pattern-search-remaining","normDenominator",233.9930051,0.1226860361579315,true,0.122686,0.00012205,0.0009948157412379617,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.122686 and 0.00012205
+     for the integral and error estimates."
+"7.|1.::X::2000000::0.7623394085677733","X-initial-grid","7.|1.",7,1,"X",2000000,"{0.7623394085677733}","0.7623394085677733",22,"parallel-pattern-search-remaining","coulombNumerator",335.2767608,-0.3474908191617067,true,-0.347491,0.000688077,0.0019801300122401213,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.347491 and 0.000688077
+     for the integral and error estimates."
+"7.|1.::X::2000000::0.8157031671675175","X-initial-grid","7.|1.",7,1,"X",2000000,"{0.8157031671675175}","0.8157031671675175",25,"parallel-pattern-search-remaining","normDenominator",234.6884402,0.11041545362973536,true,0.110415,0.000118105,0.0010696419397600862,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.110415 and 0.000118105
+     for the integral and error estimates."
+"7.|1.::X::2000000::0.8157031671675175","X-initial-grid","7.|1.",7,1,"X",2000000,"{0.8157031671675175}","0.8157031671675175",25,"parallel-pattern-search-remaining","coulombNumerator",335.733877,-0.32212535454622204,true,-0.322125,0.000659929,0.00204867139666681,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.322125 and 0.000659929
+     for the integral and error estimates."
+"10.|1.::X::2000000::0.652924391368285","X-initial-grid","10.|1.",10,1,"X",2000000,"{0.652924391368285}","0.652924391368285",24,"parallel-pattern-search-remaining","normDenominator",198.5549434,0.12037400852553158,true,0.120374,0.00012337,0.0010248890230637536,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.120374 and 0.00012337
+     for the integral and error estimates."
+"10.|1.::X::2000000::0.652924391368285","X-initial-grid","10.|1.",10,1,"X",2000000,"{0.652924391368285}","0.652924391368285",24,"parallel-pattern-search-remaining","coulombNumerator",268.7689666,-0.29751858233808326,true,-0.297519,0.000604495,0.002031789057508637,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.297519 and 0.000604495
+     for the integral and error estimates."
+"7.|1.::X::2000000::0.8690669257672615","X-initial-grid","7.|1.",7,1,"X",2000000,"{0.8690669257672615}","0.8690669257672615",19,"parallel-pattern-search-remaining","normDenominator",200.0193743,0.09967982321045839,true,0.0996798,0.000111388,0.0011174578406386378,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.0996798 and 0.000111388
+     for the integral and error estimates."
+"7.|1.::X::2000000::0.8690669257672615","X-initial-grid","7.|1.",7,1,"X",2000000,"{0.8690669257672615}","0.8690669257672615",19,"parallel-pattern-search-remaining","coulombNumerator",269.4786543,-0.2997452568327763,true,-0.299745,0.00063733,0.002126238816034235,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.299745 and 0.00063733
+     for the integral and error estimates."
+"10.|1.::X::2000000::0.7060693999680291","X-initial-grid","10.|1.",10,1,"X",2000000,"{0.7060693999680291}","0.7060693999680291",26,"parallel-pattern-search-remaining","normDenominator",199.0424317,0.10654814699031528,true,0.106548,0.000117519,0.0011029661549222616,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.106548 and 0.000117519
+     for the integral and error estimates."
+"10.|1.::X::2000000::0.7060693999680291","X-initial-grid","10.|1.",10,1,"X",2000000,"{0.7060693999680291}","0.7060693999680291",26,"parallel-pattern-search-remaining","coulombNumerator",268.4171407,-0.27313667736487535,true,-0.273137,0.000583774,0.002137296263658334,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.273137 and 0.000583774
+     for the integral and error estimates."
+"10.|1.::X::2000000::0.8123594171675174","X-initial-grid","10.|1.",10,1,"X",2000000,"{0.8123594171675174}","0.8123594171675174",20,"parallel-pattern-search-remaining","normDenominator",198.1659737,0.08467326461222774,true,0.0846733,0.00010629,0.0012552958774740637,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.0846733 and 0.00010629
+     for the integral and error estimates."
+"10.|1.::X::2000000::0.8123594171675174","X-initial-grid","10.|1.",10,1,"X",2000000,"{0.8123594171675174}","0.8123594171675174",20,"parallel-pattern-search-remaining","coulombNumerator",268.0496864,-0.2327892413780055,true,-0.232789,0.000539238,0.002316421484119964,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.232789 and 0.000539238
+     for the integral and error estimates."
+"10.|1.::X::2000000::0.7592144085677732","X-initial-grid","10.|1.",10,1,"X",2000000,"{0.7592144085677732}","0.7592144085677732",21,"parallel-pattern-search-remaining","normDenominator",198.1077012,0.09476976759722358,true,0.0947698,0.000111875,0.001180492501316185,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.0947698 and 0.000111875
+     for the integral and error estimates."
+"10.|1.::X::2000000::0.7592144085677732","X-initial-grid","10.|1.",10,1,"X",2000000,"{0.7592144085677732}","0.7592144085677732",21,"parallel-pattern-search-remaining","coulombNumerator",268.8888655,-0.25201959828144804,true,-0.25202,0.000556725,0.0022090543901997096,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.25202 and 0.000556725
+     for the integral and error estimates."
+"10.|1.::X::2000000::0.8655044257672615","X-initial-grid","10.|1.",10,1,"X",2000000,"{0.8655044257672615}","0.8655044257672615",23,"parallel-pattern-search-remaining","normDenominator",197.4834749,0.07591517583021953,true,0.0759152,0.000100479,0.0013235693509386873,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.0759152 and 0.000100479
+     for the integral and error estimates."
+"10.|1.::X::2000000::0.8655044257672615","X-initial-grid","10.|1.",10,1,"X",2000000,"{0.8655044257672615}","0.8655044257672615",23,"parallel-pattern-search-remaining","coulombNumerator",268.1754322,-0.21514831575149296,true,-0.215148,0.000514451,0.0023911458391067146,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.215148 and 0.000514451
+     for the integral and error estimates."
+"5.|0.5::X::2000000::0.7209392140222256","X-half-step-refinement","5.|0.5",5,0.5,"X",2000000,"{0.7209392140222256}","0.7209392140222256",19,"parallel-pattern-search-remaining","normDenominator",222.7120108,0.26260023979235925,true,0.2626,0.000158507,0.0006036056940592787,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.2626 and 0.000158507
+     for the integral and error estimates."
+"5.|0.5::X::2000000::0.7209392140222256","X-half-step-refinement","5.|0.5",5,0.5,"X",2000000,"{0.7209392140222256}","0.7209392140222256",19,"parallel-pattern-search-remaining","coulombNumerator",319.2577874,-1.017137571763448,true,-1.01714,0.00150767,0.0014822675337674313,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -1.01714 and 0.00150767
+     for the integral and error estimates."
+"5.|2.::X::2000000::0.6260896472426455","X-half-step-refinement","5.|2.",5,2,"X",2000000,"{0.6260896472426455}","0.6260896472426455",24,"parallel-pattern-search-remaining","normDenominator",223.7691272,0.11705949765467877,true,0.117059,0.000114574,0.0009787672277390862,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.117059 and 0.000114574
+     for the integral and error estimates."
+"5.|2.::X::2000000::0.6260896472426455","X-half-step-refinement","5.|2.",5,2,"X",2000000,"{0.6260896472426455}","0.6260896472426455",24,"parallel-pattern-search-remaining","coulombNumerator",319.7804664,-0.24798051390612696,true,-0.247981,0.000468779,0.0018903864364820872,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.247981 and 0.000468779
+     for the integral and error estimates."
+"3.|1.::X::2000000::0.7308025378676453","X-half-step-refinement","3.|1.",3,1,"X",2000000,"{0.7308025378676453}","0.7308025378676453",26,"parallel-pattern-search-remaining","normDenominator",223.642839,0.22337111256484643,true,0.223371,0.000146832,0.0006573455193646559,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.223371 and 0.000146832
+     for the integral and error estimates."
+"3.|1.::X::2000000::0.7308025378676453","X-half-step-refinement","3.|1.",3,1,"X",2000000,"{0.7308025378676453}","0.7308025378676453",26,"parallel-pattern-search-remaining","coulombNumerator",320.6690428,-0.7417962739208167,true,-0.741796,0.00109071,0.00147036327674575,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.741796 and 0.00109071
+     for the integral and error estimates."
+"5.|0.5::X::2000000::0.7809392140222257","X-half-step-refinement","5.|0.5",5,0.5,"X",2000000,"{0.7809392140222257}","0.7809392140222257",20,"parallel-pattern-search-remaining","normDenominator",223.6530244,0.2400070116406179,true,0.240007,0.000156047,0.0006501768383069655,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.240007 and 0.000156047
+     for the integral and error estimates."
+"5.|0.5::X::2000000::0.7809392140222257","X-half-step-refinement","5.|0.5",5,0.5,"X",2000000,"{0.7809392140222257}","0.7809392140222257",20,"parallel-pattern-search-remaining","coulombNumerator",321.0380923,-0.9567106826213968,true,-0.956711,0.00146744,0.001533838836187341,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.956711 and 0.00146744
+     for the integral and error estimates."
+"5.|1.5::X::2000000::0.6786482409926454","X-half-step-refinement","5.|1.5",5,1.5,"X",2000000,"{0.6786482409926454}","0.6786482409926454",21,"parallel-pattern-search-remaining","normDenominator",223.7628155,0.1326080608280614,true,0.132608,0.000123144,0.0009286313307881606,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.132608 and 0.000123144
+     for the integral and error estimates."
+"5.|1.5::X::2000000::0.6786482409926454","X-half-step-refinement","5.|1.5",5,1.5,"X",2000000,"{0.6786482409926454}","0.6786482409926454",21,"parallel-pattern-search-remaining","coulombNumerator",320.9444987,-0.32490910990719024,true,-0.324909,0.000590614,0.001817782210442508,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.324909 and 0.000590614
+     for the integral and error estimates."
+"5.|2.::X::2000000::0.5837454198929014","X-half-step-refinement","5.|2.",5,2,"X",2000000,"{0.5837454198929014}","0.5837454198929014",23,"parallel-pattern-search-remaining","normDenominator",223.1567385,0.1307933454451575,true,0.130793,0.000120639,0.0009223634397407834,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.130793 and 0.000120639
+     for the integral and error estimates."
+"5.|2.::X::2000000::0.5837454198929014","X-half-step-refinement","5.|2.",5,2,"X",2000000,"{0.5837454198929014}","0.5837454198929014",23,"parallel-pattern-search-remaining","coulombNumerator",322.0986273,-0.2691928027715664,true,-0.269193,0.000489837,0.001819651175502153,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.269193 and 0.000489837
+     for the integral and error estimates."
+"3.|1.::X::2000000::0.6813762792679012","X-half-step-refinement","3.|1.",3,1,"X",2000000,"{0.6813762792679012}","0.6813762792679012",25,"parallel-pattern-search-remaining","normDenominator",224.0282917,0.24288542242230038,true,0.242885,0.000149733,0.0006164758613617495,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.242885 and 0.000149733
+     for the integral and error estimates."
+"3.|1.::X::2000000::0.6813762792679012","X-half-step-refinement","3.|1.",3,1,"X",2000000,"{0.6813762792679012}","0.6813762792679012",25,"parallel-pattern-search-remaining","coulombNumerator",322.3520212,-0.7874248958920066,true,-0.787425,0.00111737,0.001419017871836814,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.787425 and 0.00111737
+     for the integral and error estimates."
+"5.|1.5::X::2000000::0.7245471558423896","X-half-step-refinement","5.|1.5",5,1.5,"X",2000000,"{0.7245471558423896}","0.7245471558423896",22,"parallel-pattern-search-remaining","normDenominator",225.4260943,0.11975320035842953,true,0.119753,0.000117824,0.0009838901979015568,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.119753 and 0.000117824
+     for the integral and error estimates."
+"5.|1.5::X::2000000::0.7245471558423896","X-half-step-refinement","5.|1.5",5,1.5,"X",2000000,"{0.7245471558423896}","0.7245471558423896",22,"parallel-pattern-search-remaining","coulombNumerator",322.0592411,-0.3025390746124331,true,-0.302539,0.000578579,0.0019124108207879825,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.302539 and 0.000578579
+     for the integral and error estimates."
+"7.|1.::X::2000000::0.7356575292679012","X-half-step-refinement","7.|1.",7,1,"X",2000000,"{0.7356575292679012}","0.7356575292679012",19,"parallel-pattern-search-remaining","normDenominator",161.2419376,0.12954899536470962,true,0.129549,0.000125793,0.0009710071440219535,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.129549 and 0.000125793
+     for the integral and error estimates."
+"7.|1.::X::2000000::0.7356575292679012","X-half-step-refinement","7.|1.",7,1,"X",2000000,"{0.7356575292679012}","0.7356575292679012",19,"parallel-pattern-search-remaining","coulombNumerator",215.2111729,-0.36087423083155873,true,-0.360874,0.000694508,0.0019245153592697725,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.360874 and 0.000694508
+     for the integral and error estimates."
+"7.|1.::X::2000000::0.7890212878676454","X-half-step-refinement","7.|1.",7,1,"X",2000000,"{0.7890212878676454}","0.7890212878676454",24,"parallel-pattern-search-remaining","normDenominator",161.0955191,0.11634661038543265,true,0.116347,0.000119638,0.0010282895187377066,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.116347 and 0.000119638
+     for the integral and error estimates."
+"7.|1.::X::2000000::0.7890212878676454","X-half-step-refinement","7.|1.",7,1,"X",2000000,"{0.7890212878676454}","0.7890212878676454",24,"parallel-pattern-search-remaining","coulombNumerator",215.6021296,-0.3346753893282992,true,-0.334675,0.00067637,0.002020973222313984,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.334675 and 0.00067637
+     for the integral and error estimates."
+"10.|1.::X::2000000::0.7326419042679012","X-half-step-refinement","10.|1.",10,1,"X",2000000,"{0.7326419042679012}","0.7326419042679012",26,"parallel-pattern-search-remaining","normDenominator",159.9965031,0.10041979033036273,true,0.10042,0.000114588,0.0011410898152946392,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.10042 and 0.000114588
+     for the integral and error estimates."
+"10.|1.::X::2000000::0.7326419042679012","X-half-step-refinement","10.|1.",10,1,"X",2000000,"{0.7326419042679012}","0.7326419042679012",26,"parallel-pattern-search-remaining","coulombNumerator",216.0242878,-0.2623380285115226,true,-0.262338,0.000573332,0.002185470414842344,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.262338 and 0.000573332
+     for the integral and error estimates."
+"10.|1.::X::2000000::0.7857869128676452","X-half-step-refinement","10.|1.",10,1,"X",2000000,"{0.7857869128676452}","0.7857869128676452",20,"parallel-pattern-search-remaining","normDenominator",160.2865246,0.08953519138457318,true,0.0895352,0.000108836,0.0012155667321078886,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained 0.0895352 and 0.000108836
+     for the integral and error estimates."
+"10.|1.::X::2000000::0.7857869128676452","X-half-step-refinement","10.|1.",10,1,"X",2000000,"{0.7857869128676452}","0.7857869128676452",20,"parallel-pattern-search-remaining","coulombNumerator",216.4575103,-0.24253669772465497,true,-0.242537,0.000547714,0.002258272686724729,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.242537 and 0.000547714
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.7556943737557128|0.21332841922907436|2.3712859721644617|2.3827235819174315","XX-initial-stencil","5.|0.5",5,0.5,"XX",1000000,"{0.7556943737557128, 0.21332841922907436, 2.3712859721644617, 2.3827235819174315}","0.7556943737557128|0.21332841922907436|2.3712859721644617|2.3827235819174315",24,"parallel-pattern-search-remaining","normDenominator",590.2047599,0.0005836462824071054,true,0.000583646,0.0000010076899999999998,0.0017265423088861814,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained 0.000583646 and 1.00769 10
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.7556943737557128|0.21332841922907436|2.3712859721644617|2.3827235819174315","XX-initial-stencil","5.|0.5",5,0.5,"XX",1000000,"{0.7556943737557128, 0.21332841922907436, 2.3712859721644617, 2.3827235819174315}","0.7556943737557128|0.21332841922907436|2.3712859721644617|2.3827235819174315",24,"parallel-pattern-search-remaining","hamiltonianNumerator",9462.6382285,-0.0039725127172012585,true,-0.00397251,0.0000123799,0.0031163902752014273,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00397251 and 0.0000123799
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.7556943737557128|0.21332841922907436|2.577484752352676|2.3827235819174315","XX-initial-stencil","5.|0.5",5,0.5,"XX",1000000,"{0.7556943737557128, 0.21332841922907436, 2.577484752352676, 2.3827235819174315}","0.7556943737557128|0.21332841922907436|2.577484752352676|2.3827235819174315",19,"parallel-pattern-search-remaining","normDenominator",588.5284064,0.0005653888989679413,true,0.000565389,9.540279999999998e-7,0.0016873836782814074,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000565389 and 9.54028 10
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.7556943737557128|0.21332841922907436|2.577484752352676|2.3827235819174315","XX-initial-stencil","5.|0.5",5,0.5,"XX",1000000,"{0.7556943737557128, 0.21332841922907436, 2.577484752352676, 2.3827235819174315}","0.7556943737557128|0.21332841922907436|2.577484752352676|2.3827235819174315",19,"parallel-pattern-search-remaining","hamiltonianNumerator",9478.0025601,-0.0038311999220459157,true,-0.0038312,0.0000116854,0.003050062705618304,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.0038312 and 0.0000116854
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.8463776986063983|0.21332841922907436|2.577484752352676|2.3827235819174315","XX-initial-stencil","5.|0.5",5,0.5,"XX",1000000,"{0.8463776986063983, 0.21332841922907436, 2.577484752352676, 2.3827235819174315}","0.8463776986063983|0.21332841922907436|2.577484752352676|2.3827235819174315",21,"parallel-pattern-search-remaining","normDenominator",591.8541673,0.00042699173691313326,true,0.000426992,7.68118e-7,0.0017989060058936576,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000426992 and 7.68118 10
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.8463776986063983|0.21332841922907436|2.577484752352676|2.3827235819174315","XX-initial-stencil","5.|0.5",5,0.5,"XX",1000000,"{0.8463776986063983, 0.21332841922907436, 2.577484752352676, 2.3827235819174315}","0.8463776986063983|0.21332841922907436|2.577484752352676|2.3827235819174315",21,"parallel-pattern-search-remaining","hamiltonianNumerator",9489.9265822,-0.0028756325676140173,true,-0.00287563,0.00000934927,0.003251204658513559,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained -0.00287563 and 9.34927 10
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.7556943737557128|0.21332841922907436|2.577484752352676|2.1444512237256883","XX-initial-stencil","5.|0.5",5,0.5,"XX",1000000,"{0.7556943737557128, 0.21332841922907436, 2.577484752352676, 2.1444512237256883}","0.7556943737557128|0.21332841922907436|2.577484752352676|2.1444512237256883",26,"parallel-pattern-search-remaining","normDenominator",589.6537744,0.0009216025813639182,true,0.000921603,0.00000147709,0.0016027407364831733,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained 0.000921603 and 1.47709 10
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.7556943737557128|0.21332841922907436|2.577484752352676|2.1444512237256883","XX-initial-stencil","5.|0.5",5,0.5,"XX",1000000,"{0.7556943737557128, 0.21332841922907436, 2.577484752352676, 2.1444512237256883}","0.7556943737557128|0.21332841922907436|2.577484752352676|2.1444512237256883",26,"parallel-pattern-search-remaining","hamiltonianNumerator",9494.7964912,-0.006195491541890998,true,-0.00619549,0.0000180626,0.0029154426049764087,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00619549 and 0.0000180626
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.6650110489050273|0.21332841922907436|2.577484752352676|2.3827235819174315","XX-initial-stencil","5.|0.5",5,0.5,"XX",1000000,"{0.6650110489050273, 0.21332841922907436, 2.577484752352676, 2.3827235819174315}","0.6650110489050273|0.21332841922907436|2.577484752352676|2.3827235819174315",20,"parallel-pattern-search-remaining","normDenominator",591.7973458,0.0007524696175280658,true,0.00075247,0.00000118135,0.0015699637201045367,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00075247 and 1.18135 10
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.6650110489050273|0.21332841922907436|2.577484752352676|2.3827235819174315","XX-initial-stencil","5.|0.5",5,0.5,"XX",1000000,"{0.6650110489050273, 0.21332841922907436, 2.577484752352676, 2.3827235819174315}","0.6650110489050273|0.21332841922907436|2.577484752352676|2.3827235819174315",20,"parallel-pattern-search-remaining","hamiltonianNumerator",9507.7800374,-0.005079510650885233,true,-0.00507951,0.0000144332,0.0028414548156296612,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00507951 and 0.0000144332
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.7556943737557128|0.26666052403634294|2.577484752352676|2.3827235819174315","XX-initial-stencil","5.|0.5",5,0.5,"XX",1000000,"{0.7556943737557128, 0.26666052403634294, 2.577484752352676, 2.3827235819174315}","0.7556943737557128|0.26666052403634294|2.577484752352676|2.3827235819174315",23,"parallel-pattern-search-remaining","normDenominator",594.1727645,0.00046978480810839324,true,0.000469785,8.203440000000001e-7,0.0017462122781346358,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000469785 and 8.20344 10
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.7556943737557128|0.26666052403634294|2.577484752352676|2.3827235819174315","XX-initial-stencil","5.|0.5",5,0.5,"XX",1000000,"{0.7556943737557128, 0.26666052403634294, 2.577484752352676, 2.3827235819174315}","0.7556943737557128|0.26666052403634294|2.577484752352676|2.3827235819174315",23,"parallel-pattern-search-remaining","hamiltonianNumerator",9506.7205023,-0.0031633483130855196,true,-0.00316335,0.000009990449999999999,0.0031581884165817154,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained -0.00316335 and 9.99045 10
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.7556943737557128|0.21332841922907436|2.78368353254089|2.3827235819174315","XX-initial-stencil","5.|0.5",5,0.5,"XX",1000000,"{0.7556943737557128, 0.21332841922907436, 2.78368353254089, 2.3827235819174315}","0.7556943737557128|0.21332841922907436|2.78368353254089|2.3827235819174315",25,"parallel-pattern-search-remaining","normDenominator",594.6924596,0.0005576549220165574,true,0.000557655,9.154439999999999e-7,0.0016415958397527053,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000557655 and 9.15444 10
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.7556943737557128|0.21332841922907436|2.78368353254089|2.3827235819174315","XX-initial-stencil","5.|0.5",5,0.5,"XX",1000000,"{0.7556943737557128, 0.21332841922907436, 2.78368353254089, 2.3827235819174315}","0.7556943737557128|0.21332841922907436|2.78368353254089|2.3827235819174315",25,"parallel-pattern-search-remaining","hamiltonianNumerator",9539.9546851,-0.0037081118381437597,true,-0.00370811,0.0000111286,0.003001150042327433,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00370811 and 0.0000111286
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.7556943737557128|0.15999631442180579|2.577484752352676|2.3827235819174315","XX-initial-stencil","5.|0.5",5,0.5,"XX",1000000,"{0.7556943737557128, 0.15999631442180579, 2.577484752352676, 2.3827235819174315}","0.7556943737557128|0.15999631442180579|2.577484752352676|2.3827235819174315",22,"parallel-pattern-search-remaining","normDenominator",595.8992469,0.0006811911467099164,true,0.000681191,0.0000010927199999999998,0.0016041312416899805,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained 0.000681191 and 1.09272 10
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.7556943737557128|0.15999631442180579|2.577484752352676|2.3827235819174315","XX-initial-stencil","5.|0.5",5,0.5,"XX",1000000,"{0.7556943737557128, 0.15999631442180579, 2.577484752352676, 2.3827235819174315}","0.7556943737557128|0.15999631442180579|2.577484752352676|2.3827235819174315",22,"parallel-pattern-search-remaining","hamiltonianNumerator",9551.3384536,-0.004627160157990476,true,-0.00462716,0.0000136413,0.002948093330299651,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00462716 and 0.0000136413
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.7556943737557128|0.21332841922907436|2.577484752352676|2.6209959401091747","XX-initial-stencil","5.|0.5",5,0.5,"XX",1000000,"{0.7556943737557128, 0.21332841922907436, 2.577484752352676, 2.6209959401091747}","0.7556943737557128|0.21332841922907436|2.577484752352676|2.6209959401091747",24,"parallel-pattern-search-remaining","normDenominator",620.8927714,0.0003542033953221843,true,0.000354203,6.2225e-7,0.0017567589927645945,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -7
+     integrand evaluations. NIntegrate obtained 0.000354203 and 6.2225 10
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.7556943737557128|0.21332841922907436|2.577484752352676|2.6209959401091747","XX-initial-stencil","5.|0.5",5,0.5,"XX",1000000,"{0.7556943737557128, 0.21332841922907436, 2.577484752352676, 2.6209959401091747}","0.7556943737557128|0.21332841922907436|2.577484752352676|2.6209959401091747",24,"parallel-pattern-search-remaining","hamiltonianNumerator",9430.3525801,-0.0024017652570499978,true,-0.00240177,0.000007617639999999999,0.0031716838178250913,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained -0.00240177 and 7.61764 10
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.6077939831307123|0.004089211802105613|2.858881236727677|1.953280222542432","XX-initial-stencil","5.|1.5",5,1.5,"XX",1000000,"{0.6077939831307123, 0.004089211802105613, 2.858881236727677, 1.953280222542432}","0.6077939831307123|0.004089211802105613|2.858881236727677|1.953280222542432",19,"parallel-pattern-search-remaining","normDenominator",618.3773936,0.0014596183320508195,true,0.00145962,0.00000297026,0.0020349566285774658,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00145962 and 2.97026 10
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.6077939831307123|0.004089211802105613|2.858881236727677|1.953280222542432","XX-initial-stencil","5.|1.5",5,1.5,"XX",1000000,"{0.6077939831307123, 0.004089211802105613, 2.858881236727677, 1.953280222542432}","0.6077939831307123|0.004089211802105613|2.858881236727677|1.953280222542432",19,"parallel-pattern-search-remaining","hamiltonianNumerator",9444.7291562,-0.00583024426011142,true,-0.00583024,0.0000192283,0.003298026487767175,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00583024 and 0.0000192283
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.6807292611063978|0.004089211802105613|2.858881236727677|1.953280222542432","XX-initial-stencil","5.|1.5",5,1.5,"XX",1000000,"{0.6807292611063978, 0.004089211802105613, 2.858881236727677, 1.953280222542432}","0.6807292611063978|0.004089211802105613|2.858881236727677|1.953280222542432",26,"parallel-pattern-search-remaining","normDenominator",621.5022058,0.0010177945878517656,true,0.00101779,0.0000022474699999999997,0.002208176410864672,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00101779 and 2.24747 10
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.6807292611063978|0.004089211802105613|2.858881236727677|1.953280222542432","XX-initial-stencil","5.|1.5",5,1.5,"XX",1000000,"{0.6807292611063978, 0.004089211802105613, 2.858881236727677, 1.953280222542432}","0.6807292611063978|0.004089211802105613|2.858881236727677|1.953280222542432",26,"parallel-pattern-search-remaining","hamiltonianNumerator",9447.7017171,-0.00405665926527245,true,-0.00405666,0.0000145437,0.0035851421203903426,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00405666 and 0.0000145437
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.5348587051550269|0.004089211802105613|2.858881236727677|1.953280222542432","XX-initial-stencil","5.|1.5",5,1.5,"XX",1000000,"{0.5348587051550269, 0.004089211802105613, 2.858881236727677, 1.953280222542432}","0.5348587051550269|0.004089211802105613|2.858881236727677|1.953280222542432",21,"parallel-pattern-search-remaining","normDenominator",621.6633058,0.0021247378267854203,true,0.00212474,0.0000039405,0.0018545817513691565,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                        -6
+     integrand evaluations. NIntegrate obtained 0.00212474 and 3.9405 10
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.5348587051550269|0.004089211802105613|2.858881236727677|1.953280222542432","XX-initial-stencil","5.|1.5",5,1.5,"XX",1000000,"{0.5348587051550269, 0.004089211802105613, 2.858881236727677, 1.953280222542432}","0.5348587051550269|0.004089211802105613|2.858881236727677|1.953280222542432",21,"parallel-pattern-search-remaining","hamiltonianNumerator",9454.1576137,-0.008400343297283171,true,-0.00840034,0.0000258779,0.003080576481721812,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00840034 and 0.0000258779
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.6077939831307123|0.001|2.858881236727677|1.953280222542432","XX-initial-stencil","5.|1.5",5,1.5,"XX",1000000,"{0.6077939831307123, 0.001, 2.858881236727677, 1.953280222542432}","0.6077939831307123|0.001|2.858881236727677|1.953280222542432",20,"parallel-pattern-search-remaining","normDenominator",623.7627341,0.0014834758052109354,true,0.00148348,0.0000029981399999999996,0.002021023861305034,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00148348 and 2.99814 10
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.6077939831307123|0.001|2.858881236727677|1.953280222542432","XX-initial-stencil","5.|1.5",5,1.5,"XX",1000000,"{0.6077939831307123, 0.001, 2.858881236727677, 1.953280222542432}","0.6077939831307123|0.001|2.858881236727677|1.953280222542432",20,"parallel-pattern-search-remaining","hamiltonianNumerator",9478.5410372,-0.005949504320154078,true,-0.0059495,0.0000196809,0.0033079898662028893,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.0059495 and 0.0000196809
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.6077939831307123|0.024089211802105614|2.858881236727677|1.953280222542432","XX-initial-stencil","5.|1.5",5,1.5,"XX",1000000,"{0.6077939831307123, 0.024089211802105614, 2.858881236727677, 1.953280222542432}","0.6077939831307123|0.024089211802105614|2.858881236727677|1.953280222542432",23,"parallel-pattern-search-remaining","normDenominator",622.8955338,0.001296813027447568,true,0.00129681,0.0000027008899999999996,0.0020827135005853418,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00129681 and 2.70089 10
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.6077939831307123|0.024089211802105614|2.858881236727677|1.953280222542432","XX-initial-stencil","5.|1.5",5,1.5,"XX",1000000,"{0.6077939831307123, 0.024089211802105614, 2.858881236727677, 1.953280222542432}","0.6077939831307123|0.024089211802105614|2.858881236727677|1.953280222542432",23,"parallel-pattern-search-remaining","hamiltonianNumerator",9480.5743816,-0.005167938169814418,true,-0.00516794,0.0000173086,0.003349227376809261,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00516794 and 0.0000173086
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.6077939831307123|0.004089211802105613|2.6301707377894625|1.953280222542432","XX-initial-stencil","5.|1.5",5,1.5,"XX",1000000,"{0.6077939831307123, 0.004089211802105613, 2.6301707377894625, 1.953280222542432}","0.6077939831307123|0.004089211802105613|2.6301707377894625|1.953280222542432",25,"parallel-pattern-search-remaining","normDenominator",621.2568732,0.0012423059088235943,true,0.00124231,0.0000026112899999999996,0.0021019702002969378,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00124231 and 2.61129 10
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.6077939831307123|0.004089211802105613|2.6301707377894625|1.953280222542432","XX-initial-stencil","5.|1.5",5,1.5,"XX",1000000,"{0.6077939831307123, 0.004089211802105613, 2.6301707377894625, 1.953280222542432}","0.6077939831307123|0.004089211802105613|2.6301707377894625|1.953280222542432",25,"parallel-pattern-search-remaining","hamiltonianNumerator",9516.6975174,-0.0049677243250086465,true,-0.00496772,0.0000169416,0.0034103341674400407,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00496772 and 0.0000169416
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.6077939831307123|0.004089211802105613|3.087591735665891|1.953280222542432","XX-initial-stencil","5.|1.5",5,1.5,"XX",1000000,"{0.6077939831307123, 0.004089211802105613, 3.087591735665891, 1.953280222542432}","0.6077939831307123|0.004089211802105613|3.087591735665891|1.953280222542432",22,"parallel-pattern-search-remaining","normDenominator",623.2283829,0.001748194908106069,true,0.00174819,0.00000344491,0.0019705525877158005,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00174819 and 3.44491 10
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.6077939831307123|0.004089211802105613|3.087591735665891|1.953280222542432","XX-initial-stencil","5.|1.5",5,1.5,"XX",1000000,"{0.6077939831307123, 0.004089211802105613, 3.087591735665891, 1.953280222542432}","0.6077939831307123|0.004089211802105613|3.087591735665891|1.953280222542432",22,"parallel-pattern-search-remaining","hamiltonianNumerator",9523.5939036,-0.006947836421029485,true,-0.00694784,0.0000225884,0.003251141597351107,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00694784 and 0.0000225884
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.6077939831307123|0.004089211802105613|2.858881236727677|1.7579522002881887","XX-initial-stencil","5.|1.5",5,1.5,"XX",1000000,"{0.6077939831307123, 0.004089211802105613, 2.858881236727677, 1.7579522002881887}","0.6077939831307123|0.004089211802105613|2.858881236727677|1.7579522002881887",24,"parallel-pattern-search-remaining","normDenominator",613.853691,0.0027081332689481243,true,0.00270813,0.0000051893099999999994,0.0019161944722224094,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00270813 and 5.18931 10
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.6077939831307123|0.004089211802105613|2.858881236727677|1.7579522002881887","XX-initial-stencil","5.|1.5",5,1.5,"XX",1000000,"{0.6077939831307123, 0.004089211802105613, 2.858881236727677, 1.7579522002881887}","0.6077939831307123|0.004089211802105613|2.858881236727677|1.7579522002881887",24,"parallel-pattern-search-remaining","hamiltonianNumerator",9432.962745,-0.01079211454694876,true,-0.0107921,0.0000340661,0.003156573241675929,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.0107921 and 0.0000340661
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.6077939831307123|0.004089211802105613|2.858881236727677|2.1486082447966752","XX-initial-stencil","5.|1.5",5,1.5,"XX",1000000,"{0.6077939831307123, 0.004089211802105613, 2.858881236727677, 2.1486082447966752}","0.6077939831307123|0.004089211802105613|2.858881236727677|2.1486082447966752",19,"parallel-pattern-search-remaining","normDenominator",612.7231835,0.0008151153193990508,true,0.000815115,0.0000017552,0.002153314946030008,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.000815115 and 1.7552 10
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.6077939831307123|0.004089211802105613|2.858881236727677|2.1486082447966752","XX-initial-stencil","5.|1.5",5,1.5,"XX",1000000,"{0.6077939831307123, 0.004089211802105613, 2.858881236727677, 2.1486082447966752}","0.6077939831307123|0.004089211802105613|2.858881236727677|2.1486082447966752",19,"parallel-pattern-search-remaining","hamiltonianNumerator",9431.8196029,-0.0032299153681379805,true,-0.00322992,0.000011234,0.003478109708638065,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00322992 and 0.000011234
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.5874814831307124|0.010584384475523713|3.0205999867276767|1.8743739725424318","XX-initial-stencil","5.|2.",5,2,"XX",1000000,"{0.5874814831307124, 0.010584384475523713, 3.0205999867276767, 1.8743739725424318}","0.5874814831307124|0.010584384475523713|3.0205999867276767|1.8743739725424318",26,"parallel-pattern-search-remaining","normDenominator",616.5030835,0.0013408085883663068,true,0.00134081,0.0000030768099999999998,0.002294742162823483,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00134081 and 3.07681 10
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.5874814831307124|0.010584384475523713|3.0205999867276767|1.8743739725424318","XX-initial-stencil","5.|2.",5,2,"XX",1000000,"{0.5874814831307124, 0.010584384475523713, 3.0205999867276767, 1.8743739725424318}","0.5874814831307124|0.010584384475523713|3.0205999867276767|1.8743739725424318",26,"parallel-pattern-search-remaining","hamiltonianNumerator",9449.489428,-0.004620565438377795,true,-0.00462057,0.0000167527,0.00362568179661613,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00462057 and 0.0000167527
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.5169837051550269|0.010584384475523713|3.0205999867276767|1.8743739725424318","XX-initial-stencil","5.|2.",5,2,"XX",1000000,"{0.5169837051550269, 0.010584384475523713, 3.0205999867276767, 1.8743739725424318}","0.5169837051550269|0.010584384475523713|3.0205999867276767|1.8743739725424318",21,"parallel-pattern-search-remaining","normDenominator",616.5467362,0.002009744304172877,true,0.00200974,0.0000042153999999999995,0.00209748075476441,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                        -6
+     integrand evaluations. NIntegrate obtained 0.00200974 and 4.2154 10
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.5169837051550269|0.010584384475523713|3.0205999867276767|1.8743739725424318","XX-initial-stencil","5.|2.",5,2,"XX",1000000,"{0.5169837051550269, 0.010584384475523713, 3.0205999867276767, 1.8743739725424318}","0.5169837051550269|0.010584384475523713|3.0205999867276767|1.8743739725424318",21,"parallel-pattern-search-remaining","hamiltonianNumerator",9471.515936,-0.006868094983178749,true,-0.00686809,0.0000229476,0.0033411885036830403,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00686809 and 0.0000229476
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.5874814831307124|0.001|3.0205999867276767|1.8743739725424318","XX-initial-stencil","5.|2.",5,2,"XX",1000000,"{0.5874814831307124, 0.001, 3.0205999867276767, 1.8743739725424318}","0.5874814831307124|0.001|3.0205999867276767|1.8743739725424318",23,"parallel-pattern-search-remaining","normDenominator",618.1432479,0.001428634327765687,true,0.00142863,0.0000032445199999999997,0.0022710640063327244,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00142863 and 3.24452 10
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.5874814831307124|0.001|3.0205999867276767|1.8743739725424318","XX-initial-stencil","5.|2.",5,2,"XX",1000000,"{0.5874814831307124, 0.001, 3.0205999867276767, 1.8743739725424318}","0.5874814831307124|0.001|3.0205999867276767|1.8743739725424318",23,"parallel-pattern-search-remaining","hamiltonianNumerator",9469.0466288,-0.004943916383263904,true,-0.00494392,0.0000176603,0.0035721275666763847,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00494392 and 0.0000176603
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.6579792611063978|0.010584384475523713|3.0205999867276767|1.8743739725424318","XX-initial-stencil","5.|2.",5,2,"XX",1000000,"{0.6579792611063978, 0.010584384475523713, 3.0205999867276767, 1.8743739725424318}","0.6579792611063978|0.010584384475523713|3.0205999867276767|1.8743739725424318",20,"parallel-pattern-search-remaining","normDenominator",618.8586262,0.0009070327129440918,true,0.000907033,0.0000022627,0.002494617854140691,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.000907033 and 2.2627 10
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.6579792611063978|0.010584384475523713|3.0205999867276767|1.8743739725424318","XX-initial-stencil","5.|2.",5,2,"XX",1000000,"{0.6579792611063978, 0.010584384475523713, 3.0205999867276767, 1.8743739725424318}","0.6579792611063978|0.010584384475523713|3.0205999867276767|1.8743739725424318",20,"parallel-pattern-search-remaining","hamiltonianNumerator",9480.315865,-0.0031081647400118513,true,-0.00310816,0.0000120997,0.0038928760255976212,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00310816 and 0.0000120997
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.5874814831307124|0.030584384475523713|3.0205999867276767|1.8743739725424318","XX-initial-stencil","5.|2.",5,2,"XX",1000000,"{0.5874814831307124, 0.030584384475523713, 3.0205999867276767, 1.8743739725424318}","0.5874814831307124|0.030584384475523713|3.0205999867276767|1.8743739725424318",25,"parallel-pattern-search-remaining","normDenominator",618.4576836,0.0011716539503579195,true,0.00117165,0.00000274738,0.0023448732444940113,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00117165 and 2.74738 10
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.5874814831307124|0.030584384475523713|3.0205999867276767|1.8743739725424318","XX-initial-stencil","5.|2.",5,2,"XX",1000000,"{0.5874814831307124, 0.030584384475523713, 3.0205999867276767, 1.8743739725424318}","0.5874814831307124|0.030584384475523713|3.0205999867276767|1.8743739725424318",25,"parallel-pattern-search-remaining","hamiltonianNumerator",9521.6942886,-0.0040370699286006425,true,-0.00403707,0.0000148758,0.0036848011709215934,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00403707 and 0.0000148758
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.5874814831307124|0.010584384475523713|2.7789519877894624|1.8743739725424318","XX-initial-stencil","5.|2.",5,2,"XX",1000000,"{0.5874814831307124, 0.010584384475523713, 2.7789519877894624, 1.8743739725424318}","0.5874814831307124|0.010584384475523713|2.7789519877894624|1.8743739725424318",22,"parallel-pattern-search-remaining","normDenominator",621.368182,0.0010734578847879672,true,0.00107346,0.00000254596,0.0023717372018771713,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00107346 and 2.54596 10
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.5874814831307124|0.010584384475523713|2.7789519877894624|1.8743739725424318","XX-initial-stencil","5.|2.",5,2,"XX",1000000,"{0.5874814831307124, 0.010584384475523713, 2.7789519877894624, 1.8743739725424318}","0.5874814831307124|0.010584384475523713|2.7789519877894624|1.8743739725424318",22,"parallel-pattern-search-remaining","hamiltonianNumerator",9500.3746382,-0.003682854509990903,true,-0.00368285,0.0000139625,0.003791216829804794,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00368285 and 0.0000139625
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.5874814831307124|0.010584384475523713|3.262247985665891|1.8743739725424318","XX-initial-stencil","5.|2.",5,2,"XX",1000000,"{0.5874814831307124, 0.010584384475523713, 3.262247985665891, 1.8743739725424318}","0.5874814831307124|0.010584384475523713|3.262247985665891|1.8743739725424318",24,"parallel-pattern-search-remaining","normDenominator",618.6079967,0.0017145111280334239,true,0.00171451,0.0000038101699999999996,0.0022223069525190747,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00171451 and 3.81017 10
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.5874814831307124|0.010584384475523713|3.262247985665891|1.8743739725424318","XX-initial-stencil","5.|2.",5,2,"XX",1000000,"{0.5874814831307124, 0.010584384475523713, 3.262247985665891, 1.8743739725424318}","0.5874814831307124|0.010584384475523713|3.262247985665891|1.8743739725424318",24,"parallel-pattern-search-remaining","hamiltonianNumerator",9451.8955333,-0.005882900375743489,true,-0.0058829,0.000020756,0.0035281916528081313,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.0058829 and 0.000020756
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.5874814831307124|0.010584384475523713|3.0205999867276767|1.6869365752881886","XX-initial-stencil","5.|2.",5,2,"XX",1000000,"{0.5874814831307124, 0.010584384475523713, 3.0205999867276767, 1.6869365752881886}","0.5874814831307124|0.010584384475523713|3.0205999867276767|1.6869365752881886",19,"parallel-pattern-search-remaining","normDenominator",613.3302521,0.00259833073237212,true,0.00259833,0.00000563355,0.0021681420035612278,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00259833 and 5.63355 10
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.5874814831307124|0.010584384475523713|3.0205999867276767|1.6869365752881886","XX-initial-stencil","5.|2.",5,2,"XX",1000000,"{0.5874814831307124, 0.010584384475523713, 3.0205999867276767, 1.6869365752881886}","0.5874814831307124|0.010584384475523713|3.0205999867276767|1.6869365752881886",19,"parallel-pattern-search-remaining","hamiltonianNumerator",9442.724634,-0.008972090620040318,true,-0.00897209,0.0000311934,0.0034767147726222835,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00897209 and 0.0000311934
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.5874814831307124|0.010584384475523713|3.0205999867276767|2.061811369796675","XX-initial-stencil","5.|2.",5,2,"XX",1000000,"{0.5874814831307124, 0.010584384475523713, 3.0205999867276767, 2.061811369796675}","0.5874814831307124|0.010584384475523713|3.0205999867276767|2.061811369796675",26,"parallel-pattern-search-remaining","normDenominator",616.3831912,0.0007206599202055623,true,0.00072066,0.0000017518899999999998,0.002430952451886443,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00072066 and 1.75189 10
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.5874814831307124|0.010584384475523713|3.0205999867276767|2.061811369796675","XX-initial-stencil","5.|2.",5,2,"XX",1000000,"{0.5874814831307124, 0.010584384475523713, 3.0205999867276767, 2.061811369796675}","0.5874814831307124|0.010584384475523713|3.0205999867276767|2.061811369796675",26,"parallel-pattern-search-remaining","hamiltonianNumerator",9453.8349074,-0.0024444346248945615,true,-0.00244443,0.000009432019999999999,0.003858569136577682,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained -0.00244443 and 9.43202 10
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.6533017956307122|0.0633070356251368|2.5421820179776766|2.2986903787924318","XX-initial-stencil","3.|1.",3,1,"XX",1000000,"{0.6533017956307122, 0.0633070356251368, 2.5421820179776766, 2.2986903787924318}","0.6533017956307122|0.0633070356251368|2.5421820179776766|2.2986903787924318",21,"parallel-pattern-search-remaining","normDenominator",615.9698392,0.0012418766069777515,true,0.00124188,0.0000018103299999999998,0.001457737419183412,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00124188 and 1.81033 10
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.6533017956307122|0.0633070356251368|2.5421820179776766|2.2986903787924318","XX-initial-stencil","3.|1.",3,1,"XX",1000000,"{0.6533017956307122, 0.0633070356251368, 2.5421820179776766, 2.2986903787924318}","0.6533017956307122|0.0633070356251368|2.5421820179776766|2.2986903787924318",21,"parallel-pattern-search-remaining","hamiltonianNumerator",9468.6109523,-0.0070057278567712085,true,-0.00700573,0.0000183192,0.00261488889870223,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00700573 and 0.0000183192
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.7316980111063976|0.0633070356251368|2.5421820179776766|2.2986903787924318","XX-initial-stencil","3.|1.",3,1,"XX",1000000,"{0.7316980111063976, 0.0633070356251368, 2.5421820179776766, 2.2986903787924318}","0.7316980111063976|0.0633070356251368|2.5421820179776766|2.2986903787924318",20,"parallel-pattern-search-remaining","normDenominator",615.6885574,0.0009362059186241641,true,0.000936206,0.00000145744,0.0015567515340448124,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained 0.000936206 and 1.45744 10
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.7316980111063976|0.0633070356251368|2.5421820179776766|2.2986903787924318","XX-initial-stencil","3.|1.",3,1,"XX",1000000,"{0.7316980111063976, 0.0633070356251368, 2.5421820179776766, 2.2986903787924318}","0.7316980111063976|0.0633070356251368|2.5421820179776766|2.2986903787924318",20,"parallel-pattern-search-remaining","hamiltonianNumerator",9494.0952644,-0.005295178285798923,true,-0.00529518,0.0000148627,0.002806836559188215,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00529518 and 0.0000148627
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.5749055801550268|0.0633070356251368|2.5421820179776766|2.2986903787924318","XX-initial-stencil","3.|1.",3,1,"XX",1000000,"{0.5749055801550268, 0.0633070356251368, 2.5421820179776766, 2.2986903787924318}","0.5749055801550268|0.0633070356251368|2.5421820179776766|2.2986903787924318",23,"parallel-pattern-search-remaining","normDenominator",617.0647495,0.0016581292851671323,true,0.00165813,0.0000022570899999999997,0.001361226787435031,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00165813 and 2.25709 10
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.5749055801550268|0.0633070356251368|2.5421820179776766|2.2986903787924318","XX-initial-stencil","3.|1.",3,1,"XX",1000000,"{0.5749055801550268, 0.0633070356251368, 2.5421820179776766, 2.2986903787924318}","0.5749055801550268|0.0633070356251368|2.5421820179776766|2.2986903787924318",23,"parallel-pattern-search-remaining","hamiltonianNumerator",9502.4101915,-0.009332643596649445,true,-0.00933264,0.0000231935,0.002485201514426931,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00933264 and 0.0000231935
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.6533017956307122|0.0433070356251368|2.5421820179776766|2.2986903787924318","XX-initial-stencil","3.|1.",3,1,"XX",1000000,"{0.6533017956307122, 0.0433070356251368, 2.5421820179776766, 2.2986903787924318}","0.6533017956307122|0.0433070356251368|2.5421820179776766|2.2986903787924318",25,"parallel-pattern-search-remaining","normDenominator",617.0077111,0.0013476107952679552,true,0.00134761,0.00000193186,0.0014335444675744634,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00134761 and 1.93186 10
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.6533017956307122|0.0433070356251368|2.5421820179776766|2.2986903787924318","XX-initial-stencil","3.|1.",3,1,"XX",1000000,"{0.6533017956307122, 0.0433070356251368, 2.5421820179776766, 2.2986903787924318}","0.6533017956307122|0.0433070356251368|2.5421820179776766|2.2986903787924318",25,"parallel-pattern-search-remaining","hamiltonianNumerator",9541.2075517,-0.007604065231023138,true,-0.00760407,0.0000197922,0.0026028445836118806,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00760407 and 0.0000197922
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.6533017956307122|0.0833070356251368|2.5421820179776766|2.2986903787924318","XX-initial-stencil","3.|1.",3,1,"XX",1000000,"{0.6533017956307122, 0.0833070356251368, 2.5421820179776766, 2.2986903787924318}","0.6533017956307122|0.0833070356251368|2.5421820179776766|2.2986903787924318",22,"parallel-pattern-search-remaining","normDenominator",618.5366886,0.0011441181663022996,true,0.00114412,0.00000169982,0.001485703181773335,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00114412 and 1.69982 10
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.6533017956307122|0.0833070356251368|2.5421820179776766|2.2986903787924318","XX-initial-stencil","3.|1.",3,1,"XX",1000000,"{0.6533017956307122, 0.0833070356251368, 2.5421820179776766, 2.2986903787924318}","0.6533017956307122|0.0833070356251368|2.5421820179776766|2.2986903787924318",22,"parallel-pattern-search-remaining","hamiltonianNumerator",9550.0249891,-0.0064575413633997545,true,-0.00645754,0.0000171264,0.0026521549048171057,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00645754 and 0.0000171264
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.6533017956307122|0.0633070356251368|2.745556579415891|2.2986903787924318","XX-initial-stencil","3.|1.",3,1,"XX",1000000,"{0.6533017956307122, 0.0633070356251368, 2.745556579415891, 2.2986903787924318}","0.6533017956307122|0.0633070356251368|2.745556579415891|2.2986903787924318",19,"parallel-pattern-search-remaining","normDenominator",615.8934026,0.001268928054401071,true,0.00126893,0.0000018221599999999998,0.0014359836979568178,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00126893 and 1.82216 10
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.6533017956307122|0.0633070356251368|2.745556579415891|2.2986903787924318","XX-initial-stencil","3.|1.",3,1,"XX",1000000,"{0.6533017956307122, 0.0633070356251368, 2.745556579415891, 2.2986903787924318}","0.6533017956307122|0.0633070356251368|2.745556579415891|2.2986903787924318",19,"parallel-pattern-search-remaining","hamiltonianNumerator",9764.8895701,-0.007144557353854971,true,-0.00714456,0.00001853,0.0025935826507154872,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00714456 and 0.00001853
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.6533017956307122|0.0633070356251368|2.3388074565394623|2.2986903787924318","XX-initial-stencil","3.|1.",3,1,"XX",1000000,"{0.6533017956307122, 0.0633070356251368, 2.3388074565394623, 2.2986903787924318}","0.6533017956307122|0.0633070356251368|2.3388074565394623|2.2986903787924318",24,"parallel-pattern-search-remaining","normDenominator",619.1802472,0.0012376368174810192,true,0.00123764,0.00000187027,0.0015111622194680574,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00123764 and 1.87027 10
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.6533017956307122|0.0633070356251368|2.3388074565394623|2.2986903787924318","XX-initial-stencil","3.|1.",3,1,"XX",1000000,"{0.6533017956307122, 0.0633070356251368, 2.3388074565394623, 2.2986903787924318}","0.6533017956307122|0.0633070356251368|2.3388074565394623|2.2986903787924318",24,"parallel-pattern-search-remaining","hamiltonianNumerator",9793.90487,-0.0070019797160593596,true,-0.00700198,0.0000189329,0.002703935282271174,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00700198 and 0.0000189329
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.6533017956307122|0.0633070356251368|2.5421820179776766|2.0688213409131886","XX-initial-stencil","3.|1.",3,1,"XX",1000000,"{0.6533017956307122, 0.0633070356251368, 2.5421820179776766, 2.0688213409131886}","0.6533017956307122|0.0633070356251368|2.5421820179776766|2.0688213409131886",26,"parallel-pattern-search-remaining","normDenominator",618.7671083,0.0020813867957744196,true,0.00208139,0.00000290912,0.00139768350885382,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00208139 and 2.90912 10
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.6533017956307122|0.0633070356251368|2.5421820179776766|2.0688213409131886","XX-initial-stencil","3.|1.",3,1,"XX",1000000,"{0.6533017956307122, 0.0633070356251368, 2.5421820179776766, 2.0688213409131886}","0.6533017956307122|0.0633070356251368|2.5421820179776766|2.0688213409131886",26,"parallel-pattern-search-remaining","hamiltonianNumerator",9787.0553262,-0.01172163399226236,true,-0.0117216,0.000029779,0.002540516110608606,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.0117216 and 0.000029779
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.6533017956307122|0.0633070356251368|2.5421820179776766|2.528559416671675","XX-initial-stencil","3.|1.",3,1,"XX",1000000,"{0.6533017956307122, 0.0633070356251368, 2.5421820179776766, 2.528559416671675}","0.6533017956307122|0.0633070356251368|2.5421820179776766|2.528559416671675",21,"parallel-pattern-search-remaining","normDenominator",617.9229666,0.0007605133556319567,true,0.000760513,0.0000011761699999999999,0.0015465474620398334,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained 0.000760513 and 1.17617 10
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.6533017956307122|0.0633070356251368|2.5421820179776766|2.528559416671675","XX-initial-stencil","3.|1.",3,1,"XX",1000000,"{0.6533017956307122, 0.0633070356251368, 2.5421820179776766, 2.528559416671675}","0.6533017956307122|0.0633070356251368|2.5421820179776766|2.528559416671675",21,"parallel-pattern-search-remaining","hamiltonianNumerator",9787.8719822,-0.004302972646252356,true,-0.00430297,0.0000119065,0.0027670405970091124,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00430297 and 0.0000119065
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|2.8304632679776756|1.8963466287924327","XX-initial-stencil","7.|1.",7,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 2.8304632679776756, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|2.8304632679776756|1.8963466287924327",20,"parallel-pattern-search-remaining","normDenominator",620.7445124,0.0012825954356545084,true,0.0012826,0.0000027229999999999996,0.00212303889777251,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                      -6
+     integrand evaluations. NIntegrate obtained 0.0012826 and 2.723 10
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|2.8304632679776756|1.8963466287924327","XX-initial-stencil","7.|1.",7,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 2.8304632679776756, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|2.8304632679776756|1.8963466287924327",20,"parallel-pattern-search-remaining","hamiltonianNumerator",9785.4634161,-0.005702902648958412,true,-0.0057029,0.0000199645,0.003500761143739031,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.0057029 and 0.0000199645
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.565280580155027|0.05418019210545175|2.8304632679776756|1.8963466287924327","XX-initial-stencil","7.|1.",7,1,"XX",1000000,"{0.565280580155027, 0.05418019210545175, 2.8304632679776756, 1.8963466287924327}","0.565280580155027|0.05418019210545175|2.8304632679776756|1.8963466287924327",23,"parallel-pattern-search-remaining","normDenominator",622.4127138,0.0018547177934196471,true,0.00185472,0.00000364467,0.0019650806246270585,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00185472 and 3.64467 10
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.565280580155027|0.05418019210545175|2.8304632679776756|1.8963466287924327","XX-initial-stencil","7.|1.",7,1,"XX",1000000,"{0.565280580155027, 0.05418019210545175, 2.8304632679776756, 1.8963466287924327}","0.565280580155027|0.05418019210545175|2.8304632679776756|1.8963466287924327",23,"parallel-pattern-search-remaining","hamiltonianNumerator",9808.8833453,-0.008191106403897808,true,-0.00819111,0.000026546,0.003240832030623831,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00819111 and 0.000026546
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.6423642956307125|0.03418019210545174|2.8304632679776756|1.8963466287924327","XX-initial-stencil","7.|1.",7,1,"XX",1000000,"{0.6423642956307125, 0.03418019210545174, 2.8304632679776756, 1.8963466287924327}","0.6423642956307125|0.03418019210545174|2.8304632679776756|1.8963466287924327",22,"parallel-pattern-search-remaining","normDenominator",623.4001747,0.0014352832940274219,true,0.00143528,0.00000299597,0.0020873718885093913,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00143528 and 2.99597 10
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.6423642956307125|0.03418019210545174|2.8304632679776756|1.8963466287924327","XX-initial-stencil","7.|1.",7,1,"XX",1000000,"{0.6423642956307125, 0.03418019210545174, 2.8304632679776756, 1.8963466287924327}","0.6423642956307125|0.03418019210545174|2.8304632679776756|1.8963466287924327",22,"parallel-pattern-search-remaining","hamiltonianNumerator",9827.3666475,-0.006364172459755644,true,-0.00636417,0.0000219285,0.003445616871426196,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00636417 and 0.0000219285
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.719448011106398|0.05418019210545175|2.8304632679776756|1.8963466287924327","XX-initial-stencil","7.|1.",7,1,"XX",1000000,"{0.719448011106398, 0.05418019210545175, 2.8304632679776756, 1.8963466287924327}","0.719448011106398|0.05418019210545175|2.8304632679776756|1.8963466287924327",25,"parallel-pattern-search-remaining","normDenominator",620.7258172,0.000901169051607061,true,0.000901169,0.00000208529,0.002313983149200794,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained 0.000901169 and 2.08529 10
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.719448011106398|0.05418019210545175|2.8304632679776756|1.8963466287924327","XX-initial-stencil","7.|1.",7,1,"XX",1000000,"{0.719448011106398, 0.05418019210545175, 2.8304632679776756, 1.8963466287924327}","0.719448011106398|0.05418019210545175|2.8304632679776756|1.8963466287924327",25,"parallel-pattern-search-remaining","hamiltonianNumerator",9846.6436731,-0.004006520132070767,true,-0.00400652,0.0000150149,0.003747616261755699,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00400652 and 0.0000150149
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.6423642956307125|0.07418019210545175|2.8304632679776756|1.8963466287924327","XX-initial-stencil","7.|1.",7,1,"XX",1000000,"{0.6423642956307125, 0.07418019210545175, 2.8304632679776756, 1.8963466287924327}","0.6423642956307125|0.07418019210545175|2.8304632679776756|1.8963466287924327",19,"parallel-pattern-search-remaining","normDenominator",618.8175422,0.0011467960883760793,true,0.0011468,0.0000024940299999999997,0.0021747807001431885,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                        -6
+     integrand evaluations. NIntegrate obtained 0.0011468 and 2.49403 10
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.6423642956307125|0.07418019210545175|2.8304632679776756|1.8963466287924327","XX-initial-stencil","7.|1.",7,1,"XX",1000000,"{0.6423642956307125, 0.07418019210545175, 2.8304632679776756, 1.8963466287924327}","0.6423642956307125|0.07418019210545175|2.8304632679776756|1.8963466287924327",19,"parallel-pattern-search-remaining","hamiltonianNumerator",9491.5745801,-0.005103449782683485,true,-0.00510345,0.0000181624,0.003558847597879152,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00510345 and 0.0000181624
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|2.6040262065394617|1.8963466287924327","XX-initial-stencil","7.|1.",7,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 2.6040262065394617, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|2.6040262065394617|1.8963466287924327",24,"parallel-pattern-search-remaining","normDenominator",618.8917443,0.0011074040553066594,true,0.0011074,0.00000242042,0.002185670161131696,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                        -6
+     integrand evaluations. NIntegrate obtained 0.0011074 and 2.42042 10
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|2.6040262065394617|1.8963466287924327","XX-initial-stencil","7.|1.",7,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 2.6040262065394617, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|2.6040262065394617|1.8963466287924327",24,"parallel-pattern-search-remaining","hamiltonianNumerator",9494.9355689,-0.00494192052744364,true,-0.00494192,0.0000176685,0.0035752294885930858,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00494192 and 0.0000176685
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|3.0569003294158894|1.8963466287924327","XX-initial-stencil","7.|1.",7,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 3.0569003294158894, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|3.0569003294158894|1.8963466287924327",26,"parallel-pattern-search-remaining","normDenominator",621.4318825,0.00151790849664939,true,0.00151791,0.0000031372399999999996,0.0020668176025927117,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00151791 and 3.13724 10
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|3.0569003294158894|1.8963466287924327","XX-initial-stencil","7.|1.",7,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 3.0569003294158894, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|3.0569003294158894|1.8963466287924327",26,"parallel-pattern-search-remaining","hamiltonianNumerator",9534.4527269,-0.006738290078012465,true,-0.00673829,0.0000227942,0.003382786988405137,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00673829 and 0.0000227942
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|2.8304632679776756|1.7067119659131893","XX-initial-stencil","7.|1.",7,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 2.8304632679776756, 1.7067119659131893}","0.6423642956307125|0.05418019210545175|2.8304632679776756|1.7067119659131893",21,"parallel-pattern-search-remaining","normDenominator",619.9783231,0.0023053177360920015,true,0.00230532,0.000004629679999999999,0.0020082611292655396,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00230532 and 4.62968 10
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|2.8304632679776756|1.7067119659131893","XX-initial-stencil","7.|1.",7,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 2.8304632679776756, 1.7067119659131893}","0.6423642956307125|0.05418019210545175|2.8304632679776756|1.7067119659131893",21,"parallel-pattern-search-remaining","hamiltonianNumerator",9521.8633092,-0.010170978093757705,true,-0.010171,0.0000338732,0.0033303778346341338,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.010171 and 0.0000338732
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|2.8304632679776756|2.085981291671676","XX-initial-stencil","7.|1.",7,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 2.8304632679776756, 2.085981291671676}","0.6423642956307125|0.05418019210545175|2.8304632679776756|2.085981291671676",20,"parallel-pattern-search-remaining","normDenominator",621.0250421,0.0007362100808141848,true,0.00073621,0.00000164401,0.0022330718402848635,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00073621 and 1.64401 10
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|2.8304632679776756|2.085981291671676","XX-initial-stencil","7.|1.",7,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 2.8304632679776756, 2.085981291671676}","0.6423642956307125|0.05418019210545175|2.8304632679776756|2.085981291671676",20,"parallel-pattern-search-remaining","hamiltonianNumerator",9515.9425229,-0.0032709945679390826,true,-0.00327099,0.0000119622,0.0036570528478550436,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00327099 and 0.0000119622
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|2.8304632679776756|1.8963466287924327","XX-initial-stencil","10.|1.",10,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 2.8304632679776756, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|2.8304632679776756|1.8963466287924327",23,"parallel-pattern-search-remaining","normDenominator",621.5389726,0.0006849644187026778,true,0.000684964,0.0000018574799999999999,0.0027117904949253654,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained 0.000684964 and 1.85748 10
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|2.8304632679776756|1.8963466287924327","XX-initial-stencil","10.|1.",10,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 2.8304632679776756, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|2.8304632679776756|1.8963466287924327",23,"parallel-pattern-search-remaining","hamiltonianNumerator",9533.1780732,-0.0027250668052239695,true,-0.00272507,0.0000115478,0.004237620882490953,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00272507 and 0.0000115478
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.719448011106398|0.05418019210545175|2.8304632679776756|1.8963466287924327","XX-initial-stencil","10.|1.",10,1,"XX",1000000,"{0.719448011106398, 0.05418019210545175, 2.8304632679776756, 1.8963466287924327}","0.719448011106398|0.05418019210545175|2.8304632679776756|1.8963466287924327",25,"parallel-pattern-search-remaining","normDenominator",624.6009826,0.0004688371495645274,true,0.000468837,0.00000138118,0.002945969621398153,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained 0.000468837 and 1.38118 10
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.719448011106398|0.05418019210545175|2.8304632679776756|1.8963466287924327","XX-initial-stencil","10.|1.",10,1,"XX",1000000,"{0.719448011106398, 0.05418019210545175, 2.8304632679776756, 1.8963466287924327}","0.719448011106398|0.05418019210545175|2.8304632679776756|1.8963466287924327",25,"parallel-pattern-search-remaining","hamiltonianNumerator",9577.8286783,-0.001875067733709816,true,-0.00187507,0.00000855352,0.00456171254308605,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained -0.00187507 and 8.55352 10
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.565280580155027|0.05418019210545175|2.8304632679776756|1.8963466287924327","XX-initial-stencil","10.|1.",10,1,"XX",1000000,"{0.565280580155027, 0.05418019210545175, 2.8304632679776756, 1.8963466287924327}","0.565280580155027|0.05418019210545175|2.8304632679776756|1.8963466287924327",22,"parallel-pattern-search-remaining","normDenominator",623.5076933,0.0010197075459018987,true,0.00101971,0.00000250473,0.0024563219229535526,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00101971 and 2.50473 10
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.565280580155027|0.05418019210545175|2.8304632679776756|1.8963466287924327","XX-initial-stencil","10.|1.",10,1,"XX",1000000,"{0.565280580155027, 0.05418019210545175, 2.8304632679776756, 1.8963466287924327}","0.565280580155027|0.05418019210545175|2.8304632679776756|1.8963466287924327",22,"parallel-pattern-search-remaining","hamiltonianNumerator",9584.4778828,-0.004067909355412736,true,-0.00406791,0.0000158918,0.003906625888518008,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00406791 and 0.0000158918
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.6423642956307125|0.03418019210545174|2.8304632679776756|1.8963466287924327","XX-initial-stencil","10.|1.",10,1,"XX",1000000,"{0.6423642956307125, 0.03418019210545174, 2.8304632679776756, 1.8963466287924327}","0.6423642956307125|0.03418019210545174|2.8304632679776756|1.8963466287924327",19,"parallel-pattern-search-remaining","normDenominator",606.5050074,0.0007731126831183416,true,0.000773113,0.0000020556999999999996,0.0026589914315056323,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.000773113 and 2.0557 10
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.6423642956307125|0.03418019210545174|2.8304632679776756|1.8963466287924327","XX-initial-stencil","10.|1.",10,1,"XX",1000000,"{0.6423642956307125, 0.03418019210545174, 2.8304632679776756, 1.8963466287924327}","0.6423642956307125|0.03418019210545174|2.8304632679776756|1.8963466287924327",19,"parallel-pattern-search-remaining","hamiltonianNumerator",7981.5007005,-0.0031098698370162037,true,-0.00310987,0.0000130151,0.004185094773126411,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00310987 and 0.0000130151
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.6423642956307125|0.07418019210545175|2.8304632679776756|1.8963466287924327","XX-initial-stencil","10.|1.",10,1,"XX",1000000,"{0.6423642956307125, 0.07418019210545175, 2.8304632679776756, 1.8963466287924327}","0.6423642956307125|0.07418019210545175|2.8304632679776756|1.8963466287924327",24,"parallel-pattern-search-remaining","normDenominator",603.4207111,0.0006071328526472997,true,0.000607133,0.00000167703,0.0027622125745421213,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained 0.000607133 and 1.67703 10
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.6423642956307125|0.07418019210545175|2.8304632679776756|1.8963466287924327","XX-initial-stencil","10.|1.",10,1,"XX",1000000,"{0.6423642956307125, 0.07418019210545175, 2.8304632679776756, 1.8963466287924327}","0.6423642956307125|0.07418019210545175|2.8304632679776756|1.8963466287924327",24,"parallel-pattern-search-remaining","hamiltonianNumerator",7981.8329807,-0.0024372952003633005,true,-0.0024373,0.0000105324,0.004321347696590077,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.0024373 and 0.0000105324
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|2.6040262065394617|1.8963466287924327","XX-initial-stencil","10.|1.",10,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 2.6040262065394617, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|2.6040262065394617|1.8963466287924327",26,"parallel-pattern-search-remaining","normDenominator",587.5767563,0.0005782518146965809,true,0.000578252,0.0000016082199999999998,0.0027811758806911167,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained 0.000578252 and 1.60822 10
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|2.6040262065394617|1.8963466287924327","XX-initial-stencil","10.|1.",10,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 2.6040262065394617, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|2.6040262065394617|1.8963466287924327",26,"parallel-pattern-search-remaining","hamiltonianNumerator",7964.5510368,-0.0023055692802131447,true,-0.00230557,0.0000101629,0.004407978579182172,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00230557 and 0.0000101629
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|3.0569003294158894|1.8963466287924327","XX-initial-stencil","10.|1.",10,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 3.0569003294158894, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|3.0569003294158894|1.8963466287924327",21,"parallel-pattern-search-remaining","normDenominator",585.4261637,0.0008286000902912109,true,0.0008286,0.0000021846899999999997,0.0026366036229035312,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                        -6
+     integrand evaluations. NIntegrate obtained 0.0008286 and 2.18469 10
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|3.0569003294158894|1.8963466287924327","XX-initial-stencil","10.|1.",10,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 3.0569003294158894, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|3.0569003294158894|1.8963466287924327",21,"parallel-pattern-search-remaining","hamiltonianNumerator",7986.7555652,-0.0033402814480767576,true,-0.00334028,0.0000136585,0.004089026692006504,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00334028 and 0.0000136585
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|2.8304632679776756|1.7067119659131893","XX-initial-stencil","10.|1.",10,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 2.8304632679776756, 1.7067119659131893}","0.6423642956307125|0.05418019210545175|2.8304632679776756|1.7067119659131893",20,"parallel-pattern-search-remaining","normDenominator",572.4910976,0.0012771211418666532,true,0.00127712,0.00000328101,0.0025690671718146037,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00127712 and 3.28101 10
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|2.8304632679776756|1.7067119659131893","XX-initial-stencil","10.|1.",10,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 2.8304632679776756, 1.7067119659131893}","0.6423642956307125|0.05418019210545175|2.8304632679776756|1.7067119659131893",20,"parallel-pattern-search-remaining","hamiltonianNumerator",7941.2792584,-0.005106894330200987,true,-0.00510689,0.0000205776,0.004029376499589752,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00510689 and 0.0000205776
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|2.8304632679776756|2.085981291671676","XX-initial-stencil","10.|1.",10,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 2.8304632679776756, 2.085981291671676}","0.6423642956307125|0.05418019210545175|2.8304632679776756|2.085981291671676",23,"parallel-pattern-search-remaining","normDenominator",567.2713288,0.00038298985938803657,true,0.00038299,0.00000109627,0.0028623995469532373,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00038299 and 1.09627 10
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|2.8304632679776756|2.085981291671676","XX-initial-stencil","10.|1.",10,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 2.8304632679776756, 2.085981291671676}","0.6423642956307125|0.05418019210545175|2.8304632679776756|2.085981291671676",23,"parallel-pattern-search-remaining","hamiltonianNumerator",7925.1570104,-0.0015054811413091093,true,-0.00150548,0.000006786839999999999,0.004508087025320304,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained -0.00150548 and 6.78684 10
+     for the integral and error estimates."
+"5.|2.::XX::2000000::0.5874814831307124|0.001|3.0205999867276767|1.8743739725424318","XX-first-verification","5.|2.",5,2,"XX",2000000,"{0.5874814831307124, 0.001, 3.0205999867276767, 1.8743739725424318}","0.5874814831307124|0.001|3.0205999867276767|1.8743739725424318",24,"parallel-pattern-search-remaining","normDenominator",1189.5752687,0.001430021897718449,true,0.00143002,0.0000022994699999999998,0.0016079963556283477,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00143002 and 2.29947 10
+     for the integral and error estimates."
+"5.|2.::XX::2000000::0.5874814831307124|0.001|3.0205999867276767|1.8743739725424318","XX-first-verification","5.|2.",5,2,"XX",2000000,"{0.5874814831307124, 0.001, 3.0205999867276767, 1.8743739725424318}","0.5874814831307124|0.001|3.0205999867276767|1.8743739725424318",24,"parallel-pattern-search-remaining","hamiltonianNumerator",18894.1600333,-0.004930074688443344,true,-0.00493007,0.0000124447,0.002524241677143714,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.00493007 and 0.0000124447
+     for the integral and error estimates."
+"5.|0.5::XX::2000000::0.7556943737557128|0.21332841922907436|2.577484752352676|2.3827235819174315","XX-first-verification","5.|0.5",5,0.5,"XX",2000000,"{0.7556943737557128, 0.21332841922907436, 2.577484752352676, 2.3827235819174315}","0.7556943737557128|0.21332841922907436|2.577484752352676|2.3827235819174315",19,"parallel-pattern-search-remaining","normDenominator",1185.2046403,0.0005649080755363029,true,0.000564908,6.737879999999999e-7,0.001192739189221769,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000564908 and 6.73788 10
+     for the integral and error estimates."
+"5.|0.5::XX::2000000::0.7556943737557128|0.21332841922907436|2.577484752352676|2.3827235819174315","XX-first-verification","5.|0.5",5,0.5,"XX",2000000,"{0.7556943737557128, 0.21332841922907436, 2.577484752352676, 2.3827235819174315}","0.7556943737557128|0.21332841922907436|2.577484752352676|2.3827235819174315",19,"parallel-pattern-search-remaining","hamiltonianNumerator",18933.7382926,-0.0038319106642934328,true,-0.00383191,0.00000819869,0.002139582761257238,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained -0.00383191 and 8.19869 10
+     for the integral and error estimates."
+"3.|1.::XX::2000000::0.6533017956307122|0.0633070356251368|2.5421820179776766|2.528559416671675","XX-first-verification","3.|1.",3,1,"XX",2000000,"{0.6533017956307122, 0.0633070356251368, 2.5421820179776766, 2.528559416671675}","0.6533017956307122|0.0633070356251368|2.5421820179776766|2.528559416671675",26,"parallel-pattern-search-remaining","normDenominator",1183.8301833,0.0007603544902378587,true,0.000760354,8.312179999999999e-7,0.0010931979894535418,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000760354 and 8.31218 10
+     for the integral and error estimates."
+"3.|1.::XX::2000000::0.6533017956307122|0.0633070356251368|2.5421820179776766|2.528559416671675","XX-first-verification","3.|1.",3,1,"XX",2000000,"{0.6533017956307122, 0.0633070356251368, 2.5421820179776766, 2.528559416671675}","0.6533017956307122|0.0633070356251368|2.5421820179776766|2.528559416671675",26,"parallel-pattern-search-remaining","hamiltonianNumerator",18943.7497585,-0.0043059597718672635,true,-0.00430596,0.000008445,0.0019612352291758306,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                        -6
+     integrand evaluations. NIntegrate obtained -0.00430596 and 8.445 10
+     for the integral and error estimates."
+"5.|2.::XX::2000000::0.5874814831307124|0.010584384475523713|3.0205999867276767|1.8743739725424318","XX-first-verification","5.|2.",5,2,"XX",2000000,"{0.5874814831307124, 0.010584384475523713, 3.0205999867276767, 1.8743739725424318}","0.5874814831307124|0.010584384475523713|3.0205999867276767|1.8743739725424318",23,"parallel-pattern-search-remaining","normDenominator",1193.0019909,0.0013412417761474462,true,0.00134124,0.00000217694,0.0016230779854270537,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00134124 and 2.17694 10
+     for the integral and error estimates."
+"5.|2.::XX::2000000::0.5874814831307124|0.010584384475523713|3.0205999867276767|1.8743739725424318","XX-first-verification","5.|2.",5,2,"XX",2000000,"{0.5874814831307124, 0.010584384475523713, 3.0205999867276767, 1.8743739725424318}","0.5874814831307124|0.010584384475523713|3.0205999867276767|1.8743739725424318",23,"parallel-pattern-search-remaining","hamiltonianNumerator",18972.8608357,-0.004613247027735437,true,-0.00461325,0.0000118136,0.002560799352164562,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.00461325 and 0.0000118136
+     for the integral and error estimates."
+"5.|1.5::XX::2000000::0.6077939831307123|0.004089211802105613|2.858881236727677|1.953280222542432","XX-first-verification","5.|1.5",5,1.5,"XX",2000000,"{0.6077939831307123, 0.004089211802105613, 2.858881236727677, 1.953280222542432}","0.6077939831307123|0.004089211802105613|2.858881236727677|1.953280222542432",21,"parallel-pattern-search-remaining","normDenominator",1194.211243,0.001457695497271957,true,0.0014577,0.00000209577,0.0014377282525206289,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                        -6
+     integrand evaluations. NIntegrate obtained 0.0014577 and 2.09577 10
+     for the integral and error estimates."
+"5.|1.5::XX::2000000::0.6077939831307123|0.004089211802105613|2.858881236727677|1.953280222542432","XX-first-verification","5.|1.5",5,1.5,"XX",2000000,"{0.6077939831307123, 0.004089211802105613, 2.858881236727677, 1.953280222542432}","0.6077939831307123|0.004089211802105613|2.858881236727677|1.953280222542432",21,"parallel-pattern-search-remaining","hamiltonianNumerator",19045.3379127,-0.005834358123461885,true,-0.00583436,0.0000136124,0.002333144402853852,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.00583436 and 0.0000136124
+     for the integral and error estimates."
+"3.|1.::XX::2000000::0.6533017956307122|0.0633070356251368|2.5421820179776766|2.2986903787924318","XX-first-verification","3.|1.",3,1,"XX",2000000,"{0.6533017956307122, 0.0633070356251368, 2.5421820179776766, 2.2986903787924318}","0.6533017956307122|0.0633070356251368|2.5421820179776766|2.2986903787924318",25,"parallel-pattern-search-remaining","normDenominator",1188.5925901,0.0012418716576057386,true,0.00124187,0.0000012769999999999998,0.0010282866125328818,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                       -6
+     integrand evaluations. NIntegrate obtained 0.00124187 and 1.277 10
+     for the integral and error estimates."
+"3.|1.::XX::2000000::0.6533017956307122|0.0633070356251368|2.5421820179776766|2.2986903787924318","XX-first-verification","3.|1.",3,1,"XX",2000000,"{0.6533017956307122, 0.0633070356251368, 2.5421820179776766, 2.2986903787924318}","0.6533017956307122|0.0633070356251368|2.5421820179776766|2.2986903787924318",25,"parallel-pattern-search-remaining","hamiltonianNumerator",19051.96048,-0.007039837648627779,true,-0.00703984,0.0000130449,0.0018530114828063883,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.00703984 and 0.0000130449
+     for the integral and error estimates."
+"5.|0.5::XX::2000000::0.7556943737557128|0.21332841922907436|2.3712859721644617|2.3827235819174315","XX-first-verification","5.|0.5",5,0.5,"XX",2000000,"{0.7556943737557128, 0.21332841922907436, 2.3712859721644617, 2.3827235819174315}","0.7556943737557128|0.21332841922907436|2.3712859721644617|2.3827235819174315",20,"parallel-pattern-search-remaining","normDenominator",1198.250578,0.0005837823342163665,true,0.000583782,7.10901e-7,0.0012177501070741884,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000583782 and 7.10901 10
+     for the integral and error estimates."
+"5.|0.5::XX::2000000::0.7556943737557128|0.21332841922907436|2.3712859721644617|2.3827235819174315","XX-first-verification","5.|0.5",5,0.5,"XX",2000000,"{0.7556943737557128, 0.21332841922907436, 2.3712859721644617, 2.3827235819174315}","0.7556943737557128|0.21332841922907436|2.3712859721644617|2.3827235819174315",20,"parallel-pattern-search-remaining","hamiltonianNumerator",19067.9762758,-0.003972836318463597,true,-0.00397284,0.00000879587,0.002214002615491997,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained -0.00397284 and 8.79587 10
+     for the integral and error estimates."
+"5.|1.5::XX::2000000::0.6077939831307123|0.001|2.858881236727677|1.953280222542432","XX-first-verification","5.|1.5",5,1.5,"XX",2000000,"{0.6077939831307123, 0.001, 2.858881236727677, 1.953280222542432}","0.6077939831307123|0.001|2.858881236727677|1.953280222542432",22,"parallel-pattern-search-remaining","normDenominator",1199.4556119,0.0014874656897979832,true,0.00148747,0.0000021253299999999998,0.0014288262341625147,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00148747 and 2.12533 10
+     for the integral and error estimates."
+"5.|1.5::XX::2000000::0.6077939831307123|0.001|2.858881236727677|1.953280222542432","XX-first-verification","5.|1.5",5,1.5,"XX",2000000,"{0.6077939831307123, 0.001, 2.858881236727677, 1.953280222542432}","0.6077939831307123|0.001|2.858881236727677|1.953280222542432",22,"parallel-pattern-search-remaining","hamiltonianNumerator",19113.4904043,-0.005952708551765131,true,-0.00595271,0.0000138735,0.0023306197303891436,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.00595271 and 0.0000138735
+     for the integral and error estimates."
+"7.|1.::XX::2000000::0.6423642956307125|0.05418019210545175|2.8304632679776756|1.8963466287924327","XX-first-verification","7.|1.",7,1,"XX",2000000,"{0.6423642956307125, 0.05418019210545175, 2.8304632679776756, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|2.8304632679776756|1.8963466287924327",24,"parallel-pattern-search-remaining","normDenominator",903.213707,0.0012822956412327944,true,0.0012823,0.00000192117,0.001498227037684534,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                        -6
+     integrand evaluations. NIntegrate obtained 0.0012823 and 1.92117 10
+     for the integral and error estimates."
+"7.|1.::XX::2000000::0.6423642956307125|0.05418019210545175|2.8304632679776756|1.8963466287924327","XX-first-verification","7.|1.",7,1,"XX",2000000,"{0.6423642956307125, 0.05418019210545175, 2.8304632679776756, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|2.8304632679776756|1.8963466287924327",24,"parallel-pattern-search-remaining","hamiltonianNumerator",12576.0162154,-0.005696750773493862,true,-0.00569675,0.0000140761,0.0024708997391098817,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.00569675 and 0.0000140761
+     for the integral and error estimates."
+"10.|1.::XX::2000000::0.6423642956307125|0.05418019210545175|2.8304632679776756|1.8963466287924327","XX-first-verification","10.|1.",10,1,"XX",2000000,"{0.6423642956307125, 0.05418019210545175, 2.8304632679776756, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|2.8304632679776756|1.8963466287924327",26,"parallel-pattern-search-remaining","normDenominator",887.2633553,0.0006861483471747633,true,0.000686148,0.00000131278,0.0019132597278786894,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained 0.000686148 and 1.31278 10
+     for the integral and error estimates."
+"10.|1.::XX::2000000::0.6423642956307125|0.05418019210545175|2.8304632679776756|1.8963466287924327","XX-first-verification","10.|1.",10,1,"XX",2000000,"{0.6423642956307125, 0.05418019210545175, 2.8304632679776756, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|2.8304632679776756|1.8963466287924327",26,"parallel-pattern-search-remaining","hamiltonianNumerator",12569.5078357,-0.0027393359167346937,true,-0.00273934,0.00000820691,0.002995948744315626,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained -0.00273934 and 8.20691 10
+     for the integral and error estimates."
+"7.|1.::XX::2000000::0.6423642956307125|0.05418019210545175|2.6040262065394617|1.8963466287924327","XX-first-verification","7.|1.",7,1,"XX",2000000,"{0.6423642956307125, 0.05418019210545175, 2.6040262065394617, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|2.6040262065394617|1.8963466287924327",19,"parallel-pattern-search-remaining","normDenominator",885.4232567,0.001108588230501784,true,0.00110859,0.0000017117599999999998,0.0015440899992463387,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00110859 and 1.71176 10
+     for the integral and error estimates."
+"7.|1.::XX::2000000::0.6423642956307125|0.05418019210545175|2.6040262065394617|1.8963466287924327","XX-first-verification","7.|1.",7,1,"XX",2000000,"{0.6423642956307125, 0.05418019210545175, 2.6040262065394617, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|2.6040262065394617|1.8963466287924327",19,"parallel-pattern-search-remaining","hamiltonianNumerator",12583.3859417,-0.0049484535722112925,true,-0.00494845,0.000012498,0.0025256375183924534,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.00494845 and 0.000012498
+     for the integral and error estimates."
+"10.|1.::XX::2000000::0.6423642956307125|0.05418019210545175|3.0569003294158894|1.8963466287924327","XX-first-verification","10.|1.",10,1,"XX",2000000,"{0.6423642956307125, 0.05418019210545175, 3.0569003294158894, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|3.0569003294158894|1.8963466287924327",23,"parallel-pattern-search-remaining","normDenominator",880.4531345,0.000830325398648572,true,0.000830325,0.00000154343,0.0018588254707275834,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained 0.000830325 and 1.54343 10
+     for the integral and error estimates."
+"10.|1.::XX::2000000::0.6423642956307125|0.05418019210545175|3.0569003294158894|1.8963466287924327","XX-first-verification","10.|1.",10,1,"XX",2000000,"{0.6423642956307125, 0.05418019210545175, 3.0569003294158894, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|3.0569003294158894|1.8963466287924327",23,"parallel-pattern-search-remaining","hamiltonianNumerator",12577.5228851,-0.0033457621214948385,true,-0.00334576,0.000009659439999999999,0.0028870671760980724,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained -0.00334576 and 9.65944 10
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.7556943737557128|0.21332841922907436|2.2681865820703546|2.3827235819174315","XX-directional-refinement","5.|0.5",5,0.5,"XX",1000000,"{0.7556943737557128, 0.21332841922907436, 2.2681865820703546, 2.3827235819174315}","0.7556943737557128|0.21332841922907436|2.2681865820703546|2.3827235819174315",19,"parallel-pattern-search-remaining","normDenominator",596.1977932,0.0005978275395406546,true,0.000597828,0.00000104477,0.0017476110264220298,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained 0.000597828 and 1.04477 10
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.7556943737557128|0.21332841922907436|2.2681865820703546|2.3827235819174315","XX-directional-refinement","5.|0.5",5,0.5,"XX",1000000,"{0.7556943737557128, 0.21332841922907436, 2.2681865820703546, 2.3827235819174315}","0.7556943737557128|0.21332841922907436|2.2681865820703546|2.3827235819174315",19,"parallel-pattern-search-remaining","hamiltonianNumerator",9494.0440623,-0.004077044170835427,true,-0.00407704,0.000012961,0.0031790187834399063,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00407704 and 0.000012961
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.7556943737557128|0.18666236682544007|2.3712859721644617|2.3827235819174315","XX-directional-refinement","5.|0.5",5,0.5,"XX",1000000,"{0.7556943737557128, 0.18666236682544007, 2.3712859721644617, 2.3827235819174315}","0.7556943737557128|0.18666236682544007|2.3712859721644617|2.3827235819174315",21,"parallel-pattern-search-remaining","normDenominator",597.4130899,0.0006394111017836251,true,0.000639411,0.00000107908,0.0016876153651225743,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained 0.000639411 and 1.07908 10
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.7556943737557128|0.18666236682544007|2.3712859721644617|2.3827235819174315","XX-directional-refinement","5.|0.5",5,0.5,"XX",1000000,"{0.7556943737557128, 0.18666236682544007, 2.3712859721644617, 2.3827235819174315}","0.7556943737557128|0.18666236682544007|2.3712859721644617|2.3827235819174315",21,"parallel-pattern-search-remaining","hamiltonianNumerator",9511.0131522,-0.004359869476925116,true,-0.00435987,0.0000133909,0.0030713992863484058,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00435987 and 0.0000133909
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.6077939831307123|0.014089211802105614|2.858881236727677|1.953280222542432","XX-directional-refinement","5.|1.5",5,1.5,"XX",1000000,"{0.6077939831307123, 0.014089211802105614, 2.858881236727677, 1.953280222542432}","0.6077939831307123|0.014089211802105614|2.858881236727677|1.953280222542432",23,"parallel-pattern-search-remaining","normDenominator",600.5226181,0.0013732099194966037,true,0.00137321,0.00000282669,0.002058454399336278,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00137321 and 2.82669 10
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.6077939831307123|0.014089211802105614|2.858881236727677|1.953280222542432","XX-directional-refinement","5.|1.5",5,1.5,"XX",1000000,"{0.6077939831307123, 0.014089211802105614, 2.858881236727677, 1.953280222542432}","0.6077939831307123|0.014089211802105614|2.858881236727677|1.953280222542432",23,"parallel-pattern-search-remaining","hamiltonianNumerator",9531.0418344,-0.005474270971090924,true,-0.00547427,0.0000182964,0.0033422532601366382,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00547427 and 0.0000182964
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.5874814831307124|0.020584384475523715|3.0205999867276767|1.8743739725424318","XX-directional-refinement","5.|2.",5,2,"XX",1000000,"{0.5874814831307124, 0.020584384475523715, 3.0205999867276767, 1.8743739725424318}","0.5874814831307124|0.020584384475523715|3.0205999867276767|1.8743739725424318",26,"parallel-pattern-search-remaining","normDenominator",601.7599305,0.0012531270558525556,true,0.00125313,0.0000028967599999999997,0.002311625135273463,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00125313 and 2.89676 10
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.5874814831307124|0.020584384475523715|3.0205999867276767|1.8743739725424318","XX-directional-refinement","5.|2.",5,2,"XX",1000000,"{0.5874814831307124, 0.020584384475523715, 3.0205999867276767, 1.8743739725424318}","0.5874814831307124|0.020584384475523715|3.0205999867276767|1.8743739725424318",26,"parallel-pattern-search-remaining","hamiltonianNumerator",9532.8646354,-0.004305812328281898,true,-0.00430581,0.0000157295,0.003653085364794887,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00430581 and 0.0000157295
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.6077939831307123|0.004089211802105613|2.74452598725857|1.953280222542432","XX-directional-refinement","5.|1.5",5,1.5,"XX",1000000,"{0.6077939831307123, 0.004089211802105613, 2.74452598725857, 1.953280222542432}","0.6077939831307123|0.004089211802105613|2.74452598725857|1.953280222542432",24,"parallel-pattern-search-remaining","normDenominator",601.2484529,0.0013442753533064104,true,0.00134428,0.00000278627,0.0020726929145482185,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00134428 and 2.78627 10
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.6077939831307123|0.004089211802105613|2.74452598725857|1.953280222542432","XX-directional-refinement","5.|1.5",5,1.5,"XX",1000000,"{0.6077939831307123, 0.004089211802105613, 2.74452598725857, 1.953280222542432}","0.6077939831307123|0.004089211802105613|2.74452598725857|1.953280222542432",24,"parallel-pattern-search-remaining","hamiltonianNumerator",9535.7745079,-0.005361566902820453,true,-0.00536157,0.0000179689,0.0033514269850008693,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00536157 and 0.0000179689
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.7556943737557128|0.21332841922907436|2.4743853622585688|2.3827235819174315","XX-directional-refinement","5.|0.5",5,0.5,"XX",1000000,"{0.7556943737557128, 0.21332841922907436, 2.4743853622585688, 2.3827235819174315}","0.7556943737557128|0.21332841922907436|2.4743853622585688|2.3827235819174315",20,"parallel-pattern-search-remaining","normDenominator",602.9610753,0.0005731780886331797,true,0.000573178,9.71476e-7,0.0016948938196793516,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000573178 and 9.71476 10
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.7556943737557128|0.21332841922907436|2.4743853622585688|2.3827235819174315","XX-directional-refinement","5.|0.5",5,0.5,"XX",1000000,"{0.7556943737557128, 0.21332841922907436, 2.4743853622585688, 2.3827235819174315}","0.7556943737557128|0.21332841922907436|2.4743853622585688|2.3827235819174315",20,"parallel-pattern-search-remaining","hamiltonianNumerator",9565.909103,-0.003874371540487983,true,-0.00387437,0.0000119281,0.0030787186709764127,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00387437 and 0.0000119281
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.6077939831307123|0.004089211802105613|2.9732364861967837|1.953280222542432","XX-directional-refinement","5.|1.5",5,1.5,"XX",1000000,"{0.6077939831307123, 0.004089211802105613, 2.9732364861967837, 1.953280222542432}","0.6077939831307123|0.004089211802105613|2.9732364861967837|1.953280222542432",25,"parallel-pattern-search-remaining","normDenominator",602.2470362,0.00159623433039765,true,0.00159623,0.00000320061,0.002005100340877064,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00159623 and 3.20061 10
+     for the integral and error estimates."
+"5.|1.5::XX::1000000::0.6077939831307123|0.004089211802105613|2.9732364861967837|1.953280222542432","XX-directional-refinement","5.|1.5",5,1.5,"XX",1000000,"{0.6077939831307123, 0.004089211802105613, 2.9732364861967837, 1.953280222542432}","0.6077939831307123|0.004089211802105613|2.9732364861967837|1.953280222542432",25,"parallel-pattern-search-remaining","hamiltonianNumerator",9600.5132251,-0.006376131066314054,true,-0.00637613,0.0000209414,0.0032843427749840635,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00637613 and 0.0000209414
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.7556943737557128|0.23999447163270865|2.3712859721644617|2.3827235819174315","XX-directional-refinement","5.|0.5",5,0.5,"XX",1000000,"{0.7556943737557128, 0.23999447163270865, 2.3712859721644617, 2.3827235819174315}","0.7556943737557128|0.23999447163270865|2.3712859721644617|2.3827235819174315",22,"parallel-pattern-search-remaining","normDenominator",604.3917283,0.0005330434050160039,true,0.000533043,9.36921e-7,0.0017576823785520248,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000533043 and 9.36921 10
+     for the integral and error estimates."
+"5.|0.5::XX::1000000::0.7556943737557128|0.23999447163270865|2.3712859721644617|2.3827235819174315","XX-directional-refinement","5.|0.5",5,0.5,"XX",1000000,"{0.7556943737557128, 0.23999447163270865, 2.3712859721644617, 2.3827235819174315}","0.7556943737557128|0.23999447163270865|2.3712859721644617|2.3827235819174315",22,"parallel-pattern-search-remaining","hamiltonianNumerator",9610.7310229,-0.0036200402865280822,true,-0.00362004,0.0000115457,0.003189384395241988,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00362004 and 0.0000115457
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.5874814831307124|0.010584384475523713|3.0205999867276767|1.78065527391531","XX-directional-refinement","5.|2.",5,2,"XX",1000000,"{0.5874814831307124, 0.010584384475523713, 3.0205999867276767, 1.78065527391531}","0.5874814831307124|0.010584384475523713|3.0205999867276767|1.78065527391531",19,"parallel-pattern-search-remaining","normDenominator",619.7340798,0.001856019947411211,true,0.00185602,0.00000414303,0.0022322120006192424,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00185602 and 4.14303 10
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.5874814831307124|0.010584384475523713|3.0205999867276767|1.78065527391531","XX-directional-refinement","5.|2.",5,2,"XX",1000000,"{0.5874814831307124, 0.010584384475523713, 3.0205999867276767, 1.78065527391531}","0.5874814831307124|0.010584384475523713|3.0205999867276767|1.78065527391531",19,"parallel-pattern-search-remaining","hamiltonianNumerator",9573.9841463,-0.006384488384426255,true,-0.00638449,0.0000224037,0.0035090830542741005,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00638449 and 0.0000224037
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.5874814831307124|0.010584384475523713|3.0205999867276767|1.9680926711695534","XX-directional-refinement","5.|2.",5,2,"XX",1000000,"{0.5874814831307124, 0.010584384475523713, 3.0205999867276767, 1.9680926711695534}","0.5874814831307124|0.010584384475523713|3.0205999867276767|1.9680926711695534",21,"parallel-pattern-search-remaining","normDenominator",623.2015294,0.000978051865022567,true,0.000978052,0.0000023017,0.0023533516803292344,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.000978052 and 2.3017 10
+     for the integral and error estimates."
+"5.|2.::XX::1000000::0.5874814831307124|0.010584384475523713|3.0205999867276767|1.9680926711695534","XX-directional-refinement","5.|2.",5,2,"XX",1000000,"{0.5874814831307124, 0.010584384475523713, 3.0205999867276767, 1.9680926711695534}","0.5874814831307124|0.010584384475523713|3.0205999867276767|1.9680926711695534",21,"parallel-pattern-search-remaining","hamiltonianNumerator",9597.3611324,-0.0033475934381102103,true,-0.00334759,0.0000125298,0.003742927637913326,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00334759 and 0.0000125298
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.6533017956307122|0.0633070356251368|2.5421820179776766|2.4136248977320536","XX-directional-refinement","3.|1.",3,1,"XX",1000000,"{0.6533017956307122, 0.0633070356251368, 2.5421820179776766, 2.4136248977320536}","0.6533017956307122|0.0633070356251368|2.5421820179776766|2.4136248977320536",26,"parallel-pattern-search-remaining","normDenominator",619.9896265,0.000968258172190618,true,0.000968258,0.00000145979,0.0015076454213624913,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained 0.000968258 and 1.45979 10
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.6533017956307122|0.0633070356251368|2.5421820179776766|2.4136248977320536","XX-directional-refinement","3.|1.",3,1,"XX",1000000,"{0.6533017956307122, 0.0633070356251368, 2.5421820179776766, 2.4136248977320536}","0.6533017956307122|0.0633070356251368|2.5421820179776766|2.4136248977320536",26,"parallel-pattern-search-remaining","hamiltonianNumerator",9580.1318995,-0.005489310294928559,true,-0.00548931,0.0000148651,0.002708008693502626,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00548931 and 0.0000148651
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.6533017956307122|0.0633070356251368|2.4404947372585695|2.2986903787924318","XX-directional-refinement","3.|1.",3,1,"XX",1000000,"{0.6533017956307122, 0.0633070356251368, 2.4404947372585695, 2.2986903787924318}","0.6533017956307122|0.0633070356251368|2.4404947372585695|2.2986903787924318",24,"parallel-pattern-search-remaining","normDenominator",617.9755116,0.0012361100429480497,true,0.00123611,0.00000183864,0.0014874403864683047,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00123611 and 1.83864 10
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.6533017956307122|0.0633070356251368|2.4404947372585695|2.2986903787924318","XX-directional-refinement","3.|1.",3,1,"XX",1000000,"{0.6533017956307122, 0.0633070356251368, 2.4404947372585695, 2.2986903787924318}","0.6533017956307122|0.0633070356251368|2.4404947372585695|2.2986903787924318",24,"parallel-pattern-search-remaining","hamiltonianNumerator",9582.1921825,-0.006985978199427207,true,-0.00698598,0.0000187641,0.0026859660113938665,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00698598 and 0.0000187641
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.6533017956307122|0.0633070356251368|2.5421820179776766|2.18375585985281","XX-directional-refinement","3.|1.",3,1,"XX",1000000,"{0.6533017956307122, 0.0633070356251368, 2.5421820179776766, 2.18375585985281}","0.6533017956307122|0.0633070356251368|2.5421820179776766|2.18375585985281",23,"parallel-pattern-search-remaining","normDenominator",621.5402645,0.001600652467050146,true,0.00160065,0.00000227092,0.0014187464466818925,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00160065 and 2.27092 10
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.6533017956307122|0.0633070356251368|2.5421820179776766|2.18375585985281","XX-directional-refinement","3.|1.",3,1,"XX",1000000,"{0.6533017956307122, 0.0633070356251368, 2.5421820179776766, 2.18375585985281}","0.6533017956307122|0.0633070356251368|2.5421820179776766|2.18375585985281",23,"parallel-pattern-search-remaining","hamiltonianNumerator",9620.6415607,-0.009052012958694363,true,-0.00905201,0.0000233807,0.002582928251062995,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00905201 and 0.0000233807
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.6533017956307122|0.0633070356251368|2.6438692986967838|2.2986903787924318","XX-directional-refinement","3.|1.",3,1,"XX",1000000,"{0.6533017956307122, 0.0633070356251368, 2.6438692986967838, 2.2986903787924318}","0.6533017956307122|0.0633070356251368|2.6438692986967838|2.2986903787924318",20,"parallel-pattern-search-remaining","normDenominator",619.9885554,0.0012522223103299387,true,0.00125222,0.00000180017,0.0014375802005361863,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00125222 and 1.80017 10
+     for the integral and error estimates."
+"3.|1.::XX::1000000::0.6533017956307122|0.0633070356251368|2.6438692986967838|2.2986903787924318","XX-directional-refinement","3.|1.",3,1,"XX",1000000,"{0.6533017956307122, 0.0633070356251368, 2.6438692986967838, 2.2986903787924318}","0.6533017956307122|0.0633070356251368|2.6438692986967838|2.2986903787924318",20,"parallel-pattern-search-remaining","hamiltonianNumerator",9600.7193901,-0.007060013473258335,true,-0.00706001,0.0000184399,0.00261187886819848,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00706001 and 0.0000184399
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|2.4908076758203546|1.8963466287924327","XX-directional-refinement","7.|1.",7,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 2.4908076758203546, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|2.4908076758203546|1.8963466287924327",25,"parallel-pattern-search-remaining","normDenominator",624.4661057,0.0010372937960611904,true,0.00103729,0.0000023253499999999997,0.002241746753744998,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00103729 and 2.32535 10
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|2.4908076758203546|1.8963466287924327","XX-directional-refinement","7.|1.",7,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 2.4908076758203546, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|2.4908076758203546|1.8963466287924327",25,"parallel-pattern-search-remaining","hamiltonianNumerator",9624.2063986,-0.004625880081057684,true,-0.00462588,0.0000169251,0.0036587848589732927,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00462588 and 0.0000169251
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|2.717244737258569|1.8963466287924327","XX-directional-refinement","7.|1.",7,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 2.717244737258569, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|2.717244737258569|1.8963466287924327",22,"parallel-pattern-search-remaining","normDenominator",626.3292892,0.0011844302092676932,true,0.00118443,0.0000025592199999999997,0.0021607182761593934,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00118443 and 2.55922 10
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|2.717244737258569|1.8963466287924327","XX-directional-refinement","7.|1.",7,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 2.717244737258569, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|2.717244737258569|1.8963466287924327",22,"parallel-pattern-search-remaining","hamiltonianNumerator",9672.946819,-0.005307150345773781,true,-0.00530715,0.0000187016,0.003523849671018376,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00530715 and 0.0000187016
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.6423642956307125|0.044180192105451745|2.6040262065394617|1.8963466287924327","XX-directional-refinement","7.|1.",7,1,"XX",1000000,"{0.6423642956307125, 0.044180192105451745, 2.6040262065394617, 1.8963466287924327}","0.6423642956307125|0.044180192105451745|2.6040262065394617|1.8963466287924327",19,"parallel-pattern-search-remaining","normDenominator",558.1900661,0.0011679464844748786,true,0.00116795,0.00000252491,0.002161837064936436,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00116795 and 2.52491 10
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.6423642956307125|0.044180192105451745|2.6040262065394617|1.8963466287924327","XX-directional-refinement","7.|1.",7,1,"XX",1000000,"{0.6423642956307125, 0.044180192105451745, 2.6040262065394617, 1.8963466287924327}","0.6423642956307125|0.044180192105451745|2.6040262065394617|1.8963466287924327",19,"parallel-pattern-search-remaining","hamiltonianNumerator",8044.0547255,-0.005228522320250851,true,-0.00522852,0.0000185985,0.00355712357351239,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00522852 and 0.0000185985
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|3.1701188601349966|1.8963466287924327","XX-directional-refinement","10.|1.",10,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 3.1701188601349966, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|3.1701188601349966|1.8963466287924327",24,"parallel-pattern-search-remaining","normDenominator",552.0018935,0.0009216657375161307,true,0.000921666,0.0000023890699999999997,0.0025921219621752372,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained 0.000921666 and 2.38907 10
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|3.1701188601349966|1.8963466287924327","XX-directional-refinement","10.|1.",10,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 3.1701188601349966, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|3.1701188601349966|1.8963466287924327",24,"parallel-pattern-search-remaining","hamiltonianNumerator",8049.3857811,-0.0037007892723859505,true,-0.00370079,0.0000149649,0.004043704977114765,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00370079 and 0.0000149649
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.6423642956307125|0.06418019210545174|2.6040262065394617|1.8963466287924327","XX-directional-refinement","7.|1.",7,1,"XX",1000000,"{0.6423642956307125, 0.06418019210545174, 2.6040262065394617, 1.8963466287924327}","0.6423642956307125|0.06418019210545174|2.6040262065394617|1.8963466287924327",21,"parallel-pattern-search-remaining","normDenominator",552.6983775,0.0010493879124536755,true,0.00104939,0.0000023332199999999997,0.002223410401730731,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00104939 and 2.33322 10
+     for the integral and error estimates."
+"7.|1.::XX::1000000::0.6423642956307125|0.06418019210545174|2.6040262065394617|1.8963466287924327","XX-directional-refinement","7.|1.",7,1,"XX",1000000,"{0.6423642956307125, 0.06418019210545174, 2.6040262065394617, 1.8963466287924327}","0.6423642956307125|0.06418019210545174|2.6040262065394617|1.8963466287924327",21,"parallel-pattern-search-remaining","hamiltonianNumerator",8079.4591774,-0.0046752577896910985,true,-0.00467526,0.0000168924,0.003613148356706146,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00467526 and 0.0000168924
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|2.9436817986967823|1.8963466287924327","XX-directional-refinement","10.|1.",10,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 2.9436817986967823, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|2.9436817986967823|1.8963466287924327",26,"parallel-pattern-search-remaining","normDenominator",553.5184073,0.0007530140708724422,true,0.000753014,0.00000200514,0.002662818767352972,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained 0.000753014 and 2.00514 10
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.6423642956307125|0.05418019210545175|2.9436817986967823|1.8963466287924327","XX-directional-refinement","10.|1.",10,1,"XX",1000000,"{0.6423642956307125, 0.05418019210545175, 2.9436817986967823, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|2.9436817986967823|1.8963466287924327",26,"parallel-pattern-search-remaining","hamiltonianNumerator",8073.4511308,-0.003009002441956706,true,-0.003009,0.0000126501,0.004204084324961147,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.003009 and 0.0000126501
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.6423642956307125|0.06418019210545174|3.0569003294158894|1.8963466287924327","XX-directional-refinement","10.|1.",10,1,"XX",1000000,"{0.6423642956307125, 0.06418019210545174, 3.0569003294158894, 1.8963466287924327}","0.6423642956307125|0.06418019210545174|3.0569003294158894|1.8963466287924327",20,"parallel-pattern-search-remaining","normDenominator",545.4211856,0.0007812384807550383,true,0.000781238,0.00000207873,0.002660813632721962,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained 0.000781238 and 2.07873 10
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.6423642956307125|0.06418019210545174|3.0569003294158894|1.8963466287924327","XX-directional-refinement","10.|1.",10,1,"XX",1000000,"{0.6423642956307125, 0.06418019210545174, 3.0569003294158894, 1.8963466287924327}","0.6423642956307125|0.06418019210545174|3.0569003294158894|1.8963466287924327",20,"parallel-pattern-search-remaining","hamiltonianNumerator",8048.7522848,-0.0031214829613793477,true,-0.00312148,0.0000129292,0.00414200563000566,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00312148 and 0.0000129292
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.6423642956307125|0.044180192105451745|3.0569003294158894|1.8963466287924327","XX-directional-refinement","10.|1.",10,1,"XX",1000000,"{0.6423642956307125, 0.044180192105451745, 3.0569003294158894, 1.8963466287924327}","0.6423642956307125|0.044180192105451745|3.0569003294158894|1.8963466287924327",23,"parallel-pattern-search-remaining","normDenominator",549.2421227,0.0008847096158764545,true,0.00088471,0.00000230986,0.002610867971307956,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+                                                                         -6
+     integrand evaluations. NIntegrate obtained 0.00088471 and 2.30986 10
+     for the integral and error estimates."
+"10.|1.::XX::1000000::0.6423642956307125|0.044180192105451745|3.0569003294158894|1.8963466287924327","XX-directional-refinement","10.|1.",10,1,"XX",1000000,"{0.6423642956307125, 0.044180192105451745, 3.0569003294158894, 1.8963466287924327}","0.6423642956307125|0.044180192105451745|3.0569003294158894|1.8963466287924327",23,"parallel-pattern-search-remaining","hamiltonianNumerator",8065.5762566,-0.0035585853692905256,true,-0.00355859,0.000014363,0.004036154401113482,"
+NIntegrate::maxp: 
+   The integral failed to converge after 1000100
+     integrand evaluations. NIntegrate obtained -0.00355859 and 0.000014363
+     for the integral and error estimates."
+"5.|0.5::XX::2000000::0.7556943737557128|0.21332841922907436|2.2681865820703546|2.3827235819174315","XX-final-verification","5.|0.5",5,0.5,"XX",2000000,"{0.7556943737557128, 0.21332841922907436, 2.2681865820703546, 2.3827235819174315}","0.7556943737557128|0.21332841922907436|2.2681865820703546|2.3827235819174315",19,"parallel-pattern-search-remaining","normDenominator",717.3390748,0.0005988869685244506,true,0.000598887,7.397579999999999e-7,0.0012352214004967082,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -7
+     integrand evaluations. NIntegrate obtained 0.000598887 and 7.39758 10
+     for the integral and error estimates."
+"5.|0.5::XX::2000000::0.7556943737557128|0.21332841922907436|2.2681865820703546|2.3827235819174315","XX-final-verification","5.|0.5",5,0.5,"XX",2000000,"{0.7556943737557128, 0.21332841922907436, 2.2681865820703546, 2.3827235819174315}","0.7556943737557128|0.21332841922907436|2.2681865820703546|2.3827235819174315",19,"parallel-pattern-search-remaining","hamiltonianNumerator",10723.0703373,-0.004093779623197878,true,-0.00409378,0.000009199429999999999,0.0022471727466398922,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained -0.00409378 and 9.19943 10
+     for the integral and error estimates."
+"3.|1.::XX::2000000::0.6533017956307122|0.0633070356251368|2.5421820179776766|2.4136248977320536","XX-final-verification","3.|1.",3,1,"XX",2000000,"{0.6533017956307122, 0.0633070356251368, 2.5421820179776766, 2.4136248977320536}","0.6533017956307122|0.0633070356251368|2.5421820179776766|2.4136248977320536",20,"parallel-pattern-search-remaining","normDenominator",719.1427013,0.0009684831251829902,true,0.000968483,0.00000103099,0.0010645410056114293,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                          -6
+     integrand evaluations. NIntegrate obtained 0.000968483 and 1.03099 10
+     for the integral and error estimates."
+"3.|1.::XX::2000000::0.6533017956307122|0.0633070356251368|2.5421820179776766|2.4136248977320536","XX-final-verification","3.|1.",3,1,"XX",2000000,"{0.6533017956307122, 0.0633070356251368, 2.5421820179776766, 2.4136248977320536}","0.6533017956307122|0.0633070356251368|2.5421820179776766|2.4136248977320536",20,"parallel-pattern-search-remaining","hamiltonianNumerator",10744.9331608,-0.005487061143414338,true,-0.00548706,0.0000105055,0.001914595031004689,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.00548706 and 0.0000105055
+     for the integral and error estimates."
+"7.|1.::XX::2000000::0.6423642956307125|0.05418019210545175|2.717244737258569|1.8963466287924327","XX-final-verification","7.|1.",7,1,"XX",2000000,"{0.6423642956307125, 0.05418019210545175, 2.717244737258569, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|2.717244737258569|1.8963466287924327",21,"parallel-pattern-search-remaining","normDenominator",721.3964119,0.0011860951519165601,true,0.0011861,0.0000018102299999999998,0.001526209762408123,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+                                                                        -6
+     integrand evaluations. NIntegrate obtained 0.0011861 and 1.81023 10
+     for the integral and error estimates."
+"7.|1.::XX::2000000::0.6423642956307125|0.05418019210545175|2.717244737258569|1.8963466287924327","XX-final-verification","7.|1.",7,1,"XX",2000000,"{0.6423642956307125, 0.05418019210545175, 2.717244737258569, 1.8963466287924327}","0.6423642956307125|0.05418019210545175|2.717244737258569|1.8963466287924327",21,"parallel-pattern-search-remaining","hamiltonianNumerator",10748.4537473,-0.005315441256198842,true,-0.00531544,0.0000132161,0.002486359901840218,"
+NIntegrate::maxp: 
+   The integral failed to converge after 2000100
+     integrand evaluations. NIntegrate obtained -0.00531544 and 0.0000132161
+     for the integral and error estimates."
