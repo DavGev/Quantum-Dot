@@ -1,64 +1,592 @@
-How the biexciton numerics reached their final form. Theory in [[Biexciton]], integration method in [[Importance-Sampled Integration]]; implementation in `01-numerics/mixed-integrals.wl`.
+# Computational Methods Note: Main Biexciton Paper
 
-## The symptom
+Last updated: 2026-08-03
 
-Swapping $\alpha\leftrightarrow\beta$ changed the energy correction (e.g. $-11.57$ vs $+5.85\ \mathrm{Ry}$) although the trial factor $F=G(P+Q)$ makes the exact energy symmetric under the swap. A 13-hour minimization had also "converged" smoothly to $-11.56\ \mathrm{Ry}$ at extreme parameters ($\alpha\approx0.06$), which later proved to be an artifact.
+This note is the source of truth for the numerical methods used for the paper
+on the ground exciton $X$ and the main biexciton $XX$. It records both the
+final production method and the validation trials that led to it. The final
+paper should describe the method in the sections marked **final method**;
+superseded estimators belong only in a short validation paragraph or the
+supplement.
 
-## Diagnosis
+The analytical direct/cross reductions in [[Biexciton]] remain exact
+identities. However, they were **not used to evaluate the final energies**,
+because independent adaptive integrations of symmetry-related pieces showed
+numerically significant disagreement. The final estimator keeps the raw
+$P+Q$ expression and removes only the redundant global azimuthal rotation.
 
-**Derivations were audited first and cleared.** Every symmetry-reduced integral form in [[Biexciton]] rests on two pointwise statements: the pair density is $I\leftrightarrow J$ symmetric, and $P$ with electrons relabeled equals $Q$. Both were verified numerically at random configuration points to machine precision, for arbitrary mixed states. The identities (e.g. $\int\Psi_0^2G^2P^2 = \int\Psi_0^2G^2Q^2$) are therefore exact, and any numerical violation measures quadrature error — this became the standing diagnostic.
+## Scope and calculated observables
 
-**Two independent quadrature failures were then found.**
+Only the single-particle ground configuration
 
-1. A finite `AccuracyGoal` set an absolute error tolerance ($10^{-6}$) far above the integrals themselves ($\sim10^{-8}$): NIntegrate "converged" instantly with $O(1)$ error, identically at every budget. Fixed by `AccuracyGoal -> Infinity`, so the relative goal always governs and `MaxPoints` caps the cost.
-2. With honest stopping, uniform quasi-Monte-Carlo still failed: the orbitals confine each particle to $r\lesssim\ell$ while the box extends to $R=0.9a\gg\ell$, so only a fraction $\sim(\ell/R)^8$ of points land in the support. $\langle P^2\rangle$ and $\langle Q^2\rangle$ disagreed by $30\text{--}100\%$ at any affordable budget, and NIntegrate's own error estimates were $\sim10\times$ optimistic. The smooth, deterministic quadrature error created a fake variational minimum that the optimizer found reproducibly.
+\[
+(\nu,n,m)=(1,0,0)
+\]
 
-## Fixes, in order
+is used for every electron and hole. The seven geometries, in effective Bohr
+radii, are
 
-1. **Symmetrized estimators.** Direct terms use $(P^2+Q^2)/2$ and $(P^2D^{(P)}+Q^2D^{(Q)})/2$; cross terms were already pointwise symmetric. The $\alpha\leftrightarrow\beta$ symmetry is now exact by construction on the fixed point set.
-2. **Importance sampling.** Per-particle change of variables mapping a reference density to the uniform measure ([[Importance-Sampled Integration]]). Brought the $\langle P^2\rangle$/$\langle Q^2\rangle$ spread from $O(1)$ to the target $\sim1\%$ at $2\times10^5$ points.
-3. **State-adapted reference.** For mixed configurations each particle samples the average of its pair's two orbital densities plus a $10\%$ ground floor (bounded Jacobian at orbital nodes; interference bounded by AM-GM). Maps are tabulated per configuration and rebuilt automatically when the configuration changes.
-4. **Optimizer tolerance above the noise floor.** With optimizer and integration precision goals equal, NelderMead shrink-loops indefinitely inside the noise band (384 evaluations, best flat after 185). The optimizer goal is now one order looser than the integration goal.
-5. **Bias-free readout.** The minimizer's best value is a minimum over hundreds of noisy draws and is biased low by roughly the noise half-width; the quoted energy is a single re-evaluation at the optimal parameters with a higher budget.
-6. **Bookkeeping.** Run history is keyed by the full configuration (states, exchange signs, geometry), archived to disk, and used for warm starts: exact configuration match first, else the archived run of the nearest geometry with identical states (weighted $(\Delta a)^2 + 10(\Delta c)^2$); diagnostics flag stale history. A per-evaluation progress log makes long minimizations observable from outside the kernel.
-7. **Stall guard.** NelderMead's own convergence test rarely fires on a noisy objective (spurious noise-improvements keep the simplex from contracting), so runs ground to the iteration cap at $\sim7$ evaluations/iteration. Runs now stop when the best value improves by less than a noise-scale tolerance over 10 iterations — the plateau criterion applied by eye to the convergence plots.
-8. **`PostProcess -> False`.** For constrained problems NMinimize by default polishes the NelderMead result with a derivative-based FindMinimum; on a noisy objective the finite-difference derivatives are noise, the polish burned $\sim$250 evaluations (a 4-day run), and it is invisible to `StepMonitor`, evading the stall guard. Disabled.
-9. **Norm-collapse guard.** For antisymmetric ($\eta=-1$) pairs the density vanishes at pair coincidence while large $\delta$ pulls the pair together: in parts of parameter space the true norm underflows the quadrature accuracy, the energy ratio becomes noise of either sign, and the optimizer dives into a fake $-\infty$ (observed: $-3\times10^5$ Ry). Evaluations with norm below a floor, or $|E|$ beyond a cap, now return a $+100$ Ry penalty; $\eta$-variant runs are seeded from the symmetric-configuration optimum.
-10. **Exciton mirror.** The full framework (ClearAll headers, `AccuracyGoal -> Infinity`, state-adapted importance sampling, per-configuration archives, stall guard) is ported to the exciton package with its own exact-identity diagnostics: $\mathrm{norm}(\alpha=0)=1$ for any configuration (absolute test of measure + rule) and invariance under swapping the electron and hole states.
-
-## Final protocol
-
-1. Configure states; `minimizeBiexciton[a, c]` at `bxPrecisionGoal = 2`, $2\times10^5$ points (warm-started if the configuration was run before).
-2. Re-evaluate `totalEnergyBiexciton` at the optimum with `bxPrecisionGoal = 3`, $10^6$ points.
-3. Stamp with `bxQuadratureCheckAll`: six exact identities (norm, full interaction, interaction reduction, cross attraction, electron and hole kinetic kernels); require all relative spreads $\lesssim10^{-2}$.
-
-## Validation across configuration classes
-
-Identity spreads from `bxQuadratureCheckAll` at $2\times10^5$ points, $a=5$, $c=0.5$, $(\alpha,\beta,\gamma,\delta)\approx(0.7,\,0.1,\,2.5,\,2.8)$; worst entry in parentheses:
-
-| electron configuration | spreads |
+| scan | geometries $(a,c)$ |
 |---|---|
-| $\{1,0,0\},\{1,0,0\}$ (ground) | $0.1\text{--}2\%$ |
-| $\{1,0,1\},\{1,0,1\}$ (excited, equal) | $0.3\text{--}3\%$ (cross attraction) |
-| $\{1,0,0\},\{1,0,1\}$ singlet | $0.8\text{--}4\%$ (cross attraction) |
-| $\{1,0,0\},\{1,0,1\}$ triplet | $0.9\text{--}4\%$ (electron kinetic) |
+| axial scan, $a=5$ | $(5,0.5)$, $(5,1)$, $(5,1.5)$, $(5,2)$ |
+| lateral scan, $c=1$ | $(3,1)$, $(5,1)$, $(7,1)$, $(10,1)$ |
 
-No $O(1)$ failures in any class: the mixture reference contains the interference term in both spin channels. Distinct-orbital configurations run $2\text{--}3\times$ noisier than equal-orbital ones — the interference partially cancels the plain-product density (nodal in the triplet), which a positive reference cannot mirror. Production budgets for these configurations are therefore larger: $4\times10^5$ points per minimization evaluation (the optimizer tolerates $\sim$few-\% noise; accuracy comes from the final re-evaluation) and $2\text{--}4\times10^6$ for the final energy and identity stamp. The quoted per-configuration error bar is always the measured spread at the optimum, not an assumption.
+The final microscopic outputs are
 
-The campaign's state list and geometry grid are set elsewhere: the bright-diamond states (and the $\eta$ multiplet of $|0101\rangle$) by [[Optical Selection Rules]], and the nm-defined grid with $c \ge 6$ nm by the hard-wall physicality audit. The reference result below predates both and remains as the legacy validation point.
+- the corrected exciton energy $E_X$;
+- the corrected main-biexciton energy $E_{XX}$;
+- the binding energy $E_{\mathrm{bind}}=2E_X-E_{XX}$;
+- the ground-exciton norm $N_X$, coincidence overlap $M_X$, and
+  $|M_X|^2$;
+- the exciton and biexciton radiative lifetimes, $\tau_X$ and $\tau_{XX}$.
 
-## Reference result (ground configuration, $a=5$, $c=0.5$)
+Excited complexes, trions, exchange fine structure, nonlinear susceptibility,
+and nonlinear absorption are outside the scope of this paper.
 
-$$
-(\alpha,\beta,\gamma,\delta) = (0.722,\ 0.105,\ 2.453,\ 2.764)
-$$
+## Model, units, and single-particle contribution
 
-$$
-E_{\mathrm{corr}} = -6.621\ \mathrm{Ry},
+The dot is a hard-wall, strongly oblate semi-ellipsoid,
+
+\[
+\mathcal D=\left\{(r,z):\frac{r^2}{a^2}+\frac{z^2}{c^2}\le 1,
+\quad z\ge0\right\}.
+\]
+
+The adiabatic single-particle model and coordinate conventions are documented
+in the theory notes. At $B=0$, the ground-state single-particle energies are
+generated by
+
+\[
+\hbar\Omega_z=\frac{\pi^2}{c^2},\qquad
+\hbar\omega_{00}=\frac{2\pi}{ac},
+\]
+
+in effective Rydberg units. The electron energy is $E_e$, and the hole
+energy is scaled by $m_e/m_h$. Thus
+
+\[
+E_X^{(0)}=E_e+E_h,\qquad
+E_{XX}^{(0)}=2E_e+2E_h=2E_X^{(0)}.
+\]
+
+The energy calculation uses the shared GaAs constants
+
+\[
+\epsilon_r^{(E)}=12.8,\qquad
+m_e=0.067m_0,\qquad m_h=0.45m_0.
+\]
+
+They define
+
+\[
+r_B=10.109654\ \mathrm{nm},\qquad
+1\ \mathrm{Ry}=5.563851565\ \mathrm{meV}.
+\]
+
+All tabulated confinement and correlation energies exclude the band gap. The
+band gap is restored only when the optical transition energy is constructed
+for the lifetime calculation.
+
+## Correlated trial states
+
+### Exciton
+
+For the ground exciton,
+
+\[
+\Psi_X=\Psi_{0X}\exp(-\alpha_X r_{1a}),
+\]
+
+where $\Psi_{0X}=\psi_e(1)\psi_h(a)$. Its norm is
+
+\[
+N_X=\int |\Psi_{0X}|^2 e^{-2\alpha_X r_{1a}}\,d\tau.
+\]
+
+In the effective units used by the code, the Jastrow kinetic correction is
+analytical:
+
+\[
+K_X(\alpha_X)=\alpha_X^2\left(1+\frac{m_e}{m_h}\right).
+\]
+
+Only the Coulomb numerator and norm are integrated:
+
+\[
+V_X=\int |\Psi_{0X}|^2e^{-2\alpha_X r_{1a}}
+\left(-\frac{2}{r_{1a}}\right)d\tau,
+\]
+
+\[
+E_X=E_X^{(0)}+\Delta E_X,\qquad
+\Delta E_X=K_X+\frac{V_X}{N_X}.
+\]
+
+Using the analytical kinetic term avoids spending a separate high-dimensional
+quadrature on a quantity already known exactly.
+
+### Main biexciton
+
+The four-particle trial state is
+
+\[
+\Psi_{XX}=\Psi_{0XX}F_{XX},\qquad F_{XX}=G(P+Q),
+\]
+
+with
+
+\[
+G=r_{ab}^{\gamma}e^{-\delta r_{ab}},
+\]
+
+\[
+P=e^{-\alpha(r_{1a}+r_{2b})-\beta(r_{1b}+r_{2a})},
 \qquad
-E_{\mathrm{tot}} = 89.866\ \mathrm{Ry}
-\qquad
-(E_0 = 96.488\ \mathrm{Ry})
-$$
+Q=e^{-\beta(r_{1a}+r_{2b})-\alpha(r_{1b}+r_{2a})}.
+\]
 
-Identity spreads $0.1\text{--}2\%$ at $10^6$ points; estimated uncertainty $\pm0.03\ \mathrm{Ry}$. The earlier $-11.56\ \mathrm{Ry}$ is superseded (quadrature artifact).
+The variational parameters are $(\alpha,\beta,\gamma,\delta)$. The raw norm
+used in the final calculation is
+
+\[
+N_{XX}=\int |\Psi_{0XX}|^2G^2(P+Q)^2\,d\tau.
+\]
+
+The Coulomb potential is retained pointwise with all six pair terms,
+
+\[
+V_{XX}=2\left(
+\frac1{r_{12}}+\frac1{r_{ab}}
+-\frac1{r_{1a}}-\frac1{r_{1b}}-\frac1{r_{2a}}-\frac1{r_{2b}}
+\right).
+\]
+
+The kinetic numerator explicitly includes the gradients with respect to both
+electrons and both holes. In compact notation,
+
+\[
+H_{XX}=\int |\Psi_{0XX}|^2G^2
+\left[
+\sum_{i=1,2}|P\mathbf g_i^{P}+Q\mathbf g_i^{Q}|^2
++\frac{m_e}{m_h}\sum_{j=a,b}|P\mathbf g_j^{P}+Q\mathbf g_j^{Q}|^2
++(P+Q)^2V_{XX}
+\right]d\tau,
+\]
+
+where the hole gradients include the logarithmic derivative of $G$. This is
+implemented as one complete Hamiltonian-correction numerator rather than as
+separately integrated kinetic and Coulomb pieces. The energy is
+
+\[
+E_{XX}=E_{XX}^{(0)}+\Delta E_{XX},\qquad
+\Delta E_{XX}=\frac{H_{XX}}{N_{XX}}.
+\]
+
+The binding-energy sign convention is
+
+\[
+E_{\mathrm{bind}}=2E_X-E_{XX}
+=2\Delta E_X-\Delta E_{XX}.
+\]
+
+Positive values denote a bound biexciton. The single-particle contribution
+cancels exactly, so the binding energy is controlled entirely by a small
+difference of correlation corrections.
+
+## Final integral estimator
+
+### Importance-sampled coordinates
+
+At fixed $r$, the axial coordinate is written
+
+\[
+z=u\,c\sqrt{1-r^2/a^2},\qquad 0<u<1.
+\]
+
+The numerical radial cutoff inherited from the validated framework is
+$R=0.9a$. Each particle is transformed from $(r,u)$ to variables
+$(v,x)\in(0,1)^2$ using a reference density matched to the ground orbital:
+
+\[
+p_r(r)=\frac{1}{C}\frac{2r}{\ell^2}e^{-r^2/\ell^2},
+\qquad C=1-e^{-R^2/\ell^2},
+\]
+
+\[
+p_u(u)=2\sin^2(\pi u).
+\]
+
+The radial inverse is analytical,
+
+\[
+r(v)=\ell\sqrt{-\ln(1-Cv)},
+\]
+
+and the inverse axial cumulative distribution is tabulated. This change of
+variables cancels most of the sharply localized single-particle density and
+leaves the adaptive integrator with an $O(1)$ transformed integrand. It is an
+importance transformation, not a symmetry reduction.
+
+### Angular treatment
+
+The final estimator removes only the redundant global rotation:
+
+- for $X$, the hole angle is fixed to zero and the electron angle is
+  integrated over $[0,2\pi]$;
+- for $XX$, $\phi_a=0$, while $\phi_1$, $\phi_2$, and $\phi_b$ are each
+  integrated independently over the full interval $[0,2\pi]$;
+- a factor $2\pi$ restores the analytically integrated global azimuth;
+- there is no reflection folding;
+- there are no particle-exchange multiplicities;
+- $G(P+Q)$, the six Coulomb terms, and all four $XX$ kinetic terms remain
+  in the integrand point by point.
+
+The phrase "gauge-fixed raw" used in the diagnostic filenames refers only to
+this rotational coordinate choice. It is not an electromagnetic gauge.
+
+### Adaptive quasi-Monte Carlo settings
+
+Every numerical integral uses Wolfram Language `NIntegrate` with
+
+```wl
+Method -> {
+  "AdaptiveQuasiMonteCarlo",
+  "BisectionDithering" -> 0,
+  "MaxPoints" -> budget
+},
+AccuracyGoal -> Infinity,
+PrecisionGoal -> 4,
+WorkingPrecision -> MachinePrecision
+```
+
+The adaptive part subdivides the transformed integration domain and allocates
+more low-discrepancy evaluations to regions with the largest estimated error.
+`MaxPoints` is therefore a cap, not a uniform preselected sample size.
+
+The Hamiltonian numerator and norm denominator are separate, independently
+adaptive calls. They do not share a fixed Sobol point set. This preserves the
+ability of each integral to adapt to its own structure. The final error
+propagation consequently treats their reported errors as independent rough
+estimates.
+
+`AccuracyGoal -> Infinity` is essential. A finite absolute goal can be much
+larger than the small $XX$ integrals and can cause false early convergence.
+With only a relative precision goal, most difficult integrals reach
+`MaxPoints`; the resulting `NIntegrate::maxp` warning means the requested goal
+was not reached before the budget cap, not that the returned number is absent.
+
+The repeated `General::stop` message only says that further copies of the same
+warning are being suppressed. The earlier `Symbol::symname` messages involving
+the strings `"ListLinePlot"` and `"LineLegend"` came from presentation/plot
+metadata and did not alter the energy integrals.
+
+The old symmetry diagnostic suite was expensive because it independently
+recomputed swapped and reduced forms of several norm, Coulomb, and kinetic
+integrals. Those values were not already available from the one numerator and
+one denominator used for an energy evaluation. The final campaign therefore
+times and stores the production numerator and denominator directly; the
+full symmetry suite is retained only as validation history.
+
+## Final variational search and refinement
+
+The final parameter search is a safeguarded local coordinate pattern search,
+not gradient descent and not the earlier unconstrained noisy Nelder-Mead run.
+The already completed reduced-production optima at the same geometry provide
+warm starts. All final raw candidates are nevertheless evaluated with the raw
+estimator defined above.
+
+### Exciton search
+
+The exciton objective is one-dimensional. If $\alpha_0$ is the warm start,
+
+\[
+s_X=\operatorname{clip}(0.07\alpha_0,0.04,0.06).
+\]
+
+Five candidates
+
+\[
+\alpha_0+\{-2,-1,0,1,2\}s_X
+\]
+
+are evaluated at $2\times10^6$ points per integral. The best point is then
+refined with two candidates at $\pm s_X/2$. The lowest high-budget result is
+retained.
+
+### Biexciton search
+
+For a center $(\alpha,\beta,\gamma,\delta)$, the initial coordinate steps are
+
+\[
+\begin{aligned}
+s_\alpha&=\operatorname{clip}(0.12\alpha,0.05,0.10),\\
+s_\beta&=\operatorname{clip}(0.25\beta,0.02,0.06),\\
+s_\gamma&=\operatorname{clip}(0.08|\gamma|,0.15,0.25),\\
+s_\delta&=\operatorname{clip}(0.10\delta,0.15,0.25).
+\end{aligned}
+\]
+
+The positivity-constrained parameters $\alpha$, $\beta$, and $\delta$ are kept
+above $0.001$, and $\gamma$ is restricted to $[-0.999,4.999]$.
+
+The search proceeds as follows:
+
+1. Evaluate the center and the positive and negative displacement along each
+   of the four axes at $10^6$ points per integral (a nine-point stencil).
+2. Re-evaluate the center and the best stencil candidate at
+   $2\times10^6$ points.
+3. Accept the move only if the candidate is lower at both budgets and its
+   verified improvement is larger than
+   \[
+   \max\left(0.02\ \mathrm{Ry},
+   |\Delta E_{2\mathrm{M}}-\Delta E_{1\mathrm{M}}|\right).
+   \]
+4. Rank the four axes by their low-budget improvement. Refine only the two
+   most promising axes, using half steps around the accepted center.
+5. Re-evaluate the refinement winner and center at $2\times10^6$ points and
+   apply the same acceptance test.
+
+This safeguard prevents a candidate from being accepted merely because of a
+favorable low-budget fluctuation.
+
+### Parallel execution and restart behavior
+
+Candidate evaluations are distributed over eight parallel subkernels. The
+global queue owns the workers across all geometries, which avoids leaving
+kernels idle when different geometries take different times. Within one
+candidate, the denominator and numerator are evaluated independently and their
+individual wall times are recorded.
+
+Workers do not write shared output. The master kernel checkpoints every
+completed candidate to WXF and CSV as soon as `WaitNext` returns it.
+Re-evaluating a stage resubmits only missing candidates. This makes the
+multi-day campaign restartable without repeating completed integrals.
+
+The final campaign contained 22 candidates for $(5,1)$ and 133 candidates for
+the other six geometries. The summed integral workloads were 35.79 and
+284.79 worker-hours, respectively. With eight workers, the recorded wall-clock
+spans were about 6.9 h for the pilot and 40.7 h for the remaining campaign.
+
+## Numerical error and plotted error bars
+
+Every integral record stores
+
+- the returned value;
+- elapsed seconds;
+- whether `MaxPoints` was reached;
+- the value and error estimate printed by `NIntegrate::maxp`, when present;
+- the corresponding relative error estimate;
+- the complete warning text.
+
+For a ratio $R=H/N$, the rough propagated error is
+
+\[
+\sigma_R=|R|\sqrt{
+\left(\frac{\sigma_H}{H}\right)^2+
+\left(\frac{\sigma_N}{N}\right)^2}.
+\]
+
+For $X$, $H$ in this expression is the Coulomb numerator $V_X$; the
+analytical kinetic term has no quadrature error. For $XX$, $H$ is the
+complete Hamiltonian-correction numerator. The single-particle energies are
+analytical, so the correction error is also the total-energy error.
+
+The binding-energy error is
+
+\[
+\sigma_{\mathrm{bind}}=
+\sqrt{(2\sigma_X)^2+\sigma_{XX}^2}.
+\]
+
+These are first-order propagation estimates based on `NIntegrate`'s internal
+error reports. They are **not confidence intervals**. They ignore covariance,
+possible systematic adaptive-QMC bias, and parameter-location uncertainty.
+Their intended use is to show the approximate numerical resolution and to
+identify geometries for which the binding energy is marginal.
+
+The plotting notebook represents the central values as `Around[value,error]`
+and explicitly uses bar interval markers for $E_{XX}$,
+$E_{\mathrm{bind}}$, $\tau_X$, and $\tau_{XX}$.
+
+## Coincidence overlap and oscillator strength
+
+For the matched ground electron and hole orbitals used here, the Jastrow factor
+equals one at electron-hole coincidence. After normalizing the exciton state,
+the coincidence overlap is therefore obtained directly from the norm:
+
+\[
+M_X=\frac{1}{\sqrt{N_X}},\qquad
+|M_X|^2=\frac{1}{N_X}.
+\]
+
+No additional oscillator-strength integral is required. The rough propagated
+errors are
+
+\[
+\sigma_{M_X}=\frac{M_X}{2}\frac{\sigma_N}{N_X},\qquad
+\sigma_{|M_X|^2}=|M_X|^2\frac{\sigma_N}{N_X}.
+\]
+
+The dimensionless optical oscillator strength used for the lifetime is
+
+\[
+f_X=\frac{E_P}{E_{\mathrm{exc}}}|M_X|^2.
+\]
+
+## Radiative lifetimes
+
+The lifetime definitions follow Eqs. (23)-(25) of Hayrapetyan et al.,
+*Biexciton, negative and positive trions in strongly oblate ellipsoidal quantum
+dots*, Physica E **105** (2019) 47-55:
+
+\[
+\tau_X=
+\frac{2\pi\epsilon_0m_ec_0^3\hbar^2}
+{\sqrt{\epsilon_r}\,e^2E_{\mathrm{exc}}^2f_X},
+\qquad
+\tau_{XX}=\frac{\tau_X}{4}.
+\]
+
+The optical transition energy includes the gap,
+
+\[
+E_{\mathrm{exc}}=E_g+E_X,
+\]
+
+where $E_X$ is converted from meV to eV before addition. The plotting
+notebook uses the GaAs values from Table 1 of that paper:
+
+\[
+E_g=1.5192\ \mathrm{eV},\quad
+m_e=0.0665m_0,\quad
+E_P=22.71\ \mathrm{eV},\quad
+\epsilon_r^{(\mathrm{opt})}=12.91.
+\]
+
+These optical constants intentionally follow the lifetime reference and differ
+slightly from the constants used to define the energy units
+($m_e=0.067m_0$, $\epsilon_r^{(E)}=12.8$). This distinction must be stated in
+the manuscript rather than silently mixing the two parameter sets. Phonon
+effects are neglected, as in the reference formula.
+
+Because $\tau_X\propto(E_{\mathrm{exc}}|M_X|^2)^{-1}$, its rough error bar is
+
+\[
+\sigma_{\tau_X}=\tau_X\sqrt{
+\left(\frac{\sigma_{E_X}}{1000E_{\mathrm{exc}}}\right)^2+
+\left(\frac{\sigma_{|M_X|^2}}{|M_X|^2}\right)^2},
+\qquad
+\sigma_{\tau_{XX}}=\frac{\sigma_{\tau_X}}4.
+\]
+
+The factor 1000 converts the stored $E_X$ error from meV to eV.
+
+## How the final estimator was selected
+
+### Inherited fixes from the earlier framework
+
+Several numerical safeguards predate the present seven-geometry campaign and
+remain part of the final implementation:
+
+- a finite absolute `AccuracyGoal` was removed after it was found to exceed
+  the magnitude of the small $XX$ integrals;
+- uniform QMC sampling was replaced by the orbital-matched importance
+  transformation because too few points fell in the radial support;
+- integral histories were keyed by full configurations and checkpointed, so
+  stale or interrupted runs could be identified and resumed;
+- high-budget readout was separated from low-budget parameter search to avoid
+  quoting the downward-biased minimum of many noisy evaluations;
+- guards against norm collapse and unphysical energy ratios were introduced
+  for the broader exciton/biexciton framework.
+
+The earlier reduced implementation also symmetrized direct estimators
+pointwise to enforce exact exchange identities on a common point set. This was
+useful for the wider excited-state project, but the main-state paper ultimately
+adopted the stronger choice of evaluating the completely raw $P+Q$ expression.
+
+### Initial symptom
+
+The original reduced production calculation emitted repeated
+`NIntegrate::maxp` warnings. Symmetry-related integrals that should be exactly
+equal differed numerically, and the small binding energy changed sign when the
+integration budget changed. The problem was numerical quadrature resolution,
+not a failure of the analytical exchange identities.
+
+### Validation sequence
+
+| trial at $(5,1)$ | configuration | main observation |
+|---|---|---|
+| fixed-parameter reduced convergence | $10^6$ and $2\times10^6$ points | binding changed from $-0.00893$ to $+0.00240$ Ry; 25 of 26 integrals reached `MaxPoints`; the worst $XX$ identity spread was about $2.4\%$ |
+| dithered symmetry diagnostics | `BisectionDithering -> 0.1`, three seeds, $10^6$ points | worst spreads remained $1.9\%-2.7\%$; randomizing the bisection did not remove the discrepancy |
+| completely raw benchmark | all four particle angles, explicit $X$ kinetic, raw $P+Q$ | removed every symmetry reduction but retained a redundant global angle and showed larger budget drift |
+| global-rotation-fixed raw benchmark | one global angle removed, all other angles full range, one $H$ and one $N$ | preserved the raw expression while reducing dimensionality; this became the basis of the final estimator |
+| staged noisy minimization | $10^5$-point optimization followed by $2\times10^6$-point readout | ordinary minimization remained too sensitive to QMC noise and could move to a candidate whose high-budget ranking was not robust |
+| safeguarded pattern-search pilot | $(5,1)$, high-budget $X$, two-budget $XX$ verification | produced stable accepted/rejected moves and established the final step and acceptance rules |
+| six-geometry campaign | same estimator and search, global eight-worker queue | completed the remaining geometries with identical numerical settings |
+
+The fully raw and rotation-fixed raw calculations are analytically equivalent;
+the latter is preferred because removing the redundant global azimuth lowers
+the integration dimension without invoking reflection or particle-exchange
+identities.
+
+## Final optimized parameters
+
+The source of truth is the pattern-search result store. Rounded values are
+listed here for manuscript/supplement planning:
+
+| $(a,c)$ | $\alpha_X$ | $(\alpha,\beta,\gamma,\delta)_{XX}$ |
+|---|---:|---|
+| $(5,0.5)$ | 0.780939 | (0.755694, 0.213328, 2.268187, 2.382724) |
+| $(5,1)$ | 0.731089 | (0.679864, 0.115335, 2.492963, 2.108847) |
+| $(5,1.5)$ | 0.724547 | (0.607794, 0.004089, 2.858881, 1.953280) |
+| $(5,2)$ | 0.626090 | (0.587481, 0.010584, 3.020600, 1.874374) |
+| $(3,1)$ | 0.706089 | (0.653302, 0.063307, 2.542182, 2.298690) |
+| $(7,1)$ | 0.762339 | (0.642364, 0.054180, 2.604026, 1.896347) |
+| $(10,1)$ | 0.785787 | (0.642364, 0.054180, 3.056900, 1.896347) |
+
+## Reproducibility files
+
+Final implementation and campaign:
+
+- `01-numerics/Main-State-Raw-Minimization-a5-c1.wl` - raw estimator used by
+  the final drivers;
+- `01-numerics/Main-State-Raw-Pattern-Search-a5-c1.wl` - validated pilot;
+- `01-numerics/Main-State-Raw-Pattern-Search-Remaining-Geometries.wl` - final
+  six-geometry campaign;
+- `01-numerics/main-state-raw-pattern-search-a5-c1-results.wxf` and associated
+  CSV files - pilot checkpoints, candidates, integrals, and summary;
+- `01-numerics/main-state-raw-pattern-search-remaining-results.wxf` and
+  associated CSV files - remaining-geometry checkpoints and summaries;
+- `01-numerics/main-state-final-summary-meV.csv` - final plotting table,
+  including rough errors and overlap quantities;
+- `03-figures/Main-State-Plots.nb` - final energies, binding energy, lifetime
+  calculation, propagated errors, and PDF exports.
+
+Validation history:
+
+- `Main-State-Convergence-Trial-a5-c1.*` - fixed-parameter reduced-budget
+  convergence;
+- `Main-State-Dither-Trial-a5-c1.*` - randomized-bisection diagnostic;
+- `Main-State-Raw-Trial-a5-c1.*` - completely unreduced all-angle benchmark;
+- `Main-State-Raw-Gauge-Trial-a5-c1.*` - global-rotation-fixed raw benchmark;
+- `Main-State-Raw-Minimization-a5-c1.*` - superseded noisy minimization trial.
+
+## What belongs in the paper
+
+The main methods section should state:
+
+1. the ground-state variational forms and binding-energy convention;
+2. the state-adapted importance transformation;
+3. the raw $P+Q$, six-Coulomb-term, four-kinetic-term $XX$ estimator;
+4. removal of only the global rotation, with full remaining angle ranges;
+5. independent adaptive-QMC numerator and denominator calls;
+6. the $10^6/2\times10^6$ safeguarded pattern search and the analytical
+   $X$ kinetic term;
+7. the rough, non-confidence-interval character of the plotted error bars;
+8. the overlap and lifetime formulas, including the optical constant set.
+
+The detailed step formulas, trial history, per-integral timing, warning counts,
+and optimized parameters are better placed in the supplement. The current
+`03-manuscript/sections/theory-methods.tex` still describes the old
+direct/cross-reduced numerical evaluation and contains out-of-scope nonlinear
+optics; it must be revised from this note before submission.
