@@ -1,0 +1,278 @@
+\section{Model and theoretical framework}
+\label{sec:theory}
+
+The interacting exciton and biexciton ground-state energies are obtained with
+the variational method: trial correlation factors are optimized by minimizing
+the corresponding Hamiltonian expectation values. We first establish the
+single-particle confinement states on which these trial states are built.
+
+\subsection{Geometry, units, and single-particle ground state}
+\label{sec:single-particle}
+
+We consider a hard-wall semi-ellipsoidal quantum dot with cylindrical
+coordinates $\vect r=(r,\phi,z)$ and confinement potential
+\begin{equation}
+ V_{\mathrm{conf}}(r,z)=
+ \begin{cases}
+  0, & r^2/a^2+z^2/c^2\leq 1\ \text{and}\ z\geq0,\\
+  \infty, & \text{otherwise},
+ \end{cases}
+ \qquad c/a\ll1 .
+ \label{eq:confinement-potential}
+\end{equation}
+The in-plane and axial semiaxes are $a$ and $c$, respectively, as illustrated
+in \cref{fig:semi-ellipsoid}.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=0.52\linewidth]{Semi-ellipsoid.jpeg}
+ \caption{Semi-ellipsoidal quantum-dot geometry, with lateral semiaxis $a$
+ and axial semiaxis $c$.}
+ \label{fig:semi-ellipsoid}
+\end{figure}
+
+Lengths and energies are expressed in the effective electron Bohr radius and
+Rydberg,
+\begin{equation}
+ \rB=\frac{4\pi\epsilon_0\epsilon_r^{(E)}\hbar^2}{\meff e^2},
+ \qquad
+ E_{\mathrm R}=\frac{\hbar^2}{2\meff\rB^2}.
+ \label{eq:effective-units}
+\end{equation}
+For the GaAs energy calculation we use the standard bulk parameter set
+\cite{vurgaftman2001},
+$\epsilon_r^{(E)}=12.8$, $\meff=0.067m_0$, and
+$\mheff=0.45m_0$, giving
+$\rB=\SI{10.109654}{nm}$ and
+$E_{\mathrm R}=\SI{5.563851565}{meV}$.
+
+Because the axial confinement is much stronger than the in-plane
+confinement, the single-particle problem is treated adiabatically
+\cite{hayrapetyan2012}. At fixed $r$, the available height is
+\begin{equation}
+ z_{\max}(r)=c\sqrt{1-r^2/a^2},
+ \label{eq:zmax}
+\end{equation}
+and the lowest axial factor is
+\begin{equation}
+ \chi_1(z;r)=
+ \sqrt{\frac{2}{z_{\max}(r)}}
+ \sin\left[\frac{\pi z}{z_{\max}(r)}\right].
+ \label{eq:axial-wavefunction}
+\end{equation}
+For a carrier of mass $m_q$ with $q=e,h$ the axial eigenenergy acts as the adiabatic
+potential for the slow planar motion,
+\begin{equation}
+ U_q(r)=\frac{\meff}{m_q}\frac{\pi^2}{z_{\max}^2(r)}
+ =\frac{\meff}{m_q}\frac{\pi^2}{c^2}
+   \left(1+\frac{r^2}{a^2}+O(r^4/a^4)\right),
+ \label{eq:adiabatic-potential}
+\end{equation}
+where lengths and energies are in the effective units of
+\cref{eq:effective-units}. Thus, after subtracting the constant axial energy,
+the planar harmonic-oscillator Hamiltonian is
+\begin{equation}
+ H_{q,\parallel}=\frac{\meff}{m_q}
+ \left[-\nabla_{\parallel}^2+\frac{\pi^2r^2}{a^2c^2}\right].
+ \label{eq:planar-hamiltonian}
+\end{equation}
+Writing $\lambda=\pi/(ac)$, its normalized ground-state component and the
+corresponding axial and planar ground-state energies are
+\begin{equation}
+ \varphi_{q,\parallel}(r)=\sqrt{\frac{\lambda}{\pi}}
+ e^{-\lambda r^2/2},\qquad
+ \varepsilon_{q,z}=\frac{\meff}{m_q}\frac{\pi^2}{c^2},\qquad
+ \varepsilon_{q,\parallel}=\frac{\meff}{m_q}\frac{2\pi}{ac}.
+ \label{eq:single-particle-scales}
+\end{equation}
+The total ground-state confinement energy of carrier $q$ is therefore
+\begin{equation}
+ E_q=\varepsilon_{q,z}+\varepsilon_{q,\parallel}
+ =\frac{\meff}{m_q}\left(\frac{\pi^2}{c^2}+\frac{2\pi}{ac}\right).
+ \label{eq:carrier-ground-energy}
+\end{equation}
+The normalized carrier ground orbital is therefore
+$\psi_q(r,\phi,z)=\chi_1(z;r)\varphi_{q,\parallel}(r)$. Thus the uncorrelated exciton and biexciton confinement energies are
+\begin{equation}
+ E_X^{(0)}=E_e+E_h,\qquad
+ E_{XX}^{(0)}=2E_e+2E_h=2E_X^{(0)}.
+ \label{eq:single-particle-energies}
+\end{equation}
+The band gap is not included in these energies.
+
+\subsection{Correlated exciton}
+\label{sec:exciton-model}
+
+We denote electron coordinates by $1,2$ and hole coordinates by $a,b$; the
+ground exciton uses coordinates $1$ and $a$. Pair distances are the
+three-dimensional Euclidean distances $r_{ij}=|\vect r_i-\vect r_j|$. In the
+effective units of \cref{eq:effective-units}, its Hamiltonian is
+\begin{equation}
+ H_X=h_e(1)+h_h(a)-\frac{2}{r_{1a}},
+ \qquad
+ h_e\psi_e=E_e\psi_e,\quad h_h\psi_h=E_h\psi_h.
+ \label{eq:exciton-hamiltonian}
+\end{equation}
+The uncorrelated state $\Psi_{0X}=\psi_e(1)\psi_h(a)$ is therefore an
+eigenstate of $h_e+h_h$ with energy $E_X^{(0)}=E_e+E_h$. Electron--hole
+correlation is introduced through
+\begin{equation}
+ \Psi_X=\Psi_{0X}F_X,\qquad F_X=\exp(-\alpha_X r_{1a}),
+ \label{eq:exciton-trial}
+\end{equation}
+where $\alpha_X>0$ is varied independently at each geometry. The variational
+energy is evaluated from
+\begin{equation}
+ E_X=\frac{\langle\Psi_X|H_X|\Psi_X\rangle}
+ {\langle\Psi_X|\Psi_X\rangle}.
+ \label{eq:exciton-expectation}
+\end{equation}
+The denominator is
+\begin{equation}
+ \NX=\int
+ |\Psi_{0X}|^2F_X^2\dd\tau
+ =\int|\Psi_{0X}|^2e^{-2\alpha_X r_{1a}}\dd\tau .
+ \label{eq:exciton-norm}
+\end{equation}
+Using the single-particle eigenvalue equations in
+\cref{eq:exciton-hamiltonian} and integrating the kinetic terms by parts gives
+\begin{equation}
+ E_X=E_X^{(0)}+\frac{1}{\NX}\int|\Psi_{0X}|^2
+ \left[|\nabla_1F_X|^2+\frac{\meff}{\mheff}|\nabla_aF_X|^2
+ -\frac{2F_X^2}{r_{1a}}\right]\dd\tau .
+ \label{eq:exciton-energy-integral}
+\end{equation}
+Since $|\nabla_1r_{1a}|=|\nabla_ar_{1a}|=1$, the kinetic contribution
+generated by $F_X$ is
+\begin{equation}
+ K_X(\alpha_X)=
+ \alpha_X^2\left(1+\frac{\meff}{\mheff}\right).
+ \label{eq:exciton-kinetic}
+\end{equation}
+Defining the Coulomb numerator as
+\begin{equation}
+ V_X=\int
+ |\Psi_{0X}|^2F_X^2
+ \left(-\frac{2}{r_{1a}}\right)\dd\tau
+ \label{eq:exciton-coulomb}
+\end{equation}
+reduces \cref{eq:exciton-energy-integral} to
+\begin{equation}
+ \EX=E_X^{(0)}+\Delta E_X,\qquad
+ \Delta E_X=K_X+\frac{V_X}{\NX}.
+ \label{eq:exciton-energy}
+\end{equation}
+For each dot geometry, the remaining integrals $N_X$ and $V_X$ are evaluated
+numerically.
+
+\subsection{Correlated biexciton}
+\label{sec:biexciton-model}
+
+The two-electron--two-hole interaction in effective units is
+\begin{equation}
+ V_{XX}=2\left(
+ \frac{1}{r_{12}}+\frac{1}{r_{ab}}
+ -\frac{1}{r_{1a}}-\frac{1}{r_{1b}}
+ -\frac{1}{r_{2a}}-\frac{1}{r_{2b}}
+ \right).
+ \label{eq:biexciton-coulomb}
+\end{equation}
+For the biexciton we use the ansatz~\cite{}
+\begin{equation}
+ \Psi_{XX}=\Psi_{0XX}F_{XX},\qquad
+ \Psi_{0XX}=\psi_e(1)\psi_e(2)\psi_h(a)\psi_h(b),
+ \label{eq:biexciton-trial}
+\end{equation}
+with the exchange-symmetric correlation factor
+\begin{equation}
+\begin{aligned}
+ F_{XX}&=G(P+Q),\\
+ G&=r_{ab}^{\gamma}e^{-\delta r_{ab}},\\
+ P&=\exp\left[-\alpha(r_{1a}+r_{2b})
+                 -\beta(r_{1b}+r_{2a})\right],\\
+ Q&=\exp\left[-\beta(r_{1a}+r_{2b})
+                 -\alpha(r_{1b}+r_{2a})\right].
+\end{aligned}
+ \label{eq:correlation-factor}
+\end{equation}
+The four variational parameters $(\alpha,\beta,\gamma,\delta)$ control the
+direct and cross electron--hole pairings and the hole--hole correlation.
+
+To write the kinetic numerator compactly, define
+$\vect g_i^P=\nabla_i\ln(GP)$ and
+$\vect g_i^Q=\nabla_i\ln(GQ)$. For electron coordinates the derivatives of
+$G$ vanish, whereas for hole coordinates they contain the logarithmic
+derivative of $G$ in \cref{eq:correlation-factor}. Unlike the exciton kinetic contribution,
+the biexciton kinetic numerator has no analytical form and is written as
+\begin{equation}
+ K_{XX}=\int|\Psi_{0XX}|^2G^2\left[\sum_{i=1,2}|P\vect g_i^P+Q\vect g_i^Q|^2+\frac{\meff}{\mheff}\sum_{j=a,b}|P\vect g_j^P+Q\vect g_j^Q|^2\right]\dd\tau .
+ \label{eq:biexciton-kinetic-numerator}
+\end{equation}
+The energy is then
+\begin{equation}
+ \EXX=E_{XX}^{(0)}+\Delta E_{XX},\qquad
+ \Delta E_{XX}=
+ \frac{K_{XX}+\langle\Psi_{XX}|V_{XX}|\Psi_{XX}\rangle}
+ {\langle\Psi_{XX}|\Psi_{XX}\rangle}.
+ \label{eq:biexciton-energy}
+\end{equation}
+In the numerical calculation, the kinetic contribution in
+\cref{eq:biexciton-kinetic-numerator} and the potential contribution are
+combined and evaluated in a single integral. No direct/cross or
+particle-exchange multiplicities are introduced in the final estimator.
+
+We define the biexciton binding energy as
+\begin{equation}
+ \Ebind=2\EX-\EXX
+       =2\Delta E_X-\Delta E_{XX}.
+ \label{eq:binding-energy}
+\end{equation}
+With this convention $\Ebind>0$ denotes a bound biexciton. The
+single-particle part cancels exactly, making \cref{eq:binding-energy} a small
+difference of correlation corrections.
+
+\subsection{Radiative lifetimes}
+\label{sec:observables}
+
+Following Hayrapetyan \textit{et al.}\ \cite{hayrapetyan2019}, we calculate the exciton and biexciton radiative lifetimes from
+\begin{equation}
+ \tauX=
+ \frac{2\pi\epsilon_0\meff c_0^3\hbar^2}
+ {\sqrt{\epsilon_r^{(\mathrm{opt})}}\,e^2
+ E_{\mathrm{exc}}^2f_X},
+ \qquad
+ \tauXX=\frac{\tauX}{4}.
+ \label{eq:lifetimes}
+\end{equation}
+The relation $\tauXX=\tauX/4$ follows the biexciton decay-channel convention
+of Ref.~\cite{hayrapetyan2019}; it is not an independently optimized quantity.
+
+Evaluation of $\tauX$ requires the oscillator strength and transition energy,
+which are
+\begin{equation}
+ f_X=\frac{E_P}{E_{\mathrm{exc}}}|\MX|^2,\qquad
+ E_{\mathrm{exc}}=E_g+\EX,
+ \label{eq:oscillator-strength}
+\end{equation}
+where, $E_g$ is the band gap. The remaining quantity $\MX$ is the electron--hole coincidence overlap. At
+coincidence the exciton Jastrow factor in \cref{eq:exciton-trial} is unity,
+and because the electron and hole ground orbitals are matched in the present
+model, the normalized overlap reduces to
+\begin{equation}
+ \MX=\frac{1}{\sqrt{\NX}},\qquad
+ |\MX|^2=\frac{1}{\NX}.
+ \label{eq:coincidence-overlap}
+\end{equation}
+Thus the lifetime can be obtained from the already calculated exciton norm;
+no additional oscillator-strength integral is required.
+
+For the optical calculation we take
+$E_g=\SI{1.5192}{eV}$, $\meff=0.0665m_0$,
+$E_P=\SI{22.71}{eV}$, and
+$\epsilon_r^{(\mathrm{opt})}=12.91$, matching the parameter set of
+Ref.~\cite{hayrapetyan2019}. We keep this optical set distinct from the bulk
+parameters in \cref{eq:effective-units} because the latter define the units
+and single-particle states used in the variational energy calculation,
+whereas the former enter the dimensional radiative-lifetime parametrization.
+This separation preserves the energy calculation while reproducing the
+cited optical calibration.

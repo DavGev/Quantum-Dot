@@ -1,0 +1,75 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[a4paper,margin=2.35cm]{geometry}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{placeins}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=blue!45!black,
+  urlcolor=blue!45!black,
+  pdftitle={Biexciton Binding and Radiative Lifetimes in Strongly Oblate Semi-Ellipsoidal Quantum Dots}
+}
+
+\graphicspath{{figures/}}
+\sisetup{
+  separate-uncertainty=true,
+  detect-all,
+  range-phrase=--,
+  range-units=single
+}
+
+\input{macros}
+
+\title{\textbf{Biexciton Binding and Radiative Lifetimes in Strongly Oblate
+Semi-Ellipsoidal Quantum Dots}}
+\author{Author name(s) to be added\\
+\small Affiliation(s) to be added\\
+\small Corresponding author: email to be added}
+\date{}
+
+\begin{document}
+
+\maketitle
+\input{sections/abstract}
+
+\input{sections/introduction}
+\input{sections/theory}
+\input{sections/numerical-methods}
+\input{sections/results}
+\input{sections/conclusions}
+
+\section*{Data availability}
+The numerical source files, checkpointed variational searches, machine-readable
+result table, and plotting notebook used in this work are retained in the
+project repository. A public repository or archival DOI will be supplied upon
+publication.
+
+\section*{Author contributions}
+To be completed after the author list and journal contribution taxonomy are
+finalized.
+
+\section*{Acknowledgments}
+Funding and acknowledgments to be added.
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+\clearpage
+\appendix
+\input{sections/supplement}
+
+\end{document}

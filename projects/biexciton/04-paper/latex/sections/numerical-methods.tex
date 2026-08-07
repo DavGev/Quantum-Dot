@@ -1,0 +1,132 @@
+\section{Numerical method and validation}
+\label{sec:numerics}
+
+\subsection{Geometry and integration parametrization}
+\label{sec:importance}
+
+We study the seven geometries listed in \cref{tab:geometries}. The common
+point $(5,1)$ links a scan of axial confinement to a scan of lateral
+confinement.
+
+\begin{table}[ht]
+ \centering
+ \caption{Quantum-dot semiaxes used in the axial and lateral scans, in
+ effective Bohr radii.}
+ \label{tab:geometries}
+ \begin{tabular}{lcc}
+  \toprule
+  Scan & $a$ & $c$\\
+  \midrule
+  Axial & 5 & 0.5, 1, 1.5, 2\\
+  Lateral & 3, 5, 7, 10 & 1\\
+  \bottomrule
+ \end{tabular}
+\end{table}
+
+Direct integration in the physical coordinates is inefficient because the
+single-particle orbitals occupy only a small part of the nominal domain. We
+therefore transform every particle to variables matched to the ground-state
+density. The axial coordinate is first written
+\begin{equation}
+ z=u\,c\sqrt{1-r^2/a^2},\qquad 0<u<1 .
+ \label{eq:axial-map}
+\end{equation}
+The numerical radial domain is restricted to the validated cutoff $R=0.9a$.
+Using the ground-state in-plane length $\ell$, the reference radial and axial
+densities are
+\begin{equation}
+ p_r(r)=\frac{1}{C}\frac{2r}{\ell^2}e^{-r^2/\ell^2},
+ \quad C=1-e^{-R^2/\ell^2},
+ \qquad
+ p_u(u)=2\sin^2(\pi u).
+ \label{eq:reference-densities}
+\end{equation}
+Both reference densities have analytical cumulative distributions. For the
+radial density, the inverse is
+\begin{equation}
+ r(v)=\ell\sqrt{-\ln(1-Cv)},\qquad 0<v<1,
+ \label{eq:radial-inverse}
+\end{equation}
+whereas the axial cumulative distribution has no elementary closed form inverse and is tabulated once and
+interpolated. This transformation cancels most of the localized
+single-particle density and leaves an order-unity transformed integrand. It is
+an importance transformation, not a symmetry reduction.
+
+The final estimator removes only the redundant global azimuthal rotation. For
+the exciton, the hole angle is fixed to zero, the electron angle spans
+$[0,2\pi]$, and a factor $2\pi$ restores the global rotation. For the
+biexciton, $\phi_a=0$ while $\phi_1$, $\phi_2$, and $\phi_b$ are each
+integrated independently over $[0,2\pi]$, again with an overall factor
+$2\pi$. No reflection folding or particle-exchange multiplicities are used.
+The complete $G(P+Q)$ factor, the six Coulomb interactions in
+\cref{eq:biexciton-coulomb}, and the four kinetic contributions in
+\cref{eq:biexciton-kinetic-numerator} remain in the pointwise integrand.
+
+\subsection{Adaptive quasi-Monte Carlo quadrature}
+\label{sec:quadrature}
+
+Every integral is evaluated with the Wolfram Language implementation of
+adaptive quasi-Monte Carlo quadrature. Low-discrepancy points improve the
+coverage of the high-dimensional unit hypercube relative to independent
+pseudorandom sampling \cite{caflisch1998}, while adaptive subdivision directs
+additional evaluations toward regions with larger estimated error. The
+production settings are
+\begin{equation}
+\begin{aligned}
+ \texttt{Method}&=\texttt{AdaptiveQuasiMonteCarlo},\\
+ \texttt{BisectionDithering}&=0,\\
+ \texttt{AccuracyGoal}&=\infty,\qquad
+ \texttt{PrecisionGoal}=4 .
+\end{aligned}
+\label{eq:qmc-settings}
+\end{equation}
+The stage-dependent point budget is supplied through
+\texttt{MaxPoints}. A finite absolute accuracy goal is inappropriate because
+some biexciton numerator and norm integrals are much smaller than a typical
+absolute tolerance. Reaching \texttt{MaxPoints} therefore indicates that the
+requested relative goal was not attained before the budget cap; the returned
+integral value and internal error estimate are nevertheless retained.
+
+The Hamiltonian numerator and norm denominator are independent adaptive calls.
+They do not share a fixed Sobol point set. This preserves separate adaptation
+to their different integrands. The internal quadrature errors returned for
+the numerator and denominator are treated as independent and propagated to
+the exciton and biexciton energies, the binding energy, and the radiative
+lifetimes. The resulting error bars are numerical-resolution indicators, not
+statistical confidence intervals: they neglect covariance between the
+adaptive integrals, possible systematic quasi-Monte Carlo bias, and uncertainty
+in the location of the variational optimum.
+
+The final estimator was selected through a sequence of checks at $(5,1)$.
+These included the exact exciton normalization at $\alpha_X=0$, integration
+budget comparisons, dithered adaptive partitions, a complete four-angle
+biexciton calculation, and the final global-rotation-fixed calculation. The
+two angular formulations agree within the observed resolution, while removing
+the redundant global angle reduces the numerical dimension. Earlier
+direct/cross and particle-relabeling identities remain analytically valid,
+but their independent numerical evaluations exhibited percent-level
+differences and were therefore not used to assemble the final energies.
+
+\subsection{Variational search}
+\label{sec:optimization}
+
+The variational search proceeded in two phases. The first was an exploratory
+multidimensional search performed with the Wolfram Language function
+\texttt{NMinimize} using the Nelder--Mead method. It varied the parameters
+simultaneously at a lower integration budget and located approximate minima
+for each geometry. Because small objective differences can be dominated by
+quasi-Monte Carlo fluctuations, these first-phase optima were used only as
+starting points.
+
+The second phase refined those starting points with an automated local
+coordinate pattern search using the integration setup of
+\cref{sec:importance}. Positive and
+negative displacements of each parameter were screened at a moderate budget;
+the center and the most promising candidates were then recomputed at a larger
+budget, with progressively smaller displacements used around stable
+candidates. Automation generated and evaluated the candidates, but final
+selection also relied on inspecting the energies, integration-error estimates,
+stability between budgets, neighboring points in parameter space, and
+consistency of the geometry trends. A parameter set was retained only when
+this review indicated a stable local minimum rather than an isolated low
+numerical fluctuation.
