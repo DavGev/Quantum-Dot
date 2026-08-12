@@ -1,9 +1,9 @@
 \section{Supplementary numerical information}
 \label{sec:supplement}
 
-This appendix collects the numerical tables supporting the main-text figures
-and the estimator-selection record. \Cref{tab:energies} gives the correlation
-corrections, corrected energies, and binding energies.
+This appendix collects the numerical tables supporting the main-text figures.
+\Cref{tab:energies} gives the correlation corrections, corrected energies, and
+binding energies.
 
 \begin{table}[ht]
 \centering
@@ -36,8 +36,8 @@ $-4.029\pm0.014$ & $20.092\pm0.014$ & $0.031\pm0.020$\\
 \end{tabular}
 \end{table}
 
-\Cref{tab:parameters} lists the final parameters retained by the safeguarded
-pattern search. The ratio $\gamma/\delta$ is also shown because it locates the
+\Cref{tab:parameters} lists the final parameters retained by the second-phase
+search. The ratio $\gamma/\delta$ is also shown because it locates the
 maximum of the isolated hole--hole factor
 $r_{ab}^{\gamma}e^{-\delta r_{ab}}$.
 
@@ -67,84 +67,23 @@ in \cref{tab:optical}.
 
 \begin{table}[ht]
 \centering
-\caption{Coincidence overlap, oscillator strength, and radiative lifetimes.
-Numerical-resolution estimates are omitted because they are small compared
-with the geometry-dependent variations.}
+\caption{Coincidence overlap, oscillator strength, and radiative lifetimes
+using the GaAs parameter set of \cref{sec:observables}. Numerical-resolution
+estimates are omitted because they are small compared with the
+geometry-dependent variations.}
 \label{tab:optical}
 \small
 \begin{tabular}{cccccc}
 \toprule
 $a$ & $c$ & $|\MX|^2$ & $f_X$ & $\tauX$ (ps) & $\tauXX$ (ps)\\
 \midrule
-5 & 0.5 & 4.167 & 53.48 & 2.548 & 0.637\\
-5 & 1   & 6.094 & 87.75 & 1.954 & 0.489\\
-5 & 1.5 & 8.351 & 122.99 & 1.459 & 0.365\\
-5 & 2   & 8.543 & 126.82 & 1.437 & 0.359\\
-3 & 1   & 4.294 & 61.70 & 2.767 & 0.692\\
-7 & 1   & 8.151 & 117.45 & 1.462 & 0.366\\
-10 & 1  & 11.169 & 161.02 & 1.068 & 0.267\\
+5 & 0.5 & 4.167 & 53.48 & 2.578 & 0.644\\
+5 & 1   & 6.094 & 87.75 & 1.977 & 0.494\\
+5 & 1.5 & 8.351 & 122.99 & 1.476 & 0.369\\
+5 & 2   & 8.543 & 126.82 & 1.454 & 0.364\\
+3 & 1   & 4.294 & 61.70 & 2.800 & 0.700\\
+7 & 1   & 8.151 & 117.45 & 1.479 & 0.370\\
+10 & 1  & 11.169 & 161.02 & 1.080 & 0.270\\
 \bottomrule
 \end{tabular}
 \end{table}
-
-The final numerical estimator was selected through the sequence summarized in
-\cref{tab:validation}. These trials are not additional uncertainty samples;
-they document why the complete correlation expression with only the
-global rotation removed was adopted for production.
-
-\begin{table}[ht]
-\centering
-\caption{Summary of the numerical validation sequence at $(a,c)=(5,1)$.}
-\label{tab:validation}
-\footnotesize
-\begin{tabular}{
- >{\raggedright\arraybackslash}p{0.24\linewidth}
- >{\raggedright\arraybackslash}p{0.68\linewidth}}
-\toprule
-Trial & Main observation\\
-\midrule
-Reduced budget convergence &
-The binding changed from $-0.00893$ to $+0.00240\ \Ry$ between
-$10^6$ and $2\times10^6$ points; the worst independently integrated
-biexciton identity spread was approximately $2.4\%$.\\
-Dithered adaptive partitions &
-Three runs with nonzero bisection dithering retained spreads of
-approximately $1.9$--$2.7\%$; randomized partitioning did not remove the
-problem.\\
-Complete four-angle estimator &
-All reflection and particle-exchange reductions were removed. The estimator
-retained a redundant global rotation and displayed larger budget drift.\\
-Global-rotation-fixed estimator &
-One global angle was removed, while the other angles retained their full
-ranges. This formulation agreed with the complete four-angle estimator within the
-observed resolution at lower computational cost.\\
-Staged ordinary minimization &
-A low-budget optimization followed by high-budget readout remained vulnerable
-to changes in candidate ordering.\\
-Safeguarded pattern search &
-Candidate moves were required to improve the energy at both $10^6$ and
-$2\times10^6$ points and to exceed the observed budget drift. This became the
-production protocol.\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\FloatBarrier
-
-For reproducibility, the machine-readable final table is distributed with the
-manuscript source as the file
-\begin{center}
-\small\path{data/main-state-final-summary-Ry.csv}
-\end{center}
-The underlying project repository additionally retains the Wolfram Language
-production drivers,
-checkpointed WXF result stores, per-candidate and per-integral CSV records,
-the plotting code, and the vector PDF figures. Each recorded
-integral includes its value, internal error estimate, elapsed time, warning
-text, and whether the point cap was reached.
-
-The numerical history should be interpreted in the following hierarchy:
-the final pattern-search stores define the optimized parameters; the final
-summary CSV defines the plotted numerical values; and the earlier reduced,
-dithered, and four-angle files are validation records rather than alternative
-production estimates.

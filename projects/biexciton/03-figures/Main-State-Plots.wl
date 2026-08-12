@@ -498,9 +498,9 @@ reducedPlanck = 1.054571817*^-34;
 speedOfLight = 2.99792458*^8;
 freeElectronMass = 9.1093837015*^-31;
 gaasGapEV = 1.5192;
-gaasElectronMassRatio = 0.0665;
+gaasElectronMassRatio = 0.067;
 gaasKaneEnergyEV = 22.71;
-gaasRelativePermittivity = 12.91;
+gaasRelativePermittivity = 12.8;
 gaasElectronMass = gaasElectronMassRatio freeElectronMass;
 
 excitonEnergyEV[row_] := gaasGapEV +

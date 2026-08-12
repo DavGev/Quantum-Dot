@@ -2070,11 +2070,11 @@ Cell[BoxData[
    RowBox[{
     RowBox[{"gaasGapEV", " ", "=", " ", "1.5192"}], ";"}], "\n", 
    RowBox[{
-    RowBox[{"gaasElectronMassRatio", " ", "=", " ", "0.0665"}], ";"}], "\n", 
+    RowBox[{"gaasElectronMassRatio", " ", "=", " ", "0.067"}], ";"}], "\n",
    RowBox[{
     RowBox[{"gaasKaneEnergyEV", " ", "=", " ", "22.71"}], ";"}], "\n", 
    RowBox[{
-    RowBox[{"gaasRelativePermittivity", " ", "=", " ", "12.91"}], ";"}], "\n", 
+    RowBox[{"gaasRelativePermittivity", " ", "=", " ", "12.8"}], ";"}], "\n",
    RowBox[{
     RowBox[{"gaasElectronMass", " ", "=", " ", 
      RowBox[{"gaasElectronMassRatio", " ", "freeElectronMass"}]}], ";"}], 

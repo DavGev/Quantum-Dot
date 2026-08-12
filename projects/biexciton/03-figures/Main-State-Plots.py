@@ -644,9 +644,9 @@ def generate_figures(rows: list[dict[str, float]]) -> list[Path]:
     speed_of_light = 2.99792458e8
     free_electron_mass = 9.1093837015e-31
     gaas_gap_ev = 1.5192
-    gaas_electron_mass = 0.0665 * free_electron_mass
+    gaas_electron_mass = 0.067 * free_electron_mass
     gaas_kane_energy_ev = 22.71
-    gaas_relative_permittivity = 12.91
+    gaas_relative_permittivity = 12.8
 
     def optical_row(row: dict[str, float]) -> dict[str, float]:
         excitation_ev = gaas_gap_ev + (RY_MEV / 1000.0) * row["E_X (Ry)"]

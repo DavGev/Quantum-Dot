@@ -5,14 +5,23 @@
 \label{sec:energy-results}
 
 The correlation corrections and corrected energies are collected in
-\cref{tab:energies} of the Appendix. All energies are reported in the effective Rydberg of
-\cref{eq:effective-units}; conversion to dimensional units is used only for
-the radiative-lifetime calculation. The values include the single-particle
+\cref{tab:energies} of the Appendix. The results in
+\cref{sec:energy-results,sec:binding-results,sec:overlap-results} are
+dimensionless: lengths are scaled
+by $\rB$ and energies by the effective Rydberg of
+\cref{eq:effective-units}. At fixed effective-mass ratio
+$\eta=\meff/\mheff$, they are material-scaled and do not require a dimensional
+GaAs calibration. Conversion to dimensional units is used only for the
+radiative-lifetime calculation. The values include the single-particle
 confinement and correlation corrections but exclude the band gap. Because the
 zeroth-order energies are analytical, each correlation correction has the
 same numerical integration error as its corresponding corrected energy.
 Although these rough errors are retained in the table, they are too small to
 be visible on the scale of the biexciton-energy curves in \cref{fig:exx}.
+The numerical values are reported for transparency and reproducibility, but
+the physically relevant conclusions are the comparative geometry trends
+within the idealized model rather than absolute predictions for a particular
+quantum dot.
 
 \begin{figure}[ht]
 \centering
@@ -110,10 +119,10 @@ $\delta$. Lines are guides to the eye.}
 \FloatBarrier
 
 These parameter-level trends should be interpreted more cautiously than the
-energies. The objective is numerically rough, the pattern search is local, and
-different parameter combinations can produce energies separated by less than
-the practical quadrature resolution. The parameters characterize the retained
-variational minimum but are not claimed to be unique.
+energies. The objective is numerically rough, the second-phase search is local,
+and different parameter combinations can produce energies separated by less
+than the practical quadrature resolution. The parameters characterize the
+retained variational minimum but are not claimed to be unique.
 
 The coincidence overlap is shown in \cref{fig:overlap}, while the derived
 optical quantities are listed in \cref{tab:optical} of the Appendix. The
@@ -142,8 +151,9 @@ the eye, and numerical error bars are smaller than the plotted symbols.}
 \caption{Exciton and biexciton radiative lifetimes as functions of
 (a) $c$ at fixed $a=5\rB$ and (b) $a$ at fixed $c=\rB$. The values use the
 corrected optical transition energy and the coincidence overlap. The adopted
-decay-channel convention gives $\tauXX=\tauX/4$. Propagated error bars are
-smaller than the plotted symbols.}
+decay-channel convention gives $\tauXX=\tauX/4$. The single GaAs parameter
+set is specified in \cref{sec:observables}. Propagated error bars are smaller
+than the plotted symbols.}
 \label{fig:lifetimes}
 \end{figure}
 
@@ -176,10 +186,17 @@ The model assumes impenetrable barriers, bulk effective masses, static
 dielectric screening for the energy calculation, and an adiabatic
 single-particle ground state. Finite band offsets, dielectric mismatch,
 strain, atomistic symmetry, and phonon-assisted decay are outside the present
-scope. The lifetime calculation follows the optical parameter set and
-decay-channel convention of Ref.~\cite{hayrapetyan2019}; it should therefore
-be interpreted as the radiative lifetime within that model rather than as a
-complete experimental decay time.
+scope. The lifetime calculation follows the optical model and decay-channel
+convention of Ref.~\cite{hayrapetyan2019}, using the single GaAs parameter set
+specified in \cref{sec:observables}. It should therefore be interpreted as the
+radiative lifetime within that model rather than as a complete experimental
+decay time.
+
+These approximations can shift the absolute energies, binding energies, and
+lifetimes of a real structure. The principal outcome is therefore the
+qualitative separation of axial and lateral geometry trends within a single
+consistent model, not a quantitative prediction for a specific fabricated
+dot.
 
 Numerically, the reported bars quantify only first-order propagation of the
 adaptive integrator's internal errors. The smooth trends and the positive

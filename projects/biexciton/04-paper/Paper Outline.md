@@ -72,8 +72,8 @@ Write the abstract as five compact elements:
 2. **Model:** strongly oblate semi-ellipsoidal quantum dot with correlated
    variational exciton and biexciton wave functions.
 3. **Method:** ground-orbital importance sampling, adaptive quasi-Monte Carlo
-   integration of the raw estimator, and safeguarded local coordinate pattern
-   searches over seven representative geometries.
+   integration of the full estimator, and noise-aware coordinate pattern
+   searches with two-budget verification over seven representative geometries.
 4. **Results:** axial confinement produces the dominant shift of $E_{XX}$;
    increasing either semiaxis weakens the binding and increases the oscillator
    strength, thereby shortening both lifetimes.
@@ -81,14 +81,18 @@ Write the abstract as five compact elements:
    geometries except $(10,1)$, where the positive binding is marginal at the
    present rough numerical resolution.
 
-The abstract may quote the final numerical ranges, but it must describe the
-$(10,1)$ result as marginal rather than as firmly resolved binding.
+The abstract should foreground the qualitative geometry trends rather than
+the numerical ranges. It must describe the $(10,1)$ result as marginal rather
+than as firmly resolved binding and state that the idealized model is not an
+absolute prediction for a fabricated dot.
 
 ### 1. Introduction
 
 #### 1.1 Physical motivation
 
 - Briefly introduce excitons and biexcitons in semiconductor quantum dots.
+- Establish the broad technological use of quantum dots with an authoritative
+  general review before narrowing to quantum-photonic applications.
 - Explain why the biexciton binding energy affects spectral line ordering and
   the exciton–biexciton radiative cascade.
 - Motivate radiative lifetimes as experimentally relevant observables.
@@ -100,18 +104,22 @@ $(10,1)$ result as marginal rather than as firmly resolved binding.
 - Motivate the strongly oblate semi-ellipsoidal geometry as a model for
   flattened or dome-shaped dots.
 - Distinguish the present geometry from full ellipsoidal and spherical models.
+- Account for earlier semi-ellipsoidal exciton calculations and define the gap
+  specifically as the correlated biexciton and its radiative lifetime.
 
 #### 1.3 Objective and contribution
 
 State clearly that the paper:
 
-- considers only the ground exciton and main biexciton;
+- considers only the ground exciton and biexciton;
 - calculates correlated $E_X$ and $E_{XX}$;
 - evaluates $E_{\mathrm{bind}}=2E_X-E_{XX}$;
 - obtains $M_X$, $\tau_X$, and $\tau_{XX}$;
 - studies separate $a$- and $c$-dependence;
 - explicitly verifies whether the small binding energy is numerically
   resolved.
+- treats the qualitative axial and lateral trends as the principal result;
+  absolute values remain conditional on the hard-wall effective-mass model.
 
 End the introduction with a short map of the remaining sections.
 
@@ -190,16 +198,14 @@ binding energy a small difference between much larger correlation corrections.
 - Define
   $f_X=(E_P/E_{\mathrm{exc}})|M_X|^2$ with
   $E_{\mathrm{exc}}=E_g+E_X$, converting the stored $E_X$ from meV to eV.
-- Give the exciton radiative-lifetime formula and the adopted main-biexciton
+- Give the exciton radiative-lifetime formula and the adopted biexciton
   relation $\tau_{XX}=\tau_X/4$.
 - Explain that the factor of four follows from the cited decay-channel
   convention and is not an independently calculated geometry dependence.
-- State the optical parameter set
-  $E_g=1.5192\ \mathrm{eV}$, $m_e=0.0665m_0$,
-  $E_P=22.71\ \mathrm{eV}$, and
-  $\epsilon_r^{(\mathrm{opt})}=12.91$.
-- Explicitly distinguish these optical constants from the slightly different
-  $m_e$ and dielectric constant used to define the energy units.
+- State the single GaAs parameter set
+  $m_e=0.067m_0$, $m_h=0.45m_0$, and $\epsilon_r=12.8$, together with the
+  additional optical parameters $E_g=1.5192\ \mathrm{eV}$ and
+  $E_P=22.71\ \mathrm{eV}$.
 - Cite and follow the lifetime definitions in:
   *Biexciton, negative and positive trions in strongly oblate ellipsoidal
   quantum dots*.
@@ -222,13 +228,14 @@ The shared point $(5,1)$ connects the two scans.
 
 #### 3.2 Variational minimization
 
-- Describe the final optimizer as a safeguarded local coordinate pattern
+- Introduce the final optimizer as a noise-aware local coordinate pattern
+  search with two-budget verification. Thereafter call it the second-phase
   search, not gradient descent and not the earlier noisy Nelder–Mead search.
 - Use the completed reduced-production optimum at each same geometry only as
   the initial center; evaluate every final candidate with the raw estimator.
 - For $X$, evaluate a five-point one-dimensional stencil and a half-step
   refinement at $2\times10^6$ points per integral.
-- For $XX$, evaluate the center and eight coordinate displacements at
+- For $XX$, evaluate the center and eight coordinate steps at
   $10^6$ points per integral, then verify the center and best candidate at
   $2\times10^6$ points.
 - Accept an $XX$ move only when it is lower at both budgets and the verified
@@ -236,7 +243,7 @@ The shared point $(5,1)$ connects the two scans.
   $\max(0.02\ \mathrm{Ry},
   |\Delta E_{2\mathrm{M}}-\Delta E_{1\mathrm{M}}|)$.
 - Refine only the two most promising coordinate directions with half steps
-  and apply the same high-budget acceptance safeguard.
+  and apply the same two-budget verification rule.
 - State the positivity bounds for $\alpha$, $\beta$, and $\delta$, and the
   interval used for $\gamma$.
 - Explain the eight-subkernel global candidate queue, per-integral timing, and
@@ -380,13 +387,13 @@ This section should be the numerical and interpretive center of the paper.
 - Panel (a): both lifetimes versus $c$ at fixed $a=5$.
 - Panel (b): both lifetimes versus $a$ at fixed $c=1$.
 - Use consistent colors and markers for $X$ and $XX$.
-- Report that $\tau_X$ decreases from $2.548$ to $1.437\ \mathrm{ps}$ along
-  the axial scan and from $2.767$ to $1.068\ \mathrm{ps}$ along the lateral
+- Report that $\tau_X$ decreases from $2.578$ to $1.454\ \mathrm{ps}$ along
+  the axial scan and from $2.800$ to $1.080\ \mathrm{ps}$ along the lateral
   scan.
 - Explain that the increase in $|M_X|^2$ outweighs the decrease in transition
   energy, so the oscillator strength increases and the lifetime shortens.
 - State explicitly that $\tau_{XX}=\tau_X/4$ by the adopted convention; the
-  biexciton values span $0.692$ to $0.267\ \mathrm{ps}$.
+  biexciton values span $0.700$ to $0.270\ \mathrm{ps}$.
 - Note that the propagated lifetime errors are smaller than the plotted
   symbols.
 
@@ -413,6 +420,8 @@ Connect the three result groups:
   ellipsoidal-dot calculation.
 - Discuss the semi-ellipsoidal boundary and hard-wall approximation.
 - Note the effective-mass and dielectric assumptions.
+- State that the model supports qualitative geometry comparisons rather than
+  quantitative predictions for a specific fabricated dot.
 - State explicitly that the $(10,1)$ binding is marginal and that the rough
   error bars omit systematic QMC and parameter-location uncertainty.
 - Mention the local character of the pattern search and avoid presenting the
@@ -425,7 +434,7 @@ The conclusion should make four direct statements:
 
 1. $E_{XX}$ decreases as either semiaxis increases, but the axial dimension
    controls the absolute energy much more strongly.
-2. The main biexciton is resolved as bound at all sampled geometries except
+2. The biexciton is resolved as bound at all sampled geometries except
    $(10,1)$; the small positive binding there is marginal at the present
    resolution.
 3. Increasing either semiaxis enhances the exciton coincidence overlap and
@@ -462,12 +471,7 @@ finite barriers, or comparison with experiment.
 
 - Optimized variational parameters for every geometry
 - Decomposition of the X and XX correlation energies
-- Validation history comparing reduced and raw estimators
-- Per-integral warnings, rough errors, timing, and integration-budget results
-- Detailed derivative kernels and raw-integral formulas
-- Archived reduced-estimator derivations, clearly identified as validation
-  history rather than the production method
-- Machine-readable result tables
+- Coincidence overlap, oscillator strength, and radiative lifetimes
 
 ## Writing order
 
@@ -488,8 +492,8 @@ should be copied consistently into the abstract, results, and conclusions.
 
 - [x] Complete the $(5,1)$ convergence and raw-estimator trials.
 - [x] Select the final raw estimator with only the global rotation removed.
-- [x] Replace noisy unconstrained minimization with the safeguarded
-      $10^6/2\times10^6$ pattern-search protocol.
+- [x] Replace noisy unconstrained minimization with the noise-aware
+      $10^6/2\times10^6$ pattern-search protocol with two-budget verification.
 - [x] Complete the refined seven-geometry campaign.
 - [x] Propagate rough numerical errors and attach them to all production plots.
 - [x] Classify the $(10,1)$ binding as marginal rather than requiring a firm

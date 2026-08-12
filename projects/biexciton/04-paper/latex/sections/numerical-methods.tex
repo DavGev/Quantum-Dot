@@ -111,22 +111,44 @@ differences and were therefore not used to assemble the final energies.
 \label{sec:optimization}
 
 The variational search proceeded in two phases. The first was an exploratory
-multidimensional search performed with the Wolfram Language function
+search performed with the Wolfram Language function
 \texttt{NMinimize} using the Nelder--Mead method. It varied the parameters
-simultaneously at a lower integration budget and located approximate minima
-for each geometry. Because small objective differences can be dominated by
-quasi-Monte Carlo fluctuations, these first-phase optima were used only as
-starting points.
+active in each state simultaneously, with a cap of $10^5$ points per numerical
+integral, and located
+approximate minima for each geometry. This relatively inexpensive phase was
+used to survey the multidimensional parameter space. Because small objective
+differences at this budget can be dominated by quasi-Monte Carlo fluctuations,
+the first-phase optima were used only as starting points.
 
-The second phase refined those starting points with an automated local
-coordinate pattern search using the integration setup of
-\cref{sec:importance}. Positive and
-negative displacements of each parameter were screened at a moderate budget;
-the center and the most promising candidates were then recomputed at a larger
-budget, with progressively smaller displacements used around stable
-candidates. Automation generated and evaluated the candidates, but final
-selection also relied on inspecting the energies, integration-error estimates,
-stability between budgets, neighboring points in parameter space, and
-consistency of the geometry trends. A parameter set was retained only when
-this review indicated a stable local minimum rather than an isolated low
-numerical fluctuation.
+The second phase was a noise-aware coordinate pattern search with two-budget
+verification, using the integration setup of \cref{sec:importance}. A local,
+derivative-free procedure was chosen because numerical integration noise makes
+small objective differences and finite-difference gradients unreliable. The
+exciton and biexciton searches were implemented differently to reflect their
+different numbers of variational parameters and evaluation costs.
+
+The exciton objective depends only on $\alpha_X$, and its kinetic contribution
+is analytical. The center and neighboring values of $\alpha_X$ were therefore
+evaluated directly at $2\times10^6$ points per numerical integral. The best
+candidate was then tested with a smaller step size on either side, at the same
+budget, and the lowest result was retained. Screening at a lower budget was
+unnecessary for this one-dimensional and comparatively inexpensive search.
+
+The biexciton objective depends on $(\alpha,\beta,\gamma,\delta)$, and both its
+kinetic and potential contributions are evaluated numerically in the full
+four-particle integral. For this more expensive four-dimensional search, the
+center and the positive and negative step along each coordinate axis were
+first screened at $10^6$ points per integral. The center and the most promising
+candidate were then recomputed at $2\times10^6$ points per integral. A move was
+accepted only if it lowered the energy at both budgets by more than the
+observed budget-to-budget drift. Step sizes were progressively reduced around
+stable accepted candidates, and the same two-budget test was repeated. The
+lower budget limited the cost of screening the coordinate candidates, while
+the higher-budget check reduced the chance of accepting a favorable numerical
+fluctuation.
+
+Automation generated and evaluated the candidates, but final selection also
+relied on inspecting the energies, integration-error estimates, stability
+between budgets, neighboring points in parameter space, and consistency of the
+geometry trends. A parameter set was retained only when this review indicated
+a stable local minimum rather than an isolated low numerical fluctuation.

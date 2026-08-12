@@ -27,7 +27,7 @@ The displayed error bars are rough first-order propagations of the numerical int
 
 3. **The \((10,1)\) result is marginal at the present numerical resolution.** Its value, \(0.170\pm0.109\ \mathrm{meV}\), remains positive with the plotted rough error bar, but the central value is only about \(1.6\) rough-error units from zero. It should therefore be described as weakly or marginally bound, not as a firmly resolved positive binding energy.
 
-4. **Increasing either dot dimension increases the exciton coincidence overlap and shortens both radiative lifetimes.** The squared overlap \(|M_X|^2\) increases by a factor of \(2.05\) along the axial scan and \(2.60\) along the lateral scan. Correspondingly, \(\tau_X\) decreases from \(2.548\) to \(1.437\ \mathrm{ps}\) with increasing \(c\), and from \(2.767\) to \(1.068\ \mathrm{ps}\) with increasing \(a\).
+4. **Increasing either dot dimension increases the exciton coincidence overlap and shortens both radiative lifetimes.** The squared overlap \(|M_X|^2\) increases by a factor of \(2.05\) along the axial scan and \(2.60\) along the lateral scan. Correspondingly, \(\tau_X\) decreases from \(2.578\) to \(1.454\ \mathrm{ps}\) with increasing \(c\), and from \(2.800\) to \(1.080\ \mathrm{ps}\) with increasing \(a\).
 
 5. **The relation \(\tau_{XX}=\tau_X/4\) is imposed by the adopted radiative-rate convention.** The factor of four is therefore not an independently fitted geometry trend; the geometry dependence of both curves comes from the same exciton transition energy and overlap.
 
@@ -51,13 +51,13 @@ The last column is only the ratio to the propagated rough integration error. It 
 
 | \((a,c)\) | \(N_X\) | \(|M_X|^2\) | \(f_X\) | \(\tau_X\) (ps) | \(\tau_{XX}\) (ps) |
 |---|---:|---:|---:|---:|---:|
-| \((5,0.5)\) | \(0.240007\pm0.000156\) | \(4.1665\pm0.0027\) | 53.4788 | \(2.5477\pm0.0017\) | \(0.6369\pm0.0004\) |
-| \((5,1)\) | \(0.164087\pm0.000136\) | \(6.0943\pm0.0050\) | 87.7509 | \(1.9540\pm0.0016\) | \(0.4885\pm0.0004\) |
-| \((5,1.5)\) | \(0.119753\pm0.000118\) | \(8.3505\pm0.0082\) | 122.9916 | \(1.4587\pm0.0014\) | \(0.3647\pm0.0004\) |
-| \((5,2)\) | \(0.117059\pm0.000115\) | \(8.5427\pm0.0084\) | 126.8242 | \(1.4372\pm0.0014\) | \(0.3593\pm0.0004\) |
-| \((3,1)\) | \(0.232865\pm0.000148\) | \(4.2943\pm0.0027\) | 61.7007 | \(2.7670\pm0.0018\) | \(0.6918\pm0.0004\) |
-| \((7,1)\) | \(0.122686\pm0.000122\) | \(8.1509\pm0.0081\) | 117.4547 | \(1.4621\pm0.0015\) | \(0.3655\pm0.0004\) |
-| \((10,1)\) | \(0.089535\pm0.000109\) | \(11.1688\pm0.0136\) | 161.0249 | \(1.0676\pm0.0013\) | \(0.2669\pm0.0003\) |
+| \((5,0.5)\) | \(0.240007\pm0.000156\) | \(4.1665\pm0.0027\) | 53.4788 | \(2.5778\pm0.0017\) | \(0.6445\pm0.0004\) |
+| \((5,1)\) | \(0.164087\pm0.000136\) | \(6.0943\pm0.0050\) | 87.7509 | \(1.9771\pm0.0016\) | \(0.4943\pm0.0004\) |
+| \((5,1.5)\) | \(0.119753\pm0.000118\) | \(8.3505\pm0.0082\) | 122.9916 | \(1.4760\pm0.0015\) | \(0.3690\pm0.0004\) |
+| \((5,2)\) | \(0.117059\pm0.000115\) | \(8.5427\pm0.0084\) | 126.8242 | \(1.4543\pm0.0014\) | \(0.3636\pm0.0004\) |
+| \((3,1)\) | \(0.232865\pm0.000148\) | \(4.2943\pm0.0027\) | 61.7007 | \(2.7998\pm0.0018\) | \(0.6999\pm0.0004\) |
+| \((7,1)\) | \(0.122686\pm0.000122\) | \(8.1509\pm0.0081\) | 117.4547 | \(1.4794\pm0.0015\) | \(0.3699\pm0.0004\) |
+| \((10,1)\) | \(0.089535\pm0.000109\) | \(11.1688\pm0.0136\) | 161.0249 | \(1.0802\pm0.0013\) | \(0.2701\pm0.0003\) |
 
 Here \(M_X=1/\sqrt{N_X}\) and \(f_X=(E_p/E_{\mathrm{opt}})|M_X|^2\), with \(E_{\mathrm{opt}}=E_g+E_X\). The lifetime uncertainties are much smaller than the plotted symbols and are therefore not visually prominent.
 
@@ -107,7 +107,7 @@ Figure 1 shows the corrected energy of the main biexcitonic state as a function 
 
 The biexciton binding energy is positive at all seven calculated geometries and decreases monotonically as either semiaxis is increased (Fig. 2). Along the axial scan, \(E_{\mathrm{bind}}\) changes from \(1.472\pm0.122\) to \(0.575\pm0.077\ \mathrm{meV}\), while along the lateral scan it changes from \(1.385\pm0.088\) to \(0.170\pm0.109\ \mathrm{meV}\). The calculated state is therefore resolved as bound over most of the investigated range. The largest geometry, \((a,c)=(10,1)r_B\), is an exception: its central value remains positive, but it is close enough to the rough numerical error scale that only marginal binding can presently be claimed.
 
-The exciton coincidence overlap increases as confinement is relaxed. Along the axial scan, \(|M_X|^2\) rises from \(4.167\) to \(8.543\), and along the lateral scan it rises from \(4.294\) to \(11.169\). This overlap enhancement outweighs the simultaneous decrease in optical transition energy, causing the oscillator strength to increase and the radiative lifetime to decrease (Fig. 3). The exciton lifetime ranges from \(2.548\) to \(1.437\ \mathrm{ps}\) in the axial scan and from \(2.767\) to \(1.068\ \mathrm{ps}\) in the lateral scan. With the adopted four-channel convention, the main-biexciton lifetime is \(\tau_{XX}=\tau_X/4\), giving values between \(0.692\) and \(0.267\ \mathrm{ps}\) over the complete geometry set.
+The exciton coincidence overlap increases as confinement is relaxed. Along the axial scan, \(|M_X|^2\) rises from \(4.167\) to \(8.543\), and along the lateral scan it rises from \(4.294\) to \(11.169\). This overlap enhancement outweighs the simultaneous decrease in optical transition energy, causing the oscillator strength to increase and the radiative lifetime to decrease (Fig. 3). The exciton lifetime ranges from \(2.578\) to \(1.454\ \mathrm{ps}\) in the axial scan and from \(2.800\) to \(1.080\ \mathrm{ps}\) in the lateral scan. With the adopted four-channel convention, the biexciton lifetime is \(\tau_{XX}=\tau_X/4\), giving values between \(0.700\) and \(0.270\ \mathrm{ps}\) over the complete geometry set.
 
 Taken together, the calculations show that the two semiaxes control different aspects of the main biexcitonic state. The short axial dimension produces the dominant shift of the absolute energy, whereas lateral enlargement provides a particularly strong route for suppressing the small binding energy and enhancing the radiative oscillator strength. The near-zero binding found at \((10,1)\) also identifies the large-\(a\) regime as the point at which higher numerical resolution would be most valuable.
 

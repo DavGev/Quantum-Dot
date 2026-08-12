@@ -72,7 +72,7 @@ E_{XX}^{(0)}=2E_e+2E_h=2E_X^{(0)}.
 The energy calculation uses the shared GaAs constants
 
 \[
-\epsilon_r^{(E)}=12.8,\qquad
+\epsilon_r=12.8,\qquad
 m_e=0.067m_0,\qquad m_h=0.45m_0.
 \]
 
@@ -289,7 +289,8 @@ full symmetry suite is retained only as validation history.
 
 ## Final variational search and refinement
 
-The final parameter search is a safeguarded local coordinate pattern search,
+The final parameter search is a noise-aware local coordinate pattern search
+with two-budget verification,
 not gradient descent and not the earlier unconstrained noisy Nelder-Mead run.
 The already completed reduced-production optima at the same geometry provide
 warm starts. All final raw candidates are nevertheless evaluated with the raw
@@ -331,7 +332,7 @@ above $0.001$, and $\gamma$ is restricted to $[-0.999,4.999]$.
 
 The search proceeds as follows:
 
-1. Evaluate the center and the positive and negative displacement along each
+1. Evaluate the center and the positive and negative step along each
    of the four axes at $10^6$ points per integral (a nine-point stencil).
 2. Re-evaluate the center and the best stencil candidate at
    $2\times10^6$ points.
@@ -346,8 +347,8 @@ The search proceeds as follows:
 5. Re-evaluate the refinement winner and center at $2\times10^6$ points and
    apply the same acceptance test.
 
-This safeguard prevents a candidate from being accepted merely because of a
-favorable low-budget fluctuation.
+This two-budget verification prevents a candidate from being accepted merely
+because of a favorable low-budget fluctuation.
 
 ### Parallel execution and restart behavior
 
@@ -454,20 +455,19 @@ E_{\mathrm{exc}}=E_g+E_X,
 \]
 
 where $E_X$ is converted from meV to eV before addition. The plotting
-notebook uses the GaAs values from Table 1 of that paper:
+workflow uses the same GaAs bulk parameters as the energy calculation and
+adds the band-gap and Kane-energy values required for the optical model:
 
 \[
 E_g=1.5192\ \mathrm{eV},\quad
-m_e=0.0665m_0,\quad
+m_e=0.067m_0,\quad
 E_P=22.71\ \mathrm{eV},\quad
-\epsilon_r^{(\mathrm{opt})}=12.91.
+\epsilon_r=12.8.
 \]
 
-These optical constants intentionally follow the lifetime reference and differ
-slightly from the constants used to define the energy units
-($m_e=0.067m_0$, $\epsilon_r^{(E)}=12.8$). This distinction must be stated in
-the manuscript rather than silently mixing the two parameter sets. Phonon
-effects are neglected, as in the reference formula.
+The electron mass and dielectric constant are therefore not recalibrated for
+the lifetime calculation. Phonon effects are neglected, as in the reference
+formula.
 
 Because $\tau_X\propto(E_{\mathrm{exc}}|M_X|^2)^{-1}$, its rough error bar is
 
@@ -521,7 +521,7 @@ not a failure of the analytical exchange identities.
 | completely raw benchmark | all four particle angles, explicit $X$ kinetic, raw $P+Q$ | removed every symmetry reduction but retained a redundant global angle and showed larger budget drift |
 | global-rotation-fixed raw benchmark | one global angle removed, all other angles full range, one $H$ and one $N$ | preserved the raw expression while reducing dimensionality; this became the basis of the final estimator |
 | staged noisy minimization | $10^5$-point optimization followed by $2\times10^6$-point readout | ordinary minimization remained too sensitive to QMC noise and could move to a candidate whose high-budget ranking was not robust |
-| safeguarded pattern-search pilot | $(5,1)$, high-budget $X$, two-budget $XX$ verification | produced stable accepted/rejected moves and established the final step and acceptance rules |
+| noise-aware pattern-search pilot with two-budget verification | $(5,1)$, high-budget $X$, two-budget $XX$ verification | produced stable accepted/rejected moves and established the final step and acceptance rules |
 | six-geometry campaign | same estimator and search, global eight-worker queue | completed the remaining geometries with identical numerical settings |
 
 The fully raw and rotation-fixed raw calculations are analytically equivalent;
@@ -580,8 +580,8 @@ The main methods section should state:
 3. the raw $P+Q$, six-Coulomb-term, four-kinetic-term $XX$ estimator;
 4. removal of only the global rotation, with full remaining angle ranges;
 5. independent adaptive-QMC numerator and denominator calls;
-6. the $10^6/2\times10^6$ safeguarded pattern search and the analytical
-   $X$ kinetic term;
+6. the $10^6/2\times10^6$ second-phase search with two-budget verification and
+   the analytical $X$ kinetic term;
 7. the rough, non-confidence-interval character of the plotted error bars;
 8. the overlap and lifetime formulas, including the optical constant set.
 

@@ -9,7 +9,7 @@ single-particle confinement states on which these trial states are built.
 \subsection{Geometry, units, and single-particle ground state}
 \label{sec:single-particle}
 
-We consider a hard-wall semi-ellipsoidal quantum dot with cylindrical
+We consider a GaAs hard-wall semi-ellipsoidal quantum dot with cylindrical
 coordinates $\vect r=(r,\phi,z)$ and confinement potential
 \begin{equation}
  V_{\mathrm{conf}}(r,z)=
@@ -34,17 +34,15 @@ in \cref{fig:semi-ellipsoid}.
 Lengths and energies are expressed in the effective electron Bohr radius and
 Rydberg,
 \begin{equation}
- \rB=\frac{4\pi\epsilon_0\epsilon_r^{(E)}\hbar^2}{\meff e^2},
+ \rB=\frac{4\pi\epsilon_0\epsilon_r\hbar^2}{\meff e^2},
  \qquad
  E_{\mathrm R}=\frac{\hbar^2}{2\meff\rB^2}.
  \label{eq:effective-units}
 \end{equation}
-For the GaAs energy calculation we use the standard bulk parameter set
-\cite{vurgaftman2001},
-$\epsilon_r^{(E)}=12.8$, $\meff=0.067m_0$, and
-$\mheff=0.45m_0$, giving
-$\rB=\SI{10.109654}{nm}$ and
-$E_{\mathrm R}=\SI{5.563851565}{meV}$.
+Once expressed in these units, the dimensionless energy problem depends on
+the material only through the effective-mass ratio
+$\eta=\meff/\mheff$. The numerical GaAs calibration is introduced together
+with the radiative-lifetime parameters in \cref{sec:observables}.
 
 Because the axial confinement is much stronger than the in-plane
 confinement, the single-particle problem is treated adiabatically
@@ -177,7 +175,8 @@ The two-electron--two-hole interaction in effective units is
  \right).
  \label{eq:biexciton-coulomb}
 \end{equation}
-For the biexciton we use the ansatz~\cite{}
+For the biexciton we use the four-parameter ansatz employed by
+Takagahara~\cite{takagahara1989},
 \begin{equation}
  \Psi_{XX}=\Psi_{0XX}F_{XX},\qquad
  \Psi_{0XX}=\psi_e(1)\psi_e(2)\psi_h(a)\psi_h(b),
@@ -238,7 +237,7 @@ Following Hayrapetyan \textit{et al.}\ \cite{hayrapetyan2019}, we calculate the 
 \begin{equation}
  \tauX=
  \frac{2\pi\epsilon_0\meff c_0^3\hbar^2}
- {\sqrt{\epsilon_r^{(\mathrm{opt})}}\,e^2
+ {\sqrt{\epsilon_r}\,e^2
  E_{\mathrm{exc}}^2f_X},
  \qquad
  \tauXX=\frac{\tauX}{4}.
@@ -254,7 +253,9 @@ which are
  E_{\mathrm{exc}}=E_g+\EX,
  \label{eq:oscillator-strength}
 \end{equation}
-where, $E_g$ is the band gap. The remaining quantity $\MX$ is the electron--hole coincidence overlap. At
+where $E_g$ is the band gap and $\EX$ is converted from effective Rydbergs
+to electronvolts using \cref{eq:effective-units}. The remaining quantity
+$\MX$ is the electron--hole coincidence overlap. At
 coincidence the exciton Jastrow factor in \cref{eq:exciton-trial} is unity,
 and because the electron and hole ground orbitals are matched in the present
 model, the normalized overlap reduces to
@@ -266,13 +267,12 @@ model, the normalized overlap reduces to
 Thus the lifetime can be obtained from the already calculated exciton norm;
 no additional oscillator-strength integral is required.
 
-For the optical calculation we take
-$E_g=\SI{1.5192}{eV}$, $\meff=0.0665m_0$,
-$E_P=\SI{22.71}{eV}$, and
-$\epsilon_r^{(\mathrm{opt})}=12.91$, matching the parameter set of
-Ref.~\cite{hayrapetyan2019}. We keep this optical set distinct from the bulk
-parameters in \cref{eq:effective-units} because the latter define the units
-and single-particle states used in the variational energy calculation,
-whereas the former enter the dimensional radiative-lifetime parametrization.
-This separation preserves the energy calculation while reproducing the
-cited optical calibration.
+For all numerical results we use the single GaAs parameter set
+$\epsilon_r=12.8$, $\meff=0.067m_0$, and $\mheff=0.45m_0$
+\cite{vurgaftman2001}, which gives
+$\rB\simeq\SI{10.11}{nm}$ and
+$E_{\mathrm R}\simeq\SI{5.564}{meV}$. The same $\epsilon_r$ is used for
+Coulomb screening and for the dielectric factor in \cref{eq:lifetimes}.
+The radiative-lifetime calculation additionally uses
+$E_g=\SI{1.519}{eV}$ and $E_P=\SI{22.71}{eV}$, following the optical model
+of Ref.~\cite{hayrapetyan2019}.
